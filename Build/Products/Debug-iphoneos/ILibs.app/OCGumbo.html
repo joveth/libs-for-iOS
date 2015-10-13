@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-ocgumbo---an-objective-c-html5-parser" class="anchor" href="#ocgumbo---an-objective-c-html5-parser" aria-hidden="true"><span class="octicon octicon-link"></span></a>OCGumbo - An Objective-C HTML5 parser.</h1>
+
+<p>OCGumbo is an Objective-C wrapper of the Google <a href="https://github.com/google/gumbo-parser">Gumbo</a>.</p>
+
+<h1><a id="user-content-basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Usage</h1>
+
+<ol>
+<li>Add <a href="https://github.com/google/gumbo-parser/tree/master/src">Gumbo</a> sources or lib to your project.</li>
+<li>Add <a href="https://github.com/tracy-e/OCGumbo/tree/master/OCGumbo">OCGumbo</a> file and import "OCGumbo.h", then use OCGumboDocument to parse an html string.</li>
+</ol>
+
+<h4><a id="user-content-objects" class="anchor" href="#objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objects</h4>
+
+<table>
+<tbody><tr><th>Class</th><th>Description</th></tr>
+<tr><td>OCGumboDocument</td><td>the root of a document tree</td></tr>
+<tr><td>OCGumboElement</td><td>an element in an HTML document</td></tr>
+<tr><td>OCGumboText</td><td>the textual content of an element</td></tr>
+<tr><td>OCGumboNode </td><td>a single node in the document tree</td></tr>
+<tr><td>OCGumboAttribute</td><td>an attribute of an Element object</td></tr>
+</tbody></table>
+
+<h4><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h4>
+
+<div class="highlight highlight-source-objc"><pre>OCGumboDocument *document = [[OCGumboDocument <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithHTMLString:</span>htmlString];
+OCGumboElement *root = document.rootElement;
+<span class="pl-c">//document: do something with the document.</span>
+<span class="pl-c">//rootElement: do something with the html tree.</span></pre></div>
+
+<h1><a id="user-content-extension" class="anchor" href="#extension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extension</h1>
+
+<p>Now, OCGumbo add more Query support, add "OCGumbo+Query.h" and enjoy it.</p>
+
+<h4><a id="user-content-query-apis" class="anchor" href="#query-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query APIs</h4>
+
+<table>
+<tbody><tr><th width="100">Method</th><th>Description</th></tr>
+<tr><td>.Query( )</td><td>Query children elements from current node by selector</td></tr>
+<tr><td>.text( )</td><td>Get the combined text contents of current object</td></tr>
+<tr><td>.html( )</td><td>Get the raw contents of current element</td></tr>
+<tr><td>.attr( )</td><td>Get the attribute value of the element by attributeName</td></tr>
+<tr><td>.find( )</td><td>Find elements that match the selector in the current collection</td></tr>
+<tr><td>.children( )</td><td>Get immediate children of each element in the current collection matching the selector</td></tr>
+<tr><td>.parent( )</td><td>Get immediate parents of each element in the collection matching the selector</td></tr>
+<tr><td>.parents( )</td><td>Get all ancestors of each element in the collection matching the selector</td></tr>
+<tr><td>.first( )</td><td>Get the first element of the current collection</td></tr>
+<tr><td>.last( )</td><td>Get the last element of the current collection</td></tr>
+<tr><td>.get ( )</td><td>Get the element by index from current collection</td></tr>
+<tr><td>.index( )</td><td>Get the position of an element in current collection</td></tr>
+<tr><td>.hasClass( )</td><td>Check if any elements in the collection have the specified class</td></tr>
+</tbody></table>
+
+<h4><a id="user-content-examples-1" class="anchor" href="#examples-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h4>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>options: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>).find(<span class="pl-s"><span class="pl-pds">@"</span>#select<span class="pl-pds">"</span></span>).find(<span class="pl-s"><span class="pl-pds">@"</span>option<span class="pl-pds">"</span></span>));
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>title: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>).text());
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>attribute: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>select<span class="pl-pds">"</span></span>).first().attr(<span class="pl-s"><span class="pl-pds">@"</span>id<span class="pl-pds">"</span></span>));
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>class: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>#select<span class="pl-pds">"</span></span>).parents(<span class="pl-s"><span class="pl-pds">@"</span>.main<span class="pl-pds">"</span></span>));
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>tag.class: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>div.theCls<span class="pl-pds">"</span></span>));
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>tag#id : <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, document.Query(<span class="pl-s"><span class="pl-pds">@"</span>div#theId<span class="pl-pds">"</span></span>));</pre></div>
+
+<h1><a id="user-content-contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h1>
+
+<p>Weibo: @TracyYih</p>
+
+<p>Email: tracy.cpp@gmail.com</p>
+
+
+</article>
+</body>
+</html>

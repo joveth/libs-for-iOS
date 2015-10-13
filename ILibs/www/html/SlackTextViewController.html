@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-slacktextviewcontroller" class="anchor" href="#slacktextviewcontroller" aria-hidden="true"><span class="octicon octicon-link"></span></a>SlackTextViewController</h1>
+
+
+<p>A drop-in UIViewController subclass with a growing text input view and other useful messaging features. Meant to be a replacement for UITableViewController &amp; UICollectionViewController.For more information,please visit slackhq/SlackTextViewController on GitHub.</p>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/slacktextviewcontroller_demo.gif" alt="Demo Gif" style="max-width:100%;"></p>
+
+<p>This library is used in Slack's iOS app. It was built to fit our needs, but is flexible enough to be reused by others wanting to build great messaging apps for iOS.</p>
+
+<h2><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<h3><a id="user-content-core" class="anchor" href="#core" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core</h3>
+
+<ul>
+<li>Works out of the box with UITableView or UICollectionView or UIScrollView</li>
+<li>Growing Text View, with line count limit support</li>
+<li>Flexible UI built with Auto Layout</li>
+<li>Customizable: provides left and right button, and toolbar outlets</li>
+<li>Tap Gesture for dismissing the keyboard</li>
+<li>External keyboard commands support</li>
+<li>Undo/Redo (with keyboard commands and UIMenuController)</li>
+<li>Text Appending APIs</li>
+</ul>
+
+<h3><a id="user-content-additional" class="anchor" href="#additional" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional</h3>
+
+<ul>
+<li>Autocomplete Mode by registering any prefix key (<code>@</code>, <code>#</code>, <code>/</code>)</li>
+<li>Edit Mode</li>
+<li>Typing Indicator display</li>
+<li>Shake Gesture for clearing text view</li>
+<li>Multimedia Pasting (png, gif, mov, etc.)</li>
+<li>Inverted Mode for displaying cells upside-down (using CATransform) -- a necessary hack for some messaging apps. <code>YES</code> by default, so beware, your entire cells might be flipped!</li>
+<li>Tap Gesture for dismissing the keyboard</li>
+<li>Panning Gesture</a> for sliding down/up the keyboard</li>
+<li>Dynamic Type for adjusting automatically the text input bar height based on the font size.</li>
+<li>Bouncy Animations</li>
+</ul>
+
+<h3><a id="user-content-compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility</h3>
+
+<ul>
+<li>Carthage &amp; Cocoapods</li>
+<li>Swift: A sample project is available in a different branch</li>
+<li>iOS 7, 8 &amp; 9</li>
+<li>iPhone &amp; iPad</li>
+<li>Storyboard</li>
+<li>UIPopOverController &amp; UITabBarController</li>
+<li>Container View Controller</li>
+<li>Auto-Rotation</li>
+<li>iPad Multitasking (iOS 9 only)</li>
+<li>Localization</li>
+</ul>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h6><a id="user-content-with-cocoa-pods" class="anchor" href="#with-cocoa-pods" aria-hidden="true"><span class="octicon octicon-link"></span></a>WithCocoa Pods:</h6>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>SlackTextViewController<span class="pl-pds">'</span></span></pre></div>
+
+<h6><a id="user-content-with-carthage" class="anchor" href="#with-carthage" aria-hidden="true"><span class="octicon octicon-link"></span></a>With Carthage:</h6>
+
+<pre><code>github "slackhq/SlackTextViewController"
+</code></pre>
+
+<h6><a id="user-content-manually" class="anchor" href="#manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manually:</h6>
+
+<p>There are two ways to do this:</p>
+
+<ul>
+<li>Copy and drag the <code>Source/</code> folder to your project.</li>
+<li>or compile the project located in <code>Builder/SlackTextViewController.xcodeproj</code> to create a <code>SlackTextViewController.framework</code> package. You could alsolink the library into your project.</li>
+</ul>
+
+<h2><a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<h3><a id="user-content-subclassing" class="anchor" href="#subclassing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subclassing</h3>
+
+<p><code>SLKTextViewController</code> is meant to be subclassed, like you would normally do with UITableViewController or UICollectionViewController or UIScrollView. This pattern is a convenient way of extending UIViewController. SlackTextViewController manages a lot behind the scenes while still providing the ability to add custom behaviours. You may override methods, and decide to call super and  perform additional logic, or not to call super and override default logic.</p>
+
+<p>Start by creating a new subclass of <code>SLKTextViewController</code>.</p>
+
+<p>In the init overriding method, if you wish to use the <code>UITableView</code> version, call:</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">super</span> <span class="pl-c1">initWithTableViewStyle:</span>UITableViewStylePlain]</pre></div>
+
+<p>or the <code>UICollectionView</code> version:</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">super</span> <span class="pl-c1">initWithCollectionViewLayout:</span>[UICollectionViewFlowLayout <span class="pl-c1">new</span>]]</pre></div>
+
+<p>or the <code>UIScrollView</code> version:</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">super</span> <span class="pl-c1">initWithScrollView:</span><span class="pl-v">self</span>.myStrongScrollView]</pre></div>
+
+<p>Protocols like <code>UITableViewDelegate</code> and <code>UITableViewDataSource</code> are already setup for you. You will be able to call whatever delegate and data source methods you need for customising your control.</p>
+
+<p>Calling <code>[super init]</code> will call <code>[super initWithTableViewStyle:UITableViewStylePlain]</code> by default.</p>
+
+<h3><a id="user-content-growing-text-view" class="anchor" href="#growing-text-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Growing Text View</h3>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_auto-expanding.png" alt="Growing" style="max-width:100%;"></p>
+
+<p>The text view expands automatically when a new line is required, until it reaches its <code>maxNumberOfLines</code>value. You may change this property's value in the textView.</p>
+
+<p>By default, the number of lines is set to best fit each device dimensions:</p>
+
+<ul>
+<li>iPhone 4      (&lt;=480pts): 4 lines</li>
+<li>iPhone 5/6    (&gt;=568pts): 6 lines</li>
+<li>iPad          (&gt;=768pts): 8 lines</li>
+</ul>
+
+<p>On iPhone devices, in landscape orientation, the maximum number of lines is changed to fit the available space.</p>
+
+<h3><a id="user-content-inverted-mode" class="anchor" href="#inverted-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inverted Mode</h3>
+
+<p>Some layouts may require to show from bottom to top and new subviews are inserted from the bottom. To enable this, you must use the <code>inverted</code> flag property (default is YES). This will actually invert the entire ScrollView object. Make sure to apply the same transformation to every subview. In the case of UITableView, the best place for adjusting the transformation is in its data source methods like:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(<span class="pl-c1">NSIndexPath</span> *)indexPath
+{
+    UITableViewCell *cell = [<span class="pl-v">self</span>.tableView <span class="pl-c1">dequeueReusableCellWithIdentifier:</span>chatCellIdentifier];
+    cell.<span class="pl-smi">transform</span> = self.<span class="pl-smi">tableView</span>.<span class="pl-smi">transform</span>;
+}</pre></div>
+
+<h3><a id="user-content-autocompletion" class="anchor" href="#autocompletion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Autocompletion</h3>
+
+<p>We use autocompletion for many things: names, channels, emoji, and more.</p>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_auto-completion.png" alt="Autocompletion" style="max-width:100%;"></p>
+
+<p>To set up autocompletion in your app, follow these simple steps:</p>
+
+<h4><a id="user-content-1-registration" class="anchor" href="#1-registration" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Registration</h4>
+
+<p>You must first register all the prefixes you'd like to support for autocompletion detection:</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">self</span> <span class="pl-c1">registerPrefixesForAutoCompletion:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>#<span class="pl-pds">"</span></span>]];</pre></div>
+
+<h4><a id="user-content-2-processing" class="anchor" href="#2-processing" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Processing</h4>
+
+<p>Every time a new character is inserted in the text view, the nearest word to the caret will be processed and verified if it contains any of the registered prefixes.</p>
+
+<p>Once the prefix has been detected, <code>-canShowAutoCompletion</code> will be called. This is the perfect place to populate your data source, and return a BOOL if the autocompletion view should actually be shown. So you must override it in your subclass, to be able to perform additional tasks. Default returns NO.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">BOOL</span>)canShowAutoCompletion
+{
+    <span class="pl-c1">NSString</span> *prefix = self.<span class="pl-smi">foundPrefix</span>;
+    <span class="pl-c1">NSString</span> *word = self.<span class="pl-smi">foundWord</span>;
+
+    self.<span class="pl-smi">searchResult</span> = [[<span class="pl-c1">NSArray</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithArray:</span><span class="pl-v">self</span>.channels];
+
+    <span class="pl-k">if</span> ([prefix <span class="pl-c1">isEqualToString:</span><span class="pl-s"><span class="pl-pds">@"</span>#<span class="pl-pds">"</span></span>])
+    {
+        <span class="pl-k">if</span> (word.<span class="pl-smi">length</span> &gt; <span class="pl-c1">0</span>) {
+            self.<span class="pl-smi">searchResult</span> = [<span class="pl-v">self</span>.searchResult <span class="pl-c1">filteredArrayUsingPredicate:</span>[<span class="pl-c1">NSPredicate</span> <span class="pl-c1">predicateWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>self <span class="pl-k">BEGINSWITH</span>[c] %@ <span class="pl-k">AND</span> self !=[c] %@<span class="pl-pds">"</span></span>, word, word]];
+        }
+    }
+
+    <span class="pl-k">if</span> (self.<span class="pl-smi">searchResult</span>.<span class="pl-smi">count</span> &gt; <span class="pl-c1">0</span>) {
+        self.<span class="pl-smi">searchResult</span> = [<span class="pl-v">self</span>.searchResult <span class="pl-c1">sortedArrayUsingSelector:</span><span class="pl-k">@selector</span>(<span class="pl-c1">localizedCaseInsensitiveCompare:</span>)];
+    }
+
+    <span class="pl-k">return</span> self.<span class="pl-smi">searchResult</span>.<span class="pl-smi">count</span> &gt; <span class="pl-c1">0</span>;
+}</pre></div>
+
+<p>The autocompletion view is a <code>UITableView</code> instance, so you will need to use <code>UITableViewDataSource</code> to populate its cells. You have complete freedom for customizing the cells.</p>
+
+<p>You don't need to call <code>-reloadData</code> yourself, since it will be called automatically if you return <code>YES</code> in <code>-canShowAutoCompletion</code> method.</p>
+
+<h4><a id="user-content-3-layout" class="anchor" href="#3-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Layout</h4>
+
+<p>The maximum height of the autocompletion view is set to 140 pts by default. You can update this value anytime, so the view automatically adjusts based on the amount of displayed cells.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">CGFloat</span>)heightForAutoCompletionView
+{
+    <span class="pl-c1">CGFloat</span> cellHeight = <span class="pl-c1">34.0</span>;
+    <span class="pl-k">return</span> cellHeight*self.<span class="pl-smi">searchResult</span>.<span class="pl-smi">count</span>;
+}</pre></div>
+
+<h4><a id="user-content-4-confirmation" class="anchor" href="#4-confirmation" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Confirmation</h4>
+
+<p>If the user selects any autocompletion view cell on <code>-tableView:didSelectRowAtIndexPath:</code>, you must call <code>-acceptAutoCompletionWithString:</code> to commit autocompletion. That method expects a string matching the selected item, that you would like to be inserted in the text view.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(<span class="pl-c1">NSIndexPath</span> *)indexPath
+{
+    <span class="pl-k">if</span> ([tableView <span class="pl-c1">isEqual:</span><span class="pl-v">self</span>.autoCompletionView]) {
+
+        <span class="pl-c1">NSString</span> *item = self.<span class="pl-smi">searchResult</span>[indexPath.row];
+
+        [<span class="pl-v">self</span> <span class="pl-c1">acceptAutoCompletionWithString:</span>item];
+    }
+}</pre></div>
+
+<p>The autocompletion view will automatically be dismissed and the chosen string will be inserted in the text view, replacing the detected prefix and word.</p>
+
+<p>You can always call <code>-cancelAutoCompletion</code> to exit the autocompletion mode and refresh the UI.</p>
+
+<h3><a id="user-content-edit-mode" class="anchor" href="#edit-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit Mode</h3>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_edit-mode.png" alt="Edit Mode" style="max-width:100%;"></p>
+
+<p>To enable edit mode, you simply need to call <code>[self editText:@"hello"];</code>, and the text input will switch to edit mode, removing both left and right buttons, extending the input bar a bit higher with "Accept" and "Cancel" buttons. Both of this buttons are accessible in the <code>SLKTextInputbar</code> instance for customisation.</p>
+
+<p>To capture the "Accept" or "Cancel" events, you must override the following methods.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)didCommitTextEditing:(<span class="pl-k">id</span>)sender
+{
+    <span class="pl-c1">NSString</span> *message = [<span class="pl-v">self</span>.textView.text <span class="pl-c1">copy</span>];
+
+    [<span class="pl-v">self</span>.messages <span class="pl-c1">removeObjectAtIndex:</span><span class="pl-c1">0</span>];
+    [<span class="pl-v">self</span>.messages <span class="pl-c1">insertObject:</span>message <span class="pl-c1">atIndex:</span><span class="pl-c1">0</span>];
+    [<span class="pl-v">self</span>.tableView <span class="pl-c1">reloadData</span>];
+
+    [<span class="pl-v">super</span> <span class="pl-c1">didCommitTextEditing:</span>sender];
+}
+
+- (<span class="pl-k">void</span>)didCancelTextEditing:(<span class="pl-k">id</span>)sender
+{
+    [<span class="pl-v">super</span> <span class="pl-c1">didCancelTextEditing:</span>sender];
+}</pre></div>
+
+<p>Notice that you must call <code>super</code> at some point, so the text input exits the edit mode, re-adjusting the layout and clearing the text view.
+Use the <code>editing</code> property to know if the editing mode is on.</p>
+
+<h3><a id="user-content-typing-indicator" class="anchor" href="#typing-indicator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typing Indicator</h3>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_typing-indicator.png" alt="Typing Indicator" style="max-width:100%;"></p>
+
+<p>Optionally, you can enable a simple typing indicator, which will be displayed right above the text input. It shows the name of the people that are typing, and if more than 2, it will display "Several are typing" message.</p>
+
+<p>To enable the typing indicator, just call <code>[self.typingIndicatorView insertUsername:@"John"];</code> and the view will automatically be animated on top of the text input. After a default interval of 6 seconds, if the same name hasn't been assigned once more, the view will be dismissed with animation.</p>
+
+<p>You can remove names from the list by calling <code>[self.typingIndicatorView removeUsername:@"John"];</code></p>
+
+<p>You can also dismiss it by calling <code>[self.typingIndicatorView dismissIndicator];</code></p>
+
+<h3><a id="user-content-panning-gesture" class="anchor" href="#panning-gesture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Panning Gesture</h3>
+
+<p>Dismissing the keyboard with a panning gesture is enabled by default with the <code>keyboardPanningEnabled</code> property. You can always disable it if you'd like. You can extend the <code>verticalPanGesture</code> behaviors with the <code>UIGestureRecognizerDelegate</code> methods.</p>
+
+<h3><a id="user-content-shake-gesture" class="anchor" href="#shake-gesture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shake Gesture</h3>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_shake-undo.png" alt="Shake Gesture" style="max-width:100%;"></p>
+
+<p>A shake gesture to clear text is enabled by default with the <code>undoShakingEnabled</code> property.</p>
+
+<p>You can optionally override <code>-willRequestUndo</code>, to implement your UI to ask the users if he would like to clean the text view's text. If there is not text entered, the method will not be called.</p>
+
+<p>If you don't override <code>-willRequestUndo</code> and <code>undoShakingEnabled</code> is set to <code>YES</code>, a system UIAlertView will </p>
+
+<h3><a id="user-content-external-keyboard" class="anchor" href="#external-keyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>External Keyboard</h3>
+
+<p>There a few basic key commands enabled by default:</p>
+
+<ul>
+<li>cmd + z -&gt; undo</li>
+<li>shift + cmd + z -&gt; redo</li>
+<li>return key -&gt; calls <code>-didPressRightButton:</code>, or <code>-didCommitTextEditing:</code> if in edit mode</li>
+<li>shift/cmd + return key -&gt; line break</li>
+<li>escape key -&gt; exits edit mode, or auto-completion mode, or dismisses the keyboard</li>
+<li>up &amp; down arrows -&gt; vertical cursor movement</li>
+</ul>
+
+<p>To add additional key commands, simply override <code>-keyCommands</code> and append <code>super</code>'s array.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">NSArray</span> *)keyCommands
+{
+    <span class="pl-c1">NSMutableArray</span> *commands = [<span class="pl-c1">NSMutableArray</span> <span class="pl-c1">arrayWithArray:</span>[<span class="pl-v">super</span> <span class="pl-c1">keyCommands</span>]];
+
+    <span class="pl-c">// Edit last message</span>
+    [commands <span class="pl-c1">addObject:</span>[UIKeyCommand <span class="pl-c1">keyCommandWithInput:</span>UIKeyInputUpArrow
+                                           <span class="pl-c1">modifierFlags:</span><span class="pl-c1">0</span>
+                                                   <span class="pl-c1">action:</span><span class="pl-k">@selector</span>(<span class="pl-c1">editLastMessage:</span>)]];
+
+    <span class="pl-k">return</span> commands;
+}</pre></div>
+
+<h2><a id="user-content-storyboard" class="anchor" href="#storyboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storyboard</h2>
+
+<p>When using SlackTextViewController with storyboards, instead of overriding the traditional <code>initWithCoder:</code> you will need to override any of the two custom methods below. This approach helps preserving the exact same features from the programatic approach, but also limits the edition of the nib of your <code>SLKTextViewController</code> subclass since it doesn't layout subviews from the nib (subviews are still initialized and layed out programatically).</p>
+
+<p>if you wish to use the <code>UITableView</code> version, call:</p>
+
+<div class="highlight highlight-source-objc"><pre>+ (UITableViewStyle)tableViewStyleForCoder:(<span class="pl-c1">NSCoder</span> *)decoder
+{
+    <span class="pl-k">return</span> UITableViewStylePlain;
+}</pre></div>
+
+<p>or the <code>UICollectionView</code> version:</p>
+
+<div class="highlight highlight-source-objc"><pre>+ (UICollectionViewLayout *)collectionViewLayoutForCoder:(<span class="pl-c1">NSCoder</span> *)decoder
+{
+    <span class="pl-k">return</span> [UICollectionViewFlowLayout <span class="pl-c1">new</span>];
+}</pre></div>
+
+<h3><a id="user-content-dynamic-type" class="anchor" href="#dynamic-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dynamic Type</h3>
+
+<p>Dynamic Type is enabled by default with the <code>keyboardPanningEnabled</code> property. You can always disable it if you'd like.</p>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_dynamic-type.png" alt="Dynamic-Type" style="max-width:100%;"></p>
+
+<h2><a id="user-content-sample-project" class="anchor" href="#sample-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Project</h2>
+
+<p>Check out the sample project,  everything is demo'd there.
+There are 2 main examples (different targets) for testing the programatic and storyboard approaches.</p>
+
+<p>A CollectionView example, using Swift, is in progress on the <code>swift-example</code> branch. The idea with this project is to build a custom collection view layout allowing to display cells from the bottom (currently working but needs serious tweaks to make it perfect).
+Feel free to contribute!</p>
+
+<h2><a id="user-content-xcode-templates" class="anchor" href="#xcode-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>XCode Templates</h2>
+
+<p><img src="https://raw.githubusercontent.com/slackhq/SlackTextViewController/master/Screenshots/screenshot_template.png" alt="Template" style="max-width:100%;"></p>
+
+<p>We have prepared a set of useful XCode templates so you can quickly start using SlackTextViewController.</p>
+
+<p>To install them, open up your terminal and type:</p>
+
+<div class="highlight highlight-source-shell"><pre>sh ./SlackTextViewController/File<span class="pl-cce">\ </span>Templates/install.sh</pre></div>
+
+<p>These templates are also available in Alcatraz.</p>
+</article>
+</body>
+</html>

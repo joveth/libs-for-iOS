@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>MJRefresh</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-mbprogresshud-" class="anchor" href="#mbprogresshud-" aria-hidden="true"><span class="octicon octicon-link"></span></a>MJRefresh </h1>
+
+<p>The easiest way to use pull-to-refresh. </p>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<p>UIScrollView、UITableView、UICollectionView、UIWebView. </p>
+
+<h2><a id="user-content-adding-mbprogresshud-to-your-project" class="anchor" href="#adding-mbprogresshud-to-your-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>Cocoapods</h3>
+<ol>
+<li><code>pod 'MJRefresh'</code></li>
+</ol>
+<h4><a id="user-content-source-files" class="anchor" href="#source-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information,please view CoderMJLee/MJRefresh on GitHub. </h4>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<h2><a id="user-content-下拉刷新01-默认" class="anchor" href="#下拉刷新01-默认" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新01-默认"></a>下拉刷新01-默认</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.header = [MJRefreshNormalHeader <span class="pl-c1">headerWithRefreshingBlock:</span>^{
+   <span class="pl-c">// 进入刷新状态后会自动调用这个block</span>
+}];
+或
+<span class="pl-c">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span>
+self.tableView.header = [MJRefreshNormalHeader <span class="pl-c1">headerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadNewData</span>)];
+
+<span class="pl-c">// 马上进入刷新状态</span>
+[<span class="pl-v">self</span>.tableView.header <span class="pl-c1">beginRefreshing</span>];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/15577b87be4403d9e2ede4d5cd5b9fccbd1d03ae/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343334333438363135312e676966" target="_blank"><img src="https://camo.githubusercontent.com/15577b87be4403d9e2ede4d5cd5b9fccbd1d03ae/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343334333438363135312e676966" alt="(下拉刷新01-普通)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141204343486151.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-下拉刷新02-动画图片" class="anchor" href="#下拉刷新02-动画图片" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新02-动画图片"></a>下拉刷新02-动画图片</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span>
+MJRefreshGifHeader *header = [MJRefreshGifHeader <span class="pl-c1">headerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadNewData</span>)];
+<span class="pl-c">// 设置普通状态的动画图片</span>
+[header <span class="pl-c1">setImages:</span>idleImages <span class="pl-c1">forState:</span>MJRefreshStateIdle];
+<span class="pl-c">// 设置即将刷新状态的动画图片（一松开就会刷新的状态）</span>
+[header <span class="pl-c1">setImages:</span>pullingImages <span class="pl-c1">forState:</span>MJRefreshStatePulling];
+<span class="pl-c">// 设置正在刷新状态的动画图片</span>
+[header <span class="pl-c1">setImages:</span>refreshingImages <span class="pl-c1">forState:</span>MJRefreshStateRefreshing];
+<span class="pl-c">// 设置header</span>
+self.tableView.header = header;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/911191d46157ea3961728b16696aea4440ffeb92/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343430323233383338392e676966" target="_blank"><img src="https://camo.githubusercontent.com/911191d46157ea3961728b16696aea4440ffeb92/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343430323233383338392e676966" alt="(下拉刷新02-动画图片)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141204402238389.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-下拉刷新03-隐藏时间" class="anchor" href="#下拉刷新03-隐藏时间" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新03-隐藏时间"></a>下拉刷新03-隐藏时间</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 隐藏时间</span>
+header.lastUpdatedTimeLabel.hidden = <span class="pl-c1">YES</span>;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/c32d67233572a1d3a8bd3a5214dde01ab8832db7/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343435363133323934342e676966" target="_blank"><img src="https://camo.githubusercontent.com/c32d67233572a1d3a8bd3a5214dde01ab8832db7/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343435363133323934342e676966" alt="(下拉刷新03-隐藏时间)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141204456132944.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-下拉刷新04-隐藏状态和时间" class="anchor" href="#下拉刷新04-隐藏状态和时间" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新04-隐藏状态和时间"></a>下拉刷新04-隐藏状态和时间</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 隐藏时间</span>
+header.lastUpdatedTimeLabel.hidden = <span class="pl-c1">YES</span>;
+
+<span class="pl-c">// 隐藏状态</span>
+header.stateLabel.hidden = <span class="pl-c1">YES</span>;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/364bc1e09f3b8676d26a73fccdeac4de542c35d3/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343530383633393533392e676966" target="_blank"><img src="https://camo.githubusercontent.com/364bc1e09f3b8676d26a73fccdeac4de542c35d3/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343530383633393533392e676966" alt="(下拉刷新04-隐藏状态和时间0)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141204508639539.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-下拉刷新05-自定义文字" class="anchor" href="#下拉刷新05-自定义文字" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新05-自定义文字"></a>下拉刷新05-自定义文字</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 设置文字</span>
+[header <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Pull down to refresh<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStateIdle];
+[header <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Release to refresh<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStatePulling];
+[header <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Loading ...<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStateRefreshing];
+
+<span class="pl-c">// 设置字体</span>
+header.stateLabel.font = [UIFont <span class="pl-c1">systemFontOfSize:</span><span class="pl-c1">15</span>];
+header.lastUpdatedTimeLabel.font = [UIFont <span class="pl-c1">systemFontOfSize:</span><span class="pl-c1">14</span>];
+
+<span class="pl-c">// 设置颜色</span>
+header.stateLabel.textColor = [UIColor <span class="pl-c1">redColor</span>];
+header.lastUpdatedTimeLabel.textColor = [UIColor <span class="pl-c1">blueColor</span>];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/c30102c6bd5484610365a1d3d3c12681b0ed7a99/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343536333633333539332e676966" target="_blank"><img src="https://camo.githubusercontent.com/c30102c6bd5484610365a1d3d3c12681b0ed7a99/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230343536333633333539332e676966" alt="(下拉刷新05-自定义文字)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141204563633593.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-下拉刷新06-自定义刷新控件" class="anchor" href="#下拉刷新06-自定义刷新控件" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-下拉刷新06-自定义刷新控件"></a>下拉刷新06-自定义刷新控件</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.header = [MJDIYHeader <span class="pl-c1">headerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadNewData</span>)];
+<span class="pl-c">// 具体实现参考MJDIYHeader.h和MJDIYHeader.m</span></pre></div>
+
+<p><a href="https://camo.githubusercontent.com/f74e3bd56a693484af7d7e6e300f51c3f8519125/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353031393236313135392e676966" target="_blank"><img src="https://camo.githubusercontent.com/f74e3bd56a693484af7d7e6e300f51c3f8519125/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353031393236313135392e676966" alt="(下拉刷新06-自定义刷新控件)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205019261159.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新01-默认" class="anchor" href="#上拉刷新01-默认" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新01-默认"></a>上拉刷新01-默认</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.footer = [MJRefreshAutoNormalFooter <span class="pl-c1">footerWithRefreshingBlock:</span>^{
+   <span class="pl-c">// 进入刷新状态后会自动调用这个block</span>
+}];
+或
+<span class="pl-c">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）</span>
+self.tableView.footer = [MJRefreshAutoNormalFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/3f7d369a043457a3fcb0df2c6e0a2ea36038be61/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353039303034373639362e676966" target="_blank"><img src="https://camo.githubusercontent.com/3f7d369a043457a3fcb0df2c6e0a2ea36038be61/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353039303034373639362e676966" alt="(上拉刷新01-默认)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205090047696.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新02-动画图片" class="anchor" href="#上拉刷新02-动画图片" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新02-动画图片"></a>上拉刷新02-动画图片</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）</span>
+MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];
+
+<span class="pl-c">// 设置刷新图片</span>
+[footer <span class="pl-c1">setImages:</span>refreshingImages <span class="pl-c1">forState:</span>MJRefreshStateRefreshing];
+
+<span class="pl-c">// 设置尾部</span>
+self.tableView.footer = footer;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/ab905efc2099a577985ba0a1de6f051fdecfde54/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353134313434353739332e676966" target="_blank"><img src="https://camo.githubusercontent.com/ab905efc2099a577985ba0a1de6f051fdecfde54/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353134313434353739332e676966" alt="(上拉刷新02-动画图片)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205141445793.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新03-隐藏刷新状态的文字" class="anchor" href="#上拉刷新03-隐藏刷新状态的文字" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新03-隐藏刷新状态的文字"></a>上拉刷新03-隐藏刷新状态的文字</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 隐藏刷新状态的文字</span>
+footer.refreshingTitleHidden = <span class="pl-c1">YES</span>;
+<span class="pl-c">// 如果没有上面的方法，就用footer.stateLabel.hidden = YES;</span></pre></div>
+
+<p><a href="https://camo.githubusercontent.com/4772eed28dc18a8e6509ba794253ab1b41a82ebb/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353230303938353737342e676966" target="_blank"><img src="https://camo.githubusercontent.com/4772eed28dc18a8e6509ba794253ab1b41a82ebb/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353230303938353737342e676966" alt="(上拉刷新03-隐藏刷新状态的文字)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205200985774.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新04-全部加载完毕" class="anchor" href="#上拉刷新04-全部加载完毕" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新04-全部加载完毕"></a>上拉刷新04-全部加载完毕</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 变为没有更多数据的状态</span>
+[footer <span class="pl-c1">noticeNoMoreData</span>];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/eb4f2b7ef02210bbaaf1f37152e6c1f6dffd1ab8/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353234383633343638362e676966" target="_blank"><img src="https://camo.githubusercontent.com/eb4f2b7ef02210bbaaf1f37152e6c1f6dffd1ab8/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353234383633343638362e676966" alt="(上拉刷新04-全部加载完毕)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205248634686.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新05-自定义文字" class="anchor" href="#上拉刷新05-自定义文字" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新05-自定义文字"></a>上拉刷新05-自定义文字</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 设置文字</span>
+[footer <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Click or drag up to refresh<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStateIdle];
+[footer <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Loading more ...<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStateRefreshing];
+[footer <span class="pl-c1">setTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>No more data<span class="pl-pds">"</span></span> <span class="pl-c1">forState:</span>MJRefreshStateNoMoreData];
+
+<span class="pl-c">// 设置字体</span>
+footer.stateLabel.font = [UIFont <span class="pl-c1">systemFontOfSize:</span><span class="pl-c1">17</span>];
+
+<span class="pl-c">// 设置颜色</span>
+footer.stateLabel.textColor = [UIColor <span class="pl-c1">blueColor</span>];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/70889343afd791377f15818115a14403526b4334/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353239353531313135332e676966" target="_blank"><img src="https://camo.githubusercontent.com/70889343afd791377f15818115a14403526b4334/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353239353531313135332e676966" alt="(上拉刷新05-自定义文字)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205295511153.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新06-加载后隐藏" class="anchor" href="#上拉刷新06-加载后隐藏" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新06-加载后隐藏"></a>上拉刷新06-加载后隐藏</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 隐藏当前的上拉刷新控件</span>
+self.tableView.footer.hidden = <span class="pl-c1">YES</span>;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/42a0be4a7bf7676ba476554775fc3bccd617b1c1/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353334333438313832312e676966" target="_blank"><img src="https://camo.githubusercontent.com/42a0be4a7bf7676ba476554775fc3bccd617b1c1/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353334333438313832312e676966" alt="(上拉刷新06-加载后隐藏)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205343481821.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新07-自动回弹的上拉01" class="anchor" href="#上拉刷新07-自动回弹的上拉01" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新07-自动回弹的上拉01"></a>上拉刷新07-自动回弹的上拉01</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.footer = [MJRefreshBackNormalFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/2e4c3f3fc477e26f01c4c04328e665036a94d4ad/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353339323233393233312e676966" target="_blank"><img src="https://camo.githubusercontent.com/2e4c3f3fc477e26f01c4c04328e665036a94d4ad/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353339323233393233312e676966" alt="(上拉刷新07-自动回弹的上拉01)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205392239231.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新08-自动回弹的上拉02" class="anchor" href="#上拉刷新08-自动回弹的上拉02" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新08-自动回弹的上拉02"></a>上拉刷新08-自动回弹的上拉02</h2>
+
+<div class="highlight highlight-objc"><pre>MJRefreshBackGifFooter *footer = [MJRefreshBackGifFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];
+
+<span class="pl-c">// 设置普通状态的动画图片</span>
+[footer <span class="pl-c1">setImages:</span>idleImages <span class="pl-c1">forState:</span>MJRefreshStateIdle];
+<span class="pl-c">// 设置即将刷新状态的动画图片（一松开就会刷新的状态）</span>
+[footer <span class="pl-c1">setImages:</span>pullingImages <span class="pl-c1">forState:</span>MJRefreshStatePulling];
+<span class="pl-c">// 设置正在刷新状态的动画图片</span>
+[footer <span class="pl-c1">setImages:</span>refreshingImages <span class="pl-c1">forState:</span>MJRefreshStateRefreshing];
+
+<span class="pl-c">// 设置尾部</span>
+self.tableView.footer = footer;</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/f07cb339c675ff9b5f371856c1c9c07f597c9022/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353434313434333632382e676966" target="_blank"><img src="https://camo.githubusercontent.com/f07cb339c675ff9b5f371856c1c9c07f597c9022/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353434313434333632382e676966" alt="(上拉刷新07-自动回弹的上拉02)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205441443628.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新09-自定义刷新控件自动刷新" class="anchor" href="#上拉刷新09-自定义刷新控件自动刷新" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新09-自定义刷新控件(自动刷新)"></a>上拉刷新09-自定义刷新控件(自动刷新)</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.footer = [MJDIYAutoFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];
+<span class="pl-c">// 具体实现参考MJDIYAutoFooter.h和MJDIYAutoFooter.m</span></pre></div>
+
+<p><a href="https://camo.githubusercontent.com/6624420a6f5856c91065d91b3c33e8be43626f8a/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353530303139353836362e676966" target="_blank"><img src="https://camo.githubusercontent.com/6624420a6f5856c91065d91b3c33e8be43626f8a/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353530303139353836362e676966" alt="(上拉刷新09-自定义刷新控件(自动刷新))" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205500195866.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-上拉刷新10-自定义刷新控件自动回弹" class="anchor" href="#上拉刷新10-自定义刷新控件自动回弹" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-上拉刷新10-自定义刷新控件(自动回弹)"></a>上拉刷新10-自定义刷新控件(自动回弹)</h2>
+
+<div class="highlight highlight-objc"><pre>self.tableView.footer = [MJDIYBackFooter <span class="pl-c1">footerWithRefreshingTarget:</span><span class="pl-v">self</span> <span class="pl-c1">refreshingAction:</span><span class="pl-k">@selector</span>(<span class="pl-c1">loadMoreData</span>)];
+<span class="pl-c">// 具体实现参考MJDIYBackFooter.h和MJDIYBackFooter.m</span></pre></div>
+
+<p><a href="https://camo.githubusercontent.com/3bb6216814564a25ce29325ff4ebcf104d500877/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353536303636363831392e676966" target="_blank"><img src="https://camo.githubusercontent.com/3bb6216814564a25ce29325ff4ebcf104d500877/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230353536303636363831392e676966" alt="(上拉刷新10-自定义刷新控件(自动回弹))" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141205560666819.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-uicollectionview01-上下拉刷新" class="anchor" href="#uicollectionview01-上下拉刷新" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-UICollectionView01-上下拉刷新"></a>UICollectionView01-上下拉刷新</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 下拉刷新</span>
+self.collectionView.header = [MJRefreshNormalHeader <span class="pl-c1">headerWithRefreshingBlock:</span>^{
+   <span class="pl-c">// 进入刷新状态后会自动调用这个block</span>
+}];
+
+<span class="pl-c">// 上拉刷新</span>
+self.collectionView.footer = [MJRefreshAutoNormalFooter <span class="pl-c1">footerWithRefreshingBlock:</span>^{
+   <span class="pl-c">// 进入刷新状态后会自动调用这个block</span>
+}];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/38e09f52d83704da5c00f99c728896260d4aee98/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230363032313630333735382e676966" target="_blank"><img src="https://camo.githubusercontent.com/38e09f52d83704da5c00f99c728896260d4aee98/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230363032313630333735382e676966" alt="(UICollectionView01-上下拉刷新)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141206021603758.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-uiwebview01-下拉刷新" class="anchor" href="#uiwebview01-下拉刷新" aria-hidden="true"><span class="octicon octicon-link"></span></a><a id="user-content-UIWebView01-下拉刷新"></a>UIWebView01-下拉刷新</h2>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c">// 添加下拉刷新控件</span>
+self.webView.scrollView.header = [MJRefreshNormalHeader <span class="pl-c1">headerWithRefreshingBlock:</span>^{
+   <span class="pl-c">// 进入刷新状态后会自动调用这个block</span>
+}];</pre></div>
+
+<p><a href="https://camo.githubusercontent.com/97837846aa618b1e05d6c3a523555311f0daa168/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230363038303531343532342e676966" target="_blank"><img src="https://camo.githubusercontent.com/97837846aa618b1e05d6c3a523555311f0daa168/687474703a2f2f696d61676573302e636e626c6f67732e636f6d2f626c6f67323031352f3439373237392f3230313530362f3134313230363038303531343532342e676966" alt="(UICollectionView01-上下拉刷新)" data-canonical-src="http://images0.cnblogs.com/blog2015/497279/201506/141206080514524.gif" style="max-width:100%;"></a></p>
+
+</article>
+</body>
+</html>

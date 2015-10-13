@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-restkit" class="anchor" href="#restkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>RestKit</h1><h3>-More information view RestKit/RestKit on GitHub.</h3>
+
+
+<p>RestKit is a modern Objective-C framework for implementing RESTful web services clients on iOS and Mac OS X. It provides a powerful object mapping engine that seamlessly integrates with Core Data and a simple set of networking primitives for mapping HTTP requests and responses built on top of AFNetworking. It has an elegant, carefully designed set of APIs that make accessing and modeling RESTful resources feel almost magical. For example, here's how to access the Twitter public timeline and turn the JSON contents into an array of Tweet objects:</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-k">@interface</span> <span class="pl-en">RKTweet</span> : <span class="pl-e">NSObject</span>
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">copy</span>) <span class="pl-c1">NSNumber</span> *userID;
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">copy</span>) <span class="pl-c1">NSString</span> *username;
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">copy</span>) <span class="pl-c1">NSString</span> *text;
+<span class="pl-k">@end</span>
+
+RKObjectMapping *mapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[RKTweet <span class="pl-c1">class</span>]];
+[mapping <span class="pl-c1">addAttributeMappingsFromDictionary:</span>@{
+    <span class="pl-s"><span class="pl-pds">@"</span>user.name<span class="pl-pds">"</span></span>:   <span class="pl-s"><span class="pl-pds">@"</span>username<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">@"</span>user.id<span class="pl-pds">"</span></span>:     <span class="pl-s"><span class="pl-pds">@"</span>userID<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">@"</span>text<span class="pl-pds">"</span></span>:        <span class="pl-s"><span class="pl-pds">@"</span>text<span class="pl-pds">"</span></span>
+}];
+
+RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>mapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-c1">nil</span> <span class="pl-c1">keyPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">statusCodes:</span><span class="pl-c1">nil</span>];
+<span class="pl-c1">NSURL</span> *url = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://api.twitter.com/1/statuses/public_timeline.json<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>url];
+RKObjectRequestOperation *operation = [[RKObjectRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">responseDescriptors:</span>@[responseDescriptor]];
+[operation <span class="pl-c1">setCompletionBlockWithSuccess:</span>^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>The public timeline Tweets: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [result <span class="pl-c1">array</span>]);
+} <span class="pl-c1">failure:</span><span class="pl-c1">nil</span>];
+[operation <span class="pl-c1">start</span>];</pre></div>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The recommended approach for installing RestKit is via the <a href="http://cocoapods.org/">CocoaPods</a> package manager, as it provides flexible dependency management and dead simple installation. For best results, it is recommended that you install via CocoaPods <strong>&gt;= 0.19.1</strong> using Git <strong>&gt;= 1.8.0</strong> installed via Homebrew.</p>
+
+<h3><a id="user-content-via-cocoapods" class="anchor" href="#via-cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>via CocoaPods</h3>
+
+<p>Install CocoaPods if not already available:</p>
+
+<div class="highlight highlight-bash"><pre>$ [sudo] gem install cocoapods
+$ pod setup</pre></div>
+
+<p>Change to the directory of your Xcode project, and Create and Edit your Podfile and add RestKit:</p>
+
+<div class="highlight highlight-bash"><pre>$ <span class="pl-c1">cd</span> /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+platform :ios, <span class="pl-s"><span class="pl-pds">'</span>5.0<span class="pl-pds">'</span></span>
+<span class="pl-c"># Or platform :osx, '10.7'</span>
+pod <span class="pl-s"><span class="pl-pds">'</span>RestKit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.24.0<span class="pl-pds">'</span></span>
+
+<span class="pl-c"># Testing and Search are optional components</span>
+pod <span class="pl-s"><span class="pl-pds">'</span>RestKit/Testing<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.24.0<span class="pl-pds">'</span></span>
+pod <span class="pl-s"><span class="pl-pds">'</span>RestKit/Search<span class="pl-pds">'</span></span>,  <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.24.0<span class="pl-pds">'</span></span></pre></div>
+
+<p>Install into your project:</p>
+
+<div class="highlight highlight-bash"><pre>$ pod install</pre></div>
+
+<p>Open your project in Xcode from the .xcworkspace file (not the usual project file)</p>
+
+<div class="highlight highlight-bash"><pre>$ open MyProject.xcworkspace</pre></div>
+
+<p>Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git <strong>&gt;= 1.8.0</strong> by executing <code>git --version</code>. You can get a full picture of the installation details by executing <code>pod install --verbose</code>.</p>
+
+<h3><a id="user-content-from-a-release-package-or-as-a-git-submodule" class="anchor" href="#from-a-release-package-or-as-a-git-submodule" aria-hidden="true"><span class="octicon octicon-link"></span></a>From a Release Package or as a Git submodule</h3>
+
+<p>Detailed installation instructions are available in the Visual Install Guide on the Wiki.</p>
+
+<h2><a id="user-content-using-restkit-in-a-swift-project" class="anchor" href="#using-restkit-in-a-swift-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using RestKit in a Swift Project</h2>
+
+<p>Install RestKit using one of the above methods. Then add <code>@import RestKit;</code> (if RestKit is built as a dynamic framework) or <code>#import &lt;RestKit/RestKit.h&gt;</code> (if RestKit is built as a static library) into the bridging header for your Swift project. To enable the Core Data functionality in RestKit, add <code>@import CoreData;</code> into your bridging header <em>before</em> you import RestKit.</p>
+
+<h2><a id="user-content-overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>RestKit is designed to be modular and each module strives to maintain a minimal set of dependencies across the framework and with the host platform. At the core of library sits the object mapping engine, which is responsible for transforming objects between representations (such as JSON/XML &lt;-&gt; local domain objects).</p>
+
+<h3><a id="user-content-object-mapping-fundamentals" class="anchor" href="#object-mapping-fundamentals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Mapping Fundamentals</h3>
+
+<p>The object mapping engine is built on top of the Key-Value Coding (KVC) informal protocol that is foundational to numerous Cocoa technologies such as key-value observing, bindings, and Core Data. Object mappings are expressed as pairs of KVC key paths that specify the source and destination attributes or relationships that are to be transformed.</p>
+
+<p>RestKit leverages the highly dynamic Objective-C runtime to infer the developers desired intent by examining the type of the source and destination properties and performing appropriate type transformations. For example, given a source key path of <code>created_at</code> that identifies a string within a parsed JSON document and a destination key path of <code>creationDate</code> that identifies an <code>NSDate</code> property on a target object, RestKit will transform the date from a string into an <code>NSDate</code> using an <code>NSDateFormatter</code>. Numerous other transformations are provided out of the box and the engine is pluggable to allow the developer to define new transformations or replace an existing transformation with a new implementation.</p>
+
+<p>The mapper fully supports both simple attribute as well as relationship mappings in which nested to-one or to-many child objects are mapped recursively. Through relationship mappings, one object mapping can be added to another to compose aggregate mappings that are capable of processing arbitrarily complex source documents.</p>
+
+<p>Object mapping is a deep topic and is explored in exhaustive detail in the Object Mapping Guide on the wiki.</p>
+
+<h3><a id="user-content-api-quickstart" class="anchor" href="#api-quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Quickstart</h3>
+
+<p>RestKit is broken into several modules that cleanly separate the mapping engine from the HTTP and Core Data integrations to provide maximum flexibility. Key classes in each module are highlighted below and each module is hyperlinked to the README.md contained within the source code.</p>
+
+<table>
+  <tbody><tr><th colspan="2">Object Mapping</th></tr>
+  <tr>
+    <td>RKObjectMapping</td>
+    <td>Encapsulates configuration for transforming object representations as expressed by key-value coding keypaths.</td>
+  </tr>
+  <tr>
+    <td>RKAttributeMapping</td>
+    <td>Specifies a desired transformation between attributes within an object or entity mapping in terms of a source and destination key path.</td>
+  </tr>
+  <tr>
+    <td>RKRelationshipMapping</td>
+    <td>Specifies a desired mapping of a nested to-one or to-many child objects in in terms of a source and destination key path and an <tt>RKObjectMapping</tt> with which to map the attributes of the child object.</td>
+  </tr>  
+  <tr>
+    <td>RKDynamicMapping</td>
+    <td>Specifies a flexible mapping in which the decision about which <tt>RKObjectMapping</tt> is to be used to process a given document is deferred to run time.</td>
+  </tr>
+  <tr>
+    <td>RKMapperOperation</td>
+    <td>Provides an interface for mapping a deserialized document into a set of local domain objects.</td>
+  </tr>
+  <tr>
+    <td>RKMappingOperation</td>
+    <td>An <tt>NSOperation</tt> that performs a mapping between object representations using an <tt>RKObjectMapping</tt>.</td>
+  </tr>  
+  <tr><th colspan="2">Networking</th></tr>
+  <tr>
+    <td>RKRequestDescriptor</td>
+    <td>Describes a request that can be sent from the application to a remote web application for a given object type.</td>
+  </tr>
+  <tr>
+    <td>RKResponseDescriptor</td>
+    <td>Describes an object mappable response that may be returned from a remote web application in terms of an object mapping, a key path, a <a href="http://cocoadocs.org/docsets/SOCKit/">SOCKit pattern</a> for matching the URL, and a set of status codes that define the circumstances in which the mapping is appropriate for a given response.</td>
+  </tr>
+  <tr>
+    <td>RKObjectParameterization</td>
+    <td>Performs mapping of a given object into an <tt>NSDictionary</tt> representation suitable for use as the parameters of an HTTP request.</td>
+  </tr>
+  <tr>
+    <td>RKObjectRequestOperation</td>
+    <td>An <tt>NSOperation</tt> that sends an HTTP request and performs object mapping on the parsed response body using the configurations expressed in a set of <tt>RKResponseDescriptor</tt> objects.</td>
+  </tr>
+  <tr>
+    <td>RKResponseMapperOperation</td>
+    <td>An <tt>NSOperation</tt> that provides support for object mapping an <tt>NSHTTPURLResponse</tt> using a set of <tt>RKResponseDescriptor</tt> objects.</td>
+  </tr>  
+  <tr>
+    <td>RKObjectManager</td>
+    <td>Captures the common patterns for communicating with a RESTful web application over HTTP using object mapping including:
+        <ul>
+            <li>Centralizing <tt>RKRequestDescriptor</tt> and <tt>RKResponseDescriptor</tt> configurations</li>
+            <li>Describing URL configuration with an <tt>RKRouter</tt></li>
+            <li>Serializing objects and sending requests with the serialized representations</li>
+            <li>Sending requests to load remote resources and object mapping the response bodies</li>
+            <li>Building multi-part form requests for objects</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>RKRouter</td>
+    <td>Generates <tt>NSURL</tt> objects from a base URL and a set of <tt>RKRoute</tt> objects describing relative paths used by the application.</td>
+  </tr>
+  <tr>
+    <td>RKRoute</td>
+    <td>Describes a single relative path for a given object type and HTTP method, the relationship of an object, or a symbolic name.</td>
+  </tr>
+  <tr><th colspan="2">Core Data</th></tr>
+  <tr>
+    <td>RKManagedObjectStore</td>
+    <td>Encapsulates Core Data configuration including an <tt>NSManagedObjectModel</tt>, a <tt>NSPersistentStoreCoordinator</tt>, and a pair of <tt>NSManagedObjectContext</tt> objects.</td>
+  </tr>
+  <tr>
+    <td>RKEntityMapping</td>
+    <td>Models a mapping for transforming an object representation into a <tt>NSManagedObject</tt> instance for a given <tt>NSEntityDescription</tt>.</td>
+  </tr>
+  <tr>
+    <td>RKConnectionDescription</td>
+    <td>Describes a mapping for establishing a relationship between Core Data entities using foreign key attributes.</td>
+  </tr>  
+  <tr>
+    <td>RKManagedObjectRequestOperation</td>
+    <td>An <tt>NSOperation</tt> subclass that sends an HTTP request and performs object mapping on the parsed response body to create <tt>NSManagedObject</tt> instances, establishes relationships between objects using <tt>RKConnectionDescription</tt> objects, and cleans up orphaned objects that no longer exist in the remote backend system.</td>
+  </tr>
+  <tr>
+    <td>RKManagedObjectImporter</td>
+    <td>Provides support for bulk mapping of managed objects using <tt>RKEntityMapping</tt> objects for two use cases:
+        <ol>
+            <li>Bulk importing of parsed documents into an <tt>NSPersistentStore.</tt></li>
+            <li>Generating a seed database for initializing an application's Core Data store with an initial data set upon installation.</li>
+        </ol>
+    </td>
+  </tr>
+  <tr><th colspan="2">Search</th></tr>
+  <tr>
+    <td>RKSearchIndexer</td>
+    <td>Provides support for generating a full-text searchable index within Core Data for string attributes of entities within an application.</td>
+  </tr>
+  <tr>
+    <td>RKSearchPredicate</td>
+    <td>Generates an <tt>NSCompoundPredicate</tt> given a string of text that will search an index built with an <tt>RKSearchIndexer</tt> across any indexed entity.</td>
+  </tr>
+  <tr><th colspan="2">Testing</th></tr>
+  <tr>
+    <td>RKMappingTest</td>
+    <td>Provides support for unit testing object mapping configurations given a parsed document and an object or entity mapping. Expectations are configured in terms of expected key path mappings and/or expected transformation results.</td>
+  </tr>
+  <tr>
+    <td>RKTestFixture</td>
+    <td>Provides an interface for easily generating test fixture data for unit testing.</td>
+  </tr>
+  <tr>
+    <td>RKTestFactory</td>
+    <td>Provides support for creating objects for use in testing.</td>
+  </tr>
+</tbody></table>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3><a id="user-content-object-request" class="anchor" href="#object-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Object Request</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// GET a single Article from /articles/1234.json and map it into an object</span>
+<span class="pl-c">// JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!"}}</span>
+RKObjectMapping *mapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[Article <span class="pl-c1">class</span>]];
+[mapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); <span class="pl-c">// Anything in 2xx</span>
+RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>mapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/:articleID<span class="pl-pds">"</span></span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org/articles/1234.json<span class="pl-pds">"</span></span>]];
+RKObjectRequestOperation *operation = [[RKObjectRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">responseDescriptors:</span>@[responseDescriptor]];
+[operation <span class="pl-c1">setCompletionBlockWithSuccess:</span>^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+    Article *article = [result <span class="pl-c1">firstObject</span>];
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Mapped the article: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, article);
+} <span class="pl-c1">failure:</span>^(RKObjectRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed with error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [error <span class="pl-c1">localizedDescription</span>]);
+}];
+[operation <span class="pl-c1">start</span>];</pre></div>
+
+<h3><a id="user-content-managed-object-request" class="anchor" href="#managed-object-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>Managed Object Request</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// GET an Article and its Categories from /articles/888.json and map into Core Data entities</span>
+<span class="pl-c">// JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!", "categories": [{"id": 1, "name": "Core Data"]}</span>
+NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel <span class="pl-c1">mergedModelFromBundles:</span><span class="pl-c1">nil</span>];
+RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithManagedObjectModel:</span>managedObjectModel];
+<span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
+<span class="pl-k">BOOL</span> success = RKEnsureDirectoryExistsAtPath(RKApplicationDataDirectory(), &amp;error);
+<span class="pl-k">if</span> (! success) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed to create Application Data Directory at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, <span class="pl-c1">RKApplicationDataDirectory</span>(), error);
+}
+<span class="pl-c1">NSString</span> *path = [<span class="pl-c1">RKApplicationDataDirectory</span>() <span class="pl-c1">stringByAppendingPathComponent:</span><span class="pl-s"><span class="pl-pds">@"</span>Store.sqlite<span class="pl-pds">"</span></span>];
+NSPersistentStore *persistentStore = [managedObjectStore <span class="pl-c1">addSQLitePersistentStoreAtPath:</span>path <span class="pl-c1">fromSeedDatabaseAtPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">withConfiguration:</span><span class="pl-c1">nil</span> <span class="pl-c1">options:</span><span class="pl-c1">nil</span> <span class="pl-c1">error:</span>&amp;error];
+<span class="pl-k">if</span> (! persistentStore) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed adding persistent store at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, path, error);
+}
+[managedObjectStore <span class="pl-c1">createManagedObjectContexts</span>];
+
+RKEntityMapping *categoryMapping = [RKEntityMapping <span class="pl-c1">mappingForEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Category<span class="pl-pds">"</span></span> <span class="pl-c1">inManagedObjectStore:</span>managedObjectStore];
+[categoryMapping <span class="pl-c1">addAttributeMappingsFromDictionary:</span>@{ <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>categoryID<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> }];
+RKEntityMapping *articleMapping = [RKEntityMapping <span class="pl-c1">mappingForEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span> <span class="pl-c1">inManagedObjectStore:</span>managedObjectStore];
+[articleMapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+[articleMapping <span class="pl-c1">addPropertyMapping:</span>[RKRelationshipMapping <span class="pl-c1">relationshipMappingFromKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>categories<span class="pl-pds">"</span></span> <span class="pl-c1">toKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>categories<span class="pl-pds">"</span></span> <span class="pl-c1">withMapping:</span>categoryMapping]];
+
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); <span class="pl-c">// Anything in 2xx</span>
+RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>articleMapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/:articleID<span class="pl-pds">"</span></span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org/articles/888.json<span class="pl-pds">"</span></span>]];
+RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">responseDescriptors:</span>@[responseDescriptor]];
+operation.managedObjectContext = managedObjectStore.mainQueueManagedObjectContext;
+operation.managedObjectCache = managedObjectStore.managedObjectCache;
+[operation <span class="pl-c1">setCompletionBlockWithSuccess:</span>^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+  Article *article = [result <span class="pl-c1">firstObject</span>];
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Mapped the article: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, article);
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Mapped the category: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [article.categories <span class="pl-c1">anyObject</span>]);
+} <span class="pl-c1">failure:</span>^(RKObjectRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed with error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [error <span class="pl-c1">localizedDescription</span>]);
+}];
+<span class="pl-c1">NSOperationQueue</span> *operationQueue = [<span class="pl-c1">NSOperationQueue</span> <span class="pl-c1">new</span>];
+[operationQueue <span class="pl-c1">addOperation:</span>operation];</pre></div>
+
+<h3><a id="user-content-map-a-client-error-response-to-an-nserror" class="anchor" href="#map-a-client-error-response-to-an-nserror" aria-hidden="true"><span class="octicon octicon-link"></span></a>Map a Client Error Response to an NSError</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// GET /articles/error.json returns a 422 (Unprocessable Entity)</span>
+<span class="pl-c">// JSON looks like {"errors": "Some Error Has Occurred"}</span>
+
+<span class="pl-c">// You can map errors to any class, but `RKErrorMessage` is included for free</span>
+RKObjectMapping *errorMapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[RKErrorMessage <span class="pl-c1">class</span>]];
+<span class="pl-c">// The entire value at the source key path containing the errors maps to the message</span>
+[errorMapping <span class="pl-c1">addPropertyMapping:</span>[RKAttributeMapping <span class="pl-c1">attributeMappingFromKeyPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">toKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>errorMessage<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
+<span class="pl-c">// Any response in the 4xx status code range with an "errors" key path uses this mapping</span>
+RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>errorMapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-c1">nil</span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>errors<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org/articles/error.json<span class="pl-pds">"</span></span>]];
+RKObjectRequestOperation *operation = [[RKObjectRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">responseDescriptors:</span>@[errorDescriptor]];
+[operation <span class="pl-c1">setCompletionBlockWithSuccess:</span><span class="pl-c1">nil</span> <span class="pl-c1">failure:</span>^(RKObjectRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c">// The `description` method of the class the error is mapped to is used to construct the value of the localizedDescription</span>
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Loaded this error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [error <span class="pl-c1">localizedDescription</span>]);
+
+    <span class="pl-c">// You can access the model object used to construct the `NSError` via the `userInfo`</span>
+    RKErrorMessage *errorMessage =  [[error.userInfo <span class="pl-c1">objectForKey:</span>RKObjectMapperErrorObjectsKey] <span class="pl-c1">firstObject</span>];
+}];</pre></div>
+
+<h3><a id="user-content-centralize-configuration-in-an-object-manager" class="anchor" href="#centralize-configuration-in-an-object-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Centralize Configuration in an Object Manager</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// Set up Article and Error Response Descriptors</span>
+<span class="pl-c">// Successful JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!"}}</span>
+RKObjectMapping *mapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[Article <span class="pl-c1">class</span>]];
+[mapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); <span class="pl-c">// Anything in 2xx</span>
+RKResponseDescriptor *articleDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>mapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles<span class="pl-pds">"</span></span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+<span class="pl-c">// Error JSON looks like {"errors": "Some Error Has Occurred"}</span>
+RKObjectMapping *errorMapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[RKErrorMessage <span class="pl-c1">class</span>]];
+<span class="pl-c">// The entire value at the source key path containing the errors maps to the message</span>
+[errorMapping <span class="pl-c1">addPropertyMapping:</span>[RKAttributeMapping <span class="pl-c1">attributeMappingFromKeyPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">toKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>errorMessage<span class="pl-pds">"</span></span>]];
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
+<span class="pl-c">// Any response in the 4xx status code range with an "errors" key path uses this mapping</span>
+RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>errorMapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-c1">nil</span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>errors<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+<span class="pl-c">// Add our descriptors to the manager</span>
+RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+[manager <span class="pl-c1">addResponseDescriptorsFromArray:</span>@[ articleDescriptor, errorDescriptor ]];
+
+[manager <span class="pl-c1">getObjectsAtPath:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/555.json<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span>^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    <span class="pl-c">// Handled with articleDescriptor</span>
+} <span class="pl-c1">failure:</span>^(RKObjectRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c">// Transport error or server error handled by errorDescriptor</span>
+}];</pre></div>
+
+<h3><a id="user-content-configure-core-data-integration-with-the-object-manager" class="anchor" href="#configure-core-data-integration-with-the-object-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure Core Data Integration with the Object Manager</h3>
+
+<div class="highlight highlight-objective-c"><pre>NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel <span class="pl-c1">mergedModelFromBundles:</span><span class="pl-c1">nil</span>];
+RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithManagedObjectModel:</span>managedObjectModel];
+<span class="pl-k">BOOL</span> success = RKEnsureDirectoryExistsAtPath(RKApplicationDataDirectory(), &amp;error);
+<span class="pl-k">if</span> (! success) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed to create Application Data Directory at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, <span class="pl-c1">RKApplicationDataDirectory</span>(), error);
+}
+<span class="pl-c1">NSString</span> *path = [<span class="pl-c1">RKApplicationDataDirectory</span>() <span class="pl-c1">stringByAppendingPathComponent:</span><span class="pl-s"><span class="pl-pds">@"</span>Store.sqlite<span class="pl-pds">"</span></span>];
+NSPersistentStore *persistentStore = [managedObjectStore <span class="pl-c1">addSQLitePersistentStoreAtPath:</span>path <span class="pl-c1">fromSeedDatabaseAtPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">withConfiguration:</span><span class="pl-c1">nil</span> <span class="pl-c1">options:</span><span class="pl-c1">nil</span> <span class="pl-c1">error:</span>&amp;error];
+<span class="pl-k">if</span> (! persistentStore) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed adding persistent store at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, path, error);
+}
+[managedObjectStore <span class="pl-c1">createManagedObjectContexts</span>];
+
+RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+manager.managedObjectStore = managedObjectStore;</pre></div>
+
+<h3><a id="user-content-load-a-collection-of-objects-at-a-path" class="anchor" href="#load-a-collection-of-objects-at-a-path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load a Collection of Objects at a Path</h3>
+
+<div class="highlight highlight-objective-c"><pre>RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+[manager <span class="pl-c1">getObjectsAtPath:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span>^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+} <span class="pl-c1">failure:</span>^(RKObjectRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+}];</pre></div>
+
+<h3><a id="user-content-manage-a-queue-of-object-request-operations" class="anchor" href="#manage-a-queue-of-object-request-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manage a Queue of Object Request Operations</h3>
+
+<div class="highlight highlight-objective-c"><pre>RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org/articles/1234.json<span class="pl-pds">"</span></span>]];
+RKObjectRequestOperation *operation = [[RKObjectRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">responseDescriptors:</span>@[responseDescriptor]];
+
+[manager <span class="pl-c1">enqueueObjectRequestOperation:</span>operation];
+[manager <span class="pl-c1">cancelAllObjectRequestOperationsWithMethod:</span>RKRequestMethodANY <span class="pl-c1">matchingPathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/:articleID<span class="pl-cce">\\</span>.json<span class="pl-pds">"</span></span>];</pre></div>
+
+<h3><a id="user-content-post-patch-and-delete-an-object" class="anchor" href="#post-patch-and-delete-an-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST, PATCH, and DELETE an Object</h3>
+
+<div class="highlight highlight-objective-c"><pre>RKObjectMapping *responseMapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[Article <span class="pl-c1">class</span>]];
+[responseMapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+<span class="pl-c1">NSIndexSet</span> *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); <span class="pl-c">// Anything in 2xx</span>
+RKResponseDescriptor *articleDescriptor = [RKResponseDescriptor <span class="pl-c1">responseDescriptorWithMapping:</span>responseMapping <span class="pl-c1">method:</span>RKRequestMethodAny <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles<span class="pl-pds">"</span></span> <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span> <span class="pl-c1">statusCodes:</span>statusCodes];
+
+RKObjectMapping *requestMapping = [RKObjectMapping <span class="pl-c1">requestMapping</span>]; <span class="pl-c">// objectClass == NSMutableDictionary</span>
+[requestMapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c">// For any object of class Article, serialize into an NSMutableDictionary using the given mapping and nest</span>
+<span class="pl-c">// under the 'article' key path</span>
+RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor <span class="pl-c1">requestDescriptorWithMapping:</span>requestMapping <span class="pl-c1">objectClass:</span>[Article <span class="pl-c1">class</span>] <span class="pl-c1">rootKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span> <span class="pl-c1">method:</span>RKRequestMethodAny];
+
+RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+[manager <span class="pl-c1">addRequestDescriptor:</span>requestDescriptor];
+[manager <span class="pl-c1">addResponseDescriptor:</span>articleDescriptor];
+
+Article *article = [Article <span class="pl-c1">new</span>];
+article.title = <span class="pl-s"><span class="pl-pds">@"</span>Introduction to RestKit<span class="pl-pds">"</span></span>;
+article.body = <span class="pl-s"><span class="pl-pds">@"</span>This is some text.<span class="pl-pds">"</span></span>;
+article.author = <span class="pl-s"><span class="pl-pds">@"</span>Blake<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// POST to create</span>
+[manager <span class="pl-c1">postObject:</span>article <span class="pl-c1">path:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span><span class="pl-c1">nil</span> <span class="pl-c1">failure:</span><span class="pl-c1">nil</span>];
+
+<span class="pl-c">// PATCH to update</span>
+article.body = <span class="pl-s"><span class="pl-pds">@"</span>New Body<span class="pl-pds">"</span></span>;
+[manager <span class="pl-c1">patchObject:</span>article <span class="pl-c1">path:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/1234<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span><span class="pl-c1">nil</span> <span class="pl-c1">failure:</span><span class="pl-c1">nil</span>];
+
+<span class="pl-c">// DELETE to destroy</span>
+[manager <span class="pl-c1">deleteObject:</span>article <span class="pl-c1">path:</span><span class="pl-s"><span class="pl-pds">@"</span>/articles/1234<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span><span class="pl-c1">nil</span> <span class="pl-c1">failure:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<h3><a id="user-content-configure-logging" class="anchor" href="#configure-logging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure Logging</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// Log all HTTP traffic with request and response bodies</span>
+<span class="pl-en">RKLogConfigureByName</span>(<span class="pl-s"><span class="pl-pds">"</span>RestKit/Network<span class="pl-pds">"</span></span>, RKLogLevelTrace);
+
+<span class="pl-c">// Log debugging info about Core Data</span>
+<span class="pl-en">RKLogConfigureByName</span>(<span class="pl-s"><span class="pl-pds">"</span>RestKit/CoreData<span class="pl-pds">"</span></span>, RKLogLevelDebug);
+
+<span class="pl-c">// Raise logging for a block</span>
+<span class="pl-en">RKLogWithLevelWhileExecutingBlock</span>(RKLogLevelTrace, ^{
+    <span class="pl-c">// Do something that generates logs</span>
+});</pre></div>
+
+<h3><a id="user-content-configure-routing" class="anchor" href="#configure-routing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure Routing</h3>
+
+<div class="highlight highlight-objective-c"><pre>RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c">// Class Routing</span>
+[manager.router.routeSet <span class="pl-c1">addRoute:</span>[RKRoute <span class="pl-c1">routeWithClass:</span>[GGSegment <span class="pl-c1">class</span>] <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/segments/:segmentID<span class="pl-cce">\\</span>.json<span class="pl-pds">"</span></span> <span class="pl-c1">method:</span>RKRequestMethodGET]];
+
+<span class="pl-c">// Relationship Routing</span>
+[manager.router.routeSet <span class="pl-c1">addRoute:</span>[RKRoute <span class="pl-c1">routeWithRelationshipName:</span><span class="pl-s"><span class="pl-pds">@"</span>amenities<span class="pl-pds">"</span></span> <span class="pl-c1">objectClass:</span>[GGAirport <span class="pl-c1">class</span>] <span class="pl-c1">pathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/airports/:airportID/amenities.json<span class="pl-pds">"</span></span> <span class="pl-c1">method:</span>RKRequestMethodGET]];
+
+<span class="pl-c">// Named Routes</span>
+[manager.router.routeSet <span class="pl-c1">addRoute:</span>[RKRoute <span class="pl-c1">routeWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>thumbs_down_review<span class="pl-pds">"</span></span> <span class="pl-c1">resourcePathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/reviews/:reviewID/thumbs_down<span class="pl-pds">"</span></span> <span class="pl-c1">method:</span>RKRequestMethodPOST]];</pre></div>
+
+<h3><a id="user-content-post-an-object-with-a-file-attachment" class="anchor" href="#post-an-object-with-a-file-attachment" aria-hidden="true"><span class="octicon octicon-link"></span></a>POST an Object with a File Attachment</h3>
+
+<div class="highlight highlight-objective-c"><pre>Article *article = [Article <span class="pl-c1">new</span>];
+UIImage *image = [UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>some_image.png<span class="pl-pds">"</span></span>];
+
+<span class="pl-c">// Serialize the Article attributes then attach a file</span>
+<span class="pl-c1">NSMutableURLRequest</span> *request = [[RKObjectManager <span class="pl-c1">sharedManager</span>] <span class="pl-c1">multipartFormRequestWithObject:</span>article <span class="pl-c1">method:</span>RKRequestMethodPOST <span class="pl-c1">path:</span><span class="pl-c1">nil</span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">constructingBodyWithBlock:</span>^(<span class="pl-k">id</span>&lt;AFMultipartFormData&gt; formData) {
+    [formData <span class="pl-c1">appendPartWithFileData:</span><span class="pl-c1">UIImagePNGRepresentation</span>(image)
+                                <span class="pl-c1">name:</span><span class="pl-s"><span class="pl-pds">@"</span>article[image]<span class="pl-pds">"</span></span>
+                            <span class="pl-c1">fileName:</span><span class="pl-s"><span class="pl-pds">@"</span>photo.png<span class="pl-pds">"</span></span>
+                            <span class="pl-c1">mimeType:</span><span class="pl-s"><span class="pl-pds">@"</span>image/png<span class="pl-pds">"</span></span>];
+}];
+
+RKObjectRequestOperation *operation = [[RKObjectManager <span class="pl-c1">sharedManager</span>] <span class="pl-c1">objectRequestOperationWithRequest:</span>request <span class="pl-c1">success:</span><span class="pl-c1">nil</span> <span class="pl-c1">failure:</span><span class="pl-c1">nil</span>];
+[[RKObjectManager <span class="pl-c1">sharedManager</span>] <span class="pl-c1">enqueueObjectRequestOperation:</span>operation]; <span class="pl-c">// NOTE: Must be enqueued rather than started</span></pre></div>
+
+<h3><a id="user-content-enqueue-a-batch-of-object-request-operations" class="anchor" href="#enqueue-a-batch-of-object-request-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enqueue a Batch of Object Request Operations</h3>
+
+<div class="highlight highlight-objective-c"><pre>RKObjectManager *manager = [RKObjectManager <span class="pl-c1">managerWithBaseURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://restkit.org<span class="pl-pds">"</span></span>]];
+
+Airport *jfk = [Airport <span class="pl-c1">new</span>];
+jfk.code = <span class="pl-s"><span class="pl-pds">@"</span>jfk<span class="pl-pds">"</span></span>;
+Airport *lga = [Airport <span class="pl-c1">new</span>];
+lga.code = <span class="pl-s"><span class="pl-pds">@"</span>lga<span class="pl-pds">"</span></span>;
+Airport *rdu = [Airport <span class="pl-c1">new</span>];
+rdu.code = <span class="pl-s"><span class="pl-pds">@"</span>rdu<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// Enqueue a GET for '/airports/jfk/weather', '/airports/lga/weather', '/airports/rdu/weather'</span>
+RKRoute *route = [RKRoute <span class="pl-c1">routeWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>airport_weather<span class="pl-pds">"</span></span> <span class="pl-c1">resourcePathPattern:</span><span class="pl-s"><span class="pl-pds">@"</span>/airports/:code/weather<span class="pl-pds">"</span></span> <span class="pl-c1">method:</span>RKRequestMethodGET];
+
+[manager <span class="pl-c1">enqueueBatchOfObjectRequestOperationsWithRoute:</span>route
+                                                <span class="pl-c1">objects:</span>@[ jfk, lga, rdu]
+                                               <span class="pl-c1">progress:</span>^(<span class="pl-k">NSUInteger</span> numberOfFinishedOperations, <span class="pl-k">NSUInteger</span> totalNumberOfOperations) {
+                                                   <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Finished <span class="pl-c1">%d</span> operations<span class="pl-pds">"</span></span>, numberOfFinishedOperations);
+                                               } <span class="pl-c1">completion:</span>^ (<span class="pl-c1">NSArray</span> *operations) {
+                                                   <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>All Weather Reports Loaded!<span class="pl-pds">"</span></span>);
+                                               }];</pre></div>
+
+<h3><a id="user-content-generate-a-seed-database" class="anchor" href="#generate-a-seed-database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generate a Seed Database</h3>
+
+<div class="highlight highlight-objective-c"><pre>NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel <span class="pl-c1">mergedModelFromBundles:</span><span class="pl-c1">nil</span>];
+RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithManagedObjectModel:</span>managedObjectModel];
+<span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
+<span class="pl-k">BOOL</span> success = RKEnsureDirectoryExistsAtPath(RKApplicationDataDirectory(), &amp;error);
+<span class="pl-k">if</span> (! success) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed to create Application Data Directory at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, <span class="pl-c1">RKApplicationDataDirectory</span>(), error);
+}
+<span class="pl-c1">NSString</span> *path = [<span class="pl-c1">RKApplicationDataDirectory</span>() <span class="pl-c1">stringByAppendingPathComponent:</span><span class="pl-s"><span class="pl-pds">@"</span>Store.sqlite<span class="pl-pds">"</span></span>];
+NSPersistentStore *persistentStore = [managedObjectStore <span class="pl-c1">addSQLitePersistentStoreAtPath:</span>path <span class="pl-c1">fromSeedDatabaseAtPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">withConfiguration:</span><span class="pl-c1">nil</span> <span class="pl-c1">options:</span><span class="pl-c1">nil</span> <span class="pl-c1">error:</span>&amp;error];
+<span class="pl-k">if</span> (! persistentStore) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed adding persistent store at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, path, error);
+}
+[managedObjectStore <span class="pl-c1">createManagedObjectContexts</span>];
+
+RKEntityMapping *articleMapping = [RKEntityMapping <span class="pl-c1">mappingForEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span> <span class="pl-c1">inManagedObjectStore:</span>managedObjectStore];
+[articleMapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c1">NSString</span> *seedPath = [<span class="pl-c1">RKApplicationDataDirectory</span>() <span class="pl-c1">stringByAppendingPathComponent:</span><span class="pl-s"><span class="pl-pds">@"</span>MySeedDatabase.sqlite<span class="pl-pds">"</span></span>];
+RKManagedObjectImporter *importer = [[RKManagedObjectImporter <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithManagedObjectModel:</span>managedObjectStore.managedObjectModel <span class="pl-c1">storePath:</span>seedPath];
+
+<span class="pl-c">// Import the files "articles.json" from the Main Bundle using our RKEntityMapping</span>
+<span class="pl-c">// JSON looks like {"articles": [ {"title": "Article 1", "body": "Text", "author": "Blake" ]}</span>
+<span class="pl-c1">NSError</span> *error;
+<span class="pl-c1">NSBundle</span> *mainBundle = [<span class="pl-c1">NSBundle</span> <span class="pl-c1">mainBundle</span>];
+[importer <span class="pl-c1">importObjectsFromItemAtPath:</span>[mainBundle <span class="pl-c1">pathForResource:</span><span class="pl-s"><span class="pl-pds">@"</span>articles<span class="pl-pds">"</span></span> <span class="pl-c1">ofType:</span><span class="pl-s"><span class="pl-pds">@"</span>json<span class="pl-pds">"</span></span>]
+                          <span class="pl-c1">withMapping:</span>articleMapping
+                              <span class="pl-c1">keyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>articles<span class="pl-pds">"</span></span>
+                                <span class="pl-c1">error:</span>&amp;error];
+
+<span class="pl-k">BOOL</span> success = [importer <span class="pl-c1">finishImporting:</span>&amp;error];
+<span class="pl-k">if</span> (success) {
+    [importer <span class="pl-c1">logSeedingInfo</span>];
+}</pre></div>
+
+<h3><a id="user-content-index-and-search-an-entity" class="anchor" href="#index-and-search-an-entity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Index and Search an Entity</h3>
+
+<div class="highlight highlight-objective-c"><pre>NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel <span class="pl-c1">mergedModelFromBundles:</span><span class="pl-c1">nil</span>];
+RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithManagedObjectModel:</span>managedObjectModel];
+<span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
+<span class="pl-k">BOOL</span> success = RKEnsureDirectoryExistsAtPath(RKApplicationDataDirectory(), &amp;error);
+<span class="pl-k">if</span> (! success) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed to create Application Data Directory at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, <span class="pl-c1">RKApplicationDataDirectory</span>(), error);
+}
+<span class="pl-c1">NSString</span> *path = [<span class="pl-c1">RKApplicationDataDirectory</span>() <span class="pl-c1">stringByAppendingPathComponent:</span><span class="pl-s"><span class="pl-pds">@"</span>Store.sqlite<span class="pl-pds">"</span></span>];
+NSPersistentStore *persistentStore = [managedObjectStore <span class="pl-c1">addSQLitePersistentStoreAtPath:</span>path <span class="pl-c1">fromSeedDatabaseAtPath:</span><span class="pl-c1">nil</span> <span class="pl-c1">withConfiguration:</span><span class="pl-c1">nil</span> <span class="pl-c1">options:</span><span class="pl-c1">nil</span> <span class="pl-c1">error:</span>&amp;error];
+<span class="pl-k">if</span> (! persistentStore) {
+    <span class="pl-c1">RKLogError</span>(<span class="pl-s"><span class="pl-pds">@"</span>Failed adding persistent store at path '<span class="pl-c1">%@</span>': <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, path, error);
+}
+[managedObjectStore <span class="pl-c1">createManagedObjectContexts</span>];
+[managedObjectStore <span class="pl-c1">addSearchIndexingToEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span> <span class="pl-c1">onAttributes:</span>@[ <span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span> ]];
+[managedObjectStore <span class="pl-c1">addInMemoryPersistentStore:</span><span class="pl-c1">nil</span>];
+[managedObjectStore <span class="pl-c1">createManagedObjectContexts</span>];
+[managedObjectStore <span class="pl-c1">startIndexingPersistentStoreManagedObjectContext</span>];
+
+Article *article1 = [NSEntityDescription <span class="pl-c1">insertNewObjectForEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span> <span class="pl-c1">inManagedObjectContext:</span>managedObjectStore.mainQueueManagedObjectContext];
+article1.title = <span class="pl-s"><span class="pl-pds">@"</span>First Article<span class="pl-pds">"</span></span>;
+article1.body = <span class="pl-s"><span class="pl-pds">"</span>This should match search<span class="pl-pds">"</span></span>;
+
+Article *article2 = [NSEntityDescription <span class="pl-c1">insertNewObjectForEntityForName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span> <span class="pl-c1">inManagedObjectContext:</span>managedObjectStore.mainQueueManagedObjectContext];
+article2.title = <span class="pl-s"><span class="pl-pds">@"</span>Second Article<span class="pl-pds">"</span></span>;
+article2.body = <span class="pl-s"><span class="pl-pds">"</span>Does not<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">BOOL</span> success = [managedObjectStore.mainQueueManagedObjectContext <span class="pl-c1">saveToPersistentStore:</span><span class="pl-c1">nil</span>];
+
+RKSearchPredicate *predicate = [RKSearchPredicate <span class="pl-c1">searchPredicateWithText:</span><span class="pl-s"><span class="pl-pds">@"</span>Match<span class="pl-pds">"</span></span> <span class="pl-c1">type:</span>NSAndPredicateType];
+NSFetchRequest *fetchRequest = [NSFetchRequest <span class="pl-c1">fetchRequestWithEntityName:</span><span class="pl-s"><span class="pl-pds">@"</span>Article<span class="pl-pds">"</span></span>];
+fetchRequest.predicate = predicate;
+
+<span class="pl-c">// Contains article1 due to body text containing 'match'</span>
+<span class="pl-c1">NSArray</span> *matches = [managedObjectStore.mainQueueManagedObjectContext <span class="pl-c1">executeFetchRequest:</span>fetchRequest <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+<span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Found the matching articles: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, matches);</pre></div>
+
+<h3><a id="user-content-unit-test-a-mapping" class="anchor" href="#unit-test-a-mapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unit Test a Mapping</h3>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c">// JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!"}}</span>
+RKObjectMapping *mapping = [RKObjectMapping <span class="pl-c1">mappingForClass:</span>[Article <span class="pl-c1">class</span>]];
+[mapping <span class="pl-c1">addAttributeMappingsFromArray:</span>@[<span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c1">NSDictionary</span> *article = @{ <span class="pl-s"><span class="pl-pds">@"</span>article<span class="pl-pds">"</span></span>: @{ <span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>My Title<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>body<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>The article body<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>author<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>Blake<span class="pl-pds">"</span></span> } };
+RKMappingTest *mappingTest = [[RKMappingTest <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithMapping:</span>mapping <span class="pl-c1">sourceObject:</span>article <span class="pl-c1">destinationObject:</span><span class="pl-c1">nil</span>];
+
+[mappingTest <span class="pl-c1">expectMappingFromKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span> <span class="pl-c1">toKeyPath:</span><span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span> <span class="pl-c1">value:</span><span class="pl-s"><span class="pl-pds">@"</span>My Title<span class="pl-pds">"</span></span>];
+[mappingTest <span class="pl-c1">performMapping</span>];
+[mappingTest <span class="pl-c1">verify</span>];</pre></div>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>RestKit requires iOS 5.1.1 and above or Mac OS X 10.7 and above.</p>
+
+<p>Several third-party open source libraries are used within RestKit, including:</p>
+
+<ol>
+<li>AFNetworking - Networking Support</li>
+<li>LibComponentLogging - Logging Support</li>
+<li>SOCKit - String &lt;-&gt; Object Coding</li>
+<li>iso8601parser - Support for parsing and generating ISO-8601 dates</li>
+</ol>
+
+<p>The following Cocoa frameworks must be linked into the application target for proper compilation:</p>
+
+<ol>
+<li><strong>CFNetwork.framework</strong> on iOS</li>
+<li><strong>CoreData.framework</strong></li>
+<li><strong>Security.framework</strong></li>
+<li><strong>MobileCoreServices.framework</strong> on iOS or <strong>CoreServices.framework</strong> on OS X</li>
+</ol>
+
+<p>And the following linker flags must be set:</p>
+
+<ol>
+<li><strong>-ObjC</strong></li>
+<li><strong>-all_load</strong></li>
+</ol>
+
+<h3><a id="user-content-arc" class="anchor" href="#arc" aria-hidden="true"><span class="octicon octicon-link"></span></a>ARC</h3>
+
+<p>As of version 0.20.0, RestKit has migrated the entire codebase to ARC.</p>
+
+<p>If you are including the RestKit sources directly into a project that does not yet use Automatic Reference Counting, you will need to set the <code>-fobjc-arc</code> compiler flag on all of the RestKit source files. To do this in Xcode, go to your active target and select the "Build Phases" tab. Now select all RestKit source files, press Enter, insert <code>-fobjc-arc</code> and then "Done" to enable ARC for RestKit.</p>
+
+<h3><a id="user-content-serialization-formats" class="anchor" href="#serialization-formats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization Formats</h3>
+
+<p>RestKit provides a pluggable interface for handling arbitrary serialization formats via the <code>RKSerialization</code> protocol and the <code>RKMIMETypeSerialization</code> class. Out of the box, RestKit supports handling the JSON format for serializing and deserializing object representations via the <code>NSJSONSerialization</code> class.</p>
+
+<h4><a id="user-content-additional-serializations" class="anchor" href="#additional-serializations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Serializations</h4>
+
+<p>Support for additional formats and alternate serialization backends is provided via external modules that can be added to the project. Currently the following serialization implementations are available for use:</p>
+
+<ul>
+<li>JSONKit</li>
+<li>SBJSON</li>
+<li>YAJL</li>
+<li>NextiveJson</li>
+<li>XMLReader + XMLWriter</li>
+</ul>
+
+</article>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><ol>
+<li>Open Your project in XCode and drag and drop all .h &amp; .m Files into an appropriate folder</li>
+<li>In the project settings add "/usr/include/libxml2" to the "header search paths" field</li>
+<li>Ctrl Click the Frameworks group choose Add -&gt; Existing Frameworks and from the list choose libxml2.dylib</li>
+</ol>
+
+<h1><a id="user-content-example-usage" class="anchor" href="#example-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example Usage</h1>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSError</span> *error = <span class="pl-c1">nil</span>;
+<span class="pl-c1">NSString</span> *html =
+    <span class="pl-s"><span class="pl-pds">@"</span>&lt;ul&gt;<span class="pl-pds">"</span></span>
+        <span class="pl-s"><span class="pl-pds">"</span>&lt;li&gt;&lt;input type='image' name='input1' value='string1value' /&gt;&lt;/li&gt;<span class="pl-pds">"</span></span>
+        <span class="pl-s"><span class="pl-pds">"</span>&lt;li&gt;&lt;input type='image' name='input2' value='string2value' /&gt;&lt;/li&gt;<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>&lt;/ul&gt;<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>&lt;span class='spantext'&gt;&lt;b&gt;Hello World 1&lt;/b&gt;&lt;/span&gt;<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>&lt;span class='spantext'&gt;&lt;b&gt;Hello World 2&lt;/b&gt;&lt;/span&gt;<span class="pl-pds">"</span></span>;
+HTMLParser *parser = [[HTMLParser <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithString:</span>html <span class="pl-c1">error:</span>&amp;error];
+
+<span class="pl-k">if</span> (error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+    <span class="pl-k">return</span>;
+}
+
+HTMLNode *bodyNode = [parser <span class="pl-c1">body</span>];
+
+<span class="pl-c1">NSArray</span> *inputNodes = [bodyNode <span class="pl-c1">findChildTags:</span><span class="pl-s"><span class="pl-pds">@"</span>input<span class="pl-pds">"</span></span>];
+
+<span class="pl-k">for</span> (HTMLNode *inputNode in inputNodes) {
+    <span class="pl-k">if</span> ([[inputNode <span class="pl-c1">getAttributeNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>name<span class="pl-pds">"</span></span>] <span class="pl-c1">isEqualToString:</span><span class="pl-s"><span class="pl-pds">@"</span>input2<span class="pl-pds">"</span></span>]) {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [inputNode <span class="pl-c1">getAttributeNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>value<span class="pl-pds">"</span></span>]); <span class="pl-c">//Answer to first question</span>
+    }
+}
+
+<span class="pl-c1">NSArray</span> *spanNodes = [bodyNode <span class="pl-c1">findChildTags:</span><span class="pl-s"><span class="pl-pds">@"</span>span<span class="pl-pds">"</span></span>];
+
+<span class="pl-k">for</span> (HTMLNode *spanNode in spanNodes) {
+    <span class="pl-k">if</span> ([[spanNode <span class="pl-c1">getAttributeNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>class<span class="pl-pds">"</span></span>] <span class="pl-c1">isEqualToString:</span><span class="pl-s"><span class="pl-pds">@"</span>spantext<span class="pl-pds">"</span></span>]) {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, [spanNode <span class="pl-c1">rawContents</span>]); <span class="pl-c">//Answer to second question</span>
+    }
+}
+
+[parser <span class="pl-c1">release</span>];</pre></div>
+</article>
+</body>
+</html>

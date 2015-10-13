@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><p align="center">
+  <a href="https://camo.githubusercontent.com/1560be050811ab73457e90aee62cd1cd257c7fb9/68747470733a2f2f7261772e6769746875622e636f6d2f41464e6574776f726b696e672f41464e6574776f726b696e672f6173736574732f61666e6574776f726b696e672d6c6f676f2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/1560be050811ab73457e90aee62cd1cd257c7fb9/68747470733a2f2f7261772e6769746875622e636f6d2f41464e6574776f726b696e672f41464e6574776f726b696e672f6173736574732f61666e6574776f726b696e672d6c6f676f2e706e67" alt="AFNetworking" title="AFNetworking" data-canonical-src="https://raw.github.com/AFNetworking/AFNetworking/assets/afnetworking-logo.png" style="max-width:100%;"></a>
+</p>
+
+<p>AFNetworking is a delightful networking library for iOS and Mac OS X. It's built on top of the Foundation URL Loading System extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs that are a joy to use.</p>
+
+<p>Perhaps the most important feature of all, however, is the amazing community of developers who use and contribute to AFNetworking every day. AFNetworking powers some of the most popular and critically-acclaimed apps on the iPhone, iPad, and Mac.</p>
+
+<p>Choose AFNetworking for your next project, or migrate over your existing projects—you'll be happy you did!</p>
+
+<h4><a id="user-content-how-to-get-started" class="anchor" href="#how-to-get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>More information,please view AFNetworking/AFNetworking on GitHub.</h4>
+
+<h3><a id="user-content-installation-with-cocoapods" class="anchor" href="#installation-with-cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation with CocoaPods</h3>
+
+<p>CocoaPods is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like AFNetworking in your projects. See the "Getting Started" guide for more information.</p>
+
+<h4><a id="user-content-podfile" class="anchor" href="#podfile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Podfile</h4>
+
+<div class="highlight highlight-ruby"><pre>platform <span class="pl-c1">:ios</span>, <span class="pl-s"><span class="pl-pds">'</span>7.0<span class="pl-pds">'</span></span>
+pod <span class="pl-s"><span class="pl-pds">"</span>AFNetworking<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 2.0<span class="pl-pds">"</span></span></pre></div>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<table><thead>
+<tr>
+<th align="center">AFNetworking Version</th>
+<th align="center">Minimum iOS Target</th>
+<th align="center">Minimum OS X Target</th>
+<th align="center">Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">2.x</td>
+<td align="center">iOS 6</td>
+<td align="center">OS X 10.8</td>
+<td align="center">Xcode 5 is required. <code>NSURLSession</code> subspec requires iOS 7 or OS X 10.9.</td>
+</tr>
+<tr>
+<td align="center">1.x</td>
+<td align="center">iOS 5</td>
+<td align="center">Mac OS X 10.7</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">0.10.x</td>
+<td align="center">iOS 4</td>
+<td align="center">Mac OS X 10.6</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
+<p>(OS X projects must support 64-bit with modern Cocoa runtime).</p>
+
+<blockquote>
+<p>Programming in Swift? Try Alamofire for a more conventional set of APIs.</p>
+</blockquote>
+
+<h2><a id="user-content-architecture" class="anchor" href="#architecture" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architecture</h2>
+
+<h3><a id="user-content-nsurlconnection" class="anchor" href="#nsurlconnection" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSURLConnection</h3>
+
+<ul>
+<li><code>AFURLConnectionOperation</code></li>
+<li><code>AFHTTPRequestOperation</code></li>
+<li><code>AFHTTPRequestOperationManager</code></li>
+</ul>
+
+<h3><a id="user-content-nsurlsession-ios-7--mac-os-x-109" class="anchor" href="#nsurlsession-ios-7--mac-os-x-109" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSURLSession <em>(iOS 7 / Mac OS X 10.9)</em></h3>
+
+<ul>
+<li><code>AFURLSessionManager</code></li>
+<li><code>AFHTTPSessionManager</code></li>
+</ul>
+
+<h3><a id="user-content-serialization" class="anchor" href="#serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serialization</h3>
+
+<ul>
+<li><code>&lt;AFURLRequestSerialization&gt;</code>
+
+<ul>
+<li><code>AFHTTPRequestSerializer</code></li>
+<li><code>AFJSONRequestSerializer</code></li>
+<li><code>AFPropertyListRequestSerializer</code></li>
+</ul></li>
+<li><code>&lt;AFURLResponseSerialization&gt;</code>
+
+<ul>
+<li><code>AFHTTPResponseSerializer</code></li>
+<li><code>AFJSONResponseSerializer</code></li>
+<li><code>AFXMLParserResponseSerializer</code></li>
+<li><code>AFXMLDocumentResponseSerializer</code> <em>(Mac OS X)</em></li>
+<li><code>AFPropertyListResponseSerializer</code></li>
+<li><code>AFImageResponseSerializer</code></li>
+<li><code>AFCompoundResponseSerializer</code></li>
+</ul></li>
+</ul>
+
+<h3><a id="user-content-additional-functionality" class="anchor" href="#additional-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Functionality</h3>
+
+<ul>
+<li><code>AFSecurityPolicy</code></li>
+<li><code>AFNetworkReachabilityManager</code></li>
+</ul>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3><a id="user-content-http-request-operation-manager" class="anchor" href="#http-request-operation-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP Request Operation Manager</h3>
+
+<p><code>AFHTTPRequestOperationManager</code> encapsulates the common patterns of communicating with a web application over HTTP, including request creation, response serialization, network reachability monitoring, and security, as well as request operation management.</p>
+
+<h4><a id="user-content-get-request" class="anchor" href="#get-request" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>GET</code> Request</h4>
+
+<div class="highlight highlight-objective-c"><pre>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager <span class="pl-c1">manager</span>];
+[manager <span class="pl-c1">GET:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/resources.json<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">success:</span>^(AFHTTPRequestOperation *operation, <span class="pl-k">id</span> responseObject) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>JSON: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, responseObject);
+} <span class="pl-c1">failure:</span>^(AFHTTPRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+}];</pre></div>
+
+<h4><a id="user-content-post-url-form-encoded-request" class="anchor" href="#post-url-form-encoded-request" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>POST</code> URL-Form-Encoded Request</h4>
+
+<div class="highlight highlight-objective-c"><pre>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager <span class="pl-c1">manager</span>];
+<span class="pl-c1">NSDictionary</span> *parameters = @{<span class="pl-s"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>};
+[manager <span class="pl-c1">POST:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/resources.json<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span>parameters <span class="pl-c1">success:</span>^(AFHTTPRequestOperation *operation, <span class="pl-k">id</span> responseObject) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>JSON: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, responseObject);
+} <span class="pl-c1">failure:</span>^(AFHTTPRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+}];</pre></div>
+
+<h4><a id="user-content-post-multi-part-request" class="anchor" href="#post-multi-part-request" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>POST</code> Multi-Part Request</h4>
+
+<div class="highlight highlight-objective-c"><pre>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager <span class="pl-c1">manager</span>];
+<span class="pl-c1">NSDictionary</span> *parameters = @{<span class="pl-s"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>};
+<span class="pl-c1">NSURL</span> *filePath = [<span class="pl-c1">NSURL</span> <span class="pl-c1">fileURLWithPath:</span><span class="pl-s"><span class="pl-pds">@"</span>file://path/to/image.png<span class="pl-pds">"</span></span>];
+[manager <span class="pl-c1">POST:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/resources.json<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span>parameters <span class="pl-c1">constructingBodyWithBlock:</span>^(<span class="pl-k">id</span>&lt;AFMultipartFormData&gt; formData) {
+    [formData <span class="pl-c1">appendPartWithFileURL:</span>filePath <span class="pl-c1">name:</span><span class="pl-s"><span class="pl-pds">@"</span>image<span class="pl-pds">"</span></span> <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+} <span class="pl-c1">success:</span>^(AFHTTPRequestOperation *operation, <span class="pl-k">id</span> responseObject) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Success: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, responseObject);
+} <span class="pl-c1">failure:</span>^(AFHTTPRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+}];</pre></div>
+
+<hr>
+
+<h3><a id="user-content-afurlsessionmanager" class="anchor" href="#afurlsessionmanager" aria-hidden="true"><span class="octicon octicon-link"></span></a>AFURLSessionManager</h3>
+
+<p><code>AFURLSessionManager</code> creates and manages an <code>NSURLSession</code> object based on a specified <code>NSURLSessionConfiguration</code> object, which conforms to <code>&lt;NSURLSessionTaskDelegate&gt;</code>, <code>&lt;NSURLSessionDataDelegate&gt;</code>, <code>&lt;NSURLSessionDownloadDelegate&gt;</code>, and <code>&lt;NSURLSessionDelegate&gt;</code>.</p>
+
+<h4><a id="user-content-creating-a-download-task" class="anchor" href="#creating-a-download-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a Download Task</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSURLSessionConfiguration</span> *configuration = [<span class="pl-c1">NSURLSessionConfiguration</span> <span class="pl-c1">defaultSessionConfiguration</span>];
+AFURLSessionManager *manager = [[AFURLSessionManager <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithSessionConfiguration:</span>configuration];
+
+<span class="pl-c1">NSURL</span> *URL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/download.zip<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>URL];
+
+<span class="pl-c1">NSURLSessionDownloadTask</span> *downloadTask = [manager <span class="pl-c1">downloadTaskWithRequest:</span>request <span class="pl-c1">progress:</span><span class="pl-c1">nil</span> <span class="pl-c1">destination:</span>^<span class="pl-c1">NSURL</span> *(<span class="pl-c1">NSURL</span> *targetPath, <span class="pl-c1">NSURLResponse</span> *response) {
+    <span class="pl-c1">NSURL</span> *documentsDirectoryURL = [[<span class="pl-c1">NSFileManager</span> <span class="pl-c1">defaultManager</span>] <span class="pl-c1">URLForDirectory:</span>NSDocumentDirectory <span class="pl-c1">inDomain:</span>NSUserDomainMask <span class="pl-c1">appropriateForURL:</span><span class="pl-c1">nil</span> <span class="pl-c1">create:</span><span class="pl-c1">NO</span> <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+    <span class="pl-k">return</span> [documentsDirectoryURL <span class="pl-c1">URLByAppendingPathComponent:</span>[response <span class="pl-c1">suggestedFilename</span>]];
+} <span class="pl-c1">completionHandler:</span>^(<span class="pl-c1">NSURLResponse</span> *response, <span class="pl-c1">NSURL</span> *filePath, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>File downloaded to: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, filePath);
+}];
+[downloadTask <span class="pl-c1">resume</span>];</pre></div>
+
+<h4><a id="user-content-creating-an-upload-task" class="anchor" href="#creating-an-upload-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating an Upload Task</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSURLSessionConfiguration</span> *configuration = [<span class="pl-c1">NSURLSessionConfiguration</span> <span class="pl-c1">defaultSessionConfiguration</span>];
+AFURLSessionManager *manager = [[AFURLSessionManager <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithSessionConfiguration:</span>configuration];
+
+<span class="pl-c1">NSURL</span> *URL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/upload<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>URL];
+
+<span class="pl-c1">NSURL</span> *filePath = [<span class="pl-c1">NSURL</span> <span class="pl-c1">fileURLWithPath:</span><span class="pl-s"><span class="pl-pds">@"</span>file://path/to/image.png<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLSessionUploadTask</span> *uploadTask = [manager <span class="pl-c1">uploadTaskWithRequest:</span>request <span class="pl-c1">fromFile:</span>filePath <span class="pl-c1">progress:</span><span class="pl-c1">nil</span> <span class="pl-c1">completionHandler:</span>^(<span class="pl-c1">NSURLResponse</span> *response, <span class="pl-k">id</span> responseObject, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-k">if</span> (error) {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+    } <span class="pl-k">else</span> {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Success: <span class="pl-c1">%@</span> <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, response, responseObject);
+    }
+}];
+[uploadTask <span class="pl-c1">resume</span>];</pre></div>
+
+<h4><a id="user-content-creating-an-upload-task-for-a-multi-part-request-with-progress" class="anchor" href="#creating-an-upload-task-for-a-multi-part-request-with-progress" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating an Upload Task for a Multi-Part Request, with Progress</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSMutableURLRequest</span> *request = [[AFHTTPRequestSerializer <span class="pl-c1">serializer</span>] <span class="pl-c1">multipartFormRequestWithMethod:</span><span class="pl-s"><span class="pl-pds">@"</span>POST<span class="pl-pds">"</span></span> <span class="pl-c1">URLString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/upload<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">constructingBodyWithBlock:</span>^(<span class="pl-k">id</span>&lt;AFMultipartFormData&gt; formData) {
+        [formData <span class="pl-c1">appendPartWithFileURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">fileURLWithPath:</span><span class="pl-s"><span class="pl-pds">@"</span>file://path/to/image.jpg<span class="pl-pds">"</span></span>] <span class="pl-c1">name:</span><span class="pl-s"><span class="pl-pds">@"</span>file<span class="pl-pds">"</span></span> <span class="pl-c1">fileName:</span><span class="pl-s"><span class="pl-pds">@"</span>filename.jpg<span class="pl-pds">"</span></span> <span class="pl-c1">mimeType:</span><span class="pl-s"><span class="pl-pds">@"</span>image/jpeg<span class="pl-pds">"</span></span> <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+    } <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+
+AFURLSessionManager *manager = [[AFURLSessionManager <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithSessionConfiguration:</span>[<span class="pl-c1">NSURLSessionConfiguration</span> <span class="pl-c1">defaultSessionConfiguration</span>]];
+<span class="pl-c1">NSProgress</span> *progress = <span class="pl-c1">nil</span>;
+
+<span class="pl-c1">NSURLSessionUploadTask</span> *uploadTask = [manager <span class="pl-c1">uploadTaskWithStreamedRequest:</span>request <span class="pl-c1">progress:</span>&amp;progress <span class="pl-c1">completionHandler:</span>^(<span class="pl-c1">NSURLResponse</span> *response, <span class="pl-k">id</span> responseObject, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-k">if</span> (error) {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+    } <span class="pl-k">else</span> {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span> <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, response, responseObject);
+    }
+}];
+
+[uploadTask <span class="pl-c1">resume</span>];</pre></div>
+
+<h4><a id="user-content-creating-a-data-task" class="anchor" href="#creating-a-data-task" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a Data Task</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSURLSessionConfiguration</span> *configuration = [<span class="pl-c1">NSURLSessionConfiguration</span> <span class="pl-c1">defaultSessionConfiguration</span>];
+AFURLSessionManager *manager = [[AFURLSessionManager <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithSessionConfiguration:</span>configuration];
+
+<span class="pl-c1">NSURL</span> *URL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/upload<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>URL];
+
+<span class="pl-c1">NSURLSessionDataTask</span> *dataTask = [manager <span class="pl-c1">dataTaskWithRequest:</span>request <span class="pl-c1">completionHandler:</span>^(<span class="pl-c1">NSURLResponse</span> *response, <span class="pl-k">id</span> responseObject, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-k">if</span> (error) {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+    } <span class="pl-k">else</span> {
+        <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span> <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, response, responseObject);
+    }
+}];
+[dataTask <span class="pl-c1">resume</span>];</pre></div>
+
+<hr>
+
+<h3><a id="user-content-request-serialization" class="anchor" href="#request-serialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Serialization</h3>
+
+<p>Request serializers create requests from URL strings, encoding parameters as either a query string or HTTP body.</p>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSString</span> *URLString = <span class="pl-s"><span class="pl-pds">@"</span>http://example.com<span class="pl-pds">"</span></span>;
+<span class="pl-c1">NSDictionary</span> *parameters = @{<span class="pl-s"><span class="pl-pds">@"</span>foo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">@"</span>bar<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>baz<span class="pl-pds">"</span></span>: @[@<span class="pl-c1">1</span>, @<span class="pl-c1">2</span>, @<span class="pl-c1">3</span>]};</pre></div>
+
+<h4><a id="user-content-query-string-parameter-encoding" class="anchor" href="#query-string-parameter-encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query String Parameter Encoding</h4>
+
+<div class="highlight highlight-objective-c"><pre>[[AFHTTPRequestSerializer <span class="pl-c1">serializer</span>] <span class="pl-c1">requestWithMethod:</span><span class="pl-s"><span class="pl-pds">@"</span>GET<span class="pl-pds">"</span></span> <span class="pl-c1">URLString:</span>URLString <span class="pl-c1">parameters:</span>parameters <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<pre><code>GET http://example.com?foo=bar&amp;baz[]=1&amp;baz[]=2&amp;baz[]=3
+</code></pre>
+
+<h4><a id="user-content-url-form-parameter-encoding" class="anchor" href="#url-form-parameter-encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a>URL Form Parameter Encoding</h4>
+
+<div class="highlight highlight-objective-c"><pre>[[AFHTTPRequestSerializer <span class="pl-c1">serializer</span>] <span class="pl-c1">requestWithMethod:</span><span class="pl-s"><span class="pl-pds">@"</span>POST<span class="pl-pds">"</span></span> <span class="pl-c1">URLString:</span>URLString <span class="pl-c1">parameters:</span>parameters];</pre></div>
+
+<pre><code>POST http://example.com/
+Content-Type: application/x-www-form-urlencoded
+
+foo=bar&amp;baz[]=1&amp;baz[]=2&amp;baz[]=3
+</code></pre>
+
+<h4><a id="user-content-json-parameter-encoding" class="anchor" href="#json-parameter-encoding" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSON Parameter Encoding</h4>
+
+<div class="highlight highlight-objective-c"><pre>[[AFJSONRequestSerializer <span class="pl-c1">serializer</span>] <span class="pl-c1">requestWithMethod:</span><span class="pl-s"><span class="pl-pds">@"</span>POST<span class="pl-pds">"</span></span> <span class="pl-c1">URLString:</span>URLString <span class="pl-c1">parameters:</span>parameters];</pre></div>
+
+<pre><code>POST http://example.com/
+Content-Type: application/json
+
+{"foo": "bar", "baz": [1,2,3]}
+</code></pre>
+
+<hr>
+
+<h3><a id="user-content-network-reachability-manager" class="anchor" href="#network-reachability-manager" aria-hidden="true"><span class="octicon octicon-link"></span></a>Network Reachability Manager</h3>
+
+<p><code>AFNetworkReachabilityManager</code> monitors the reachability of domains, and addresses for both WWAN and WiFi network interfaces.</p>
+
+<ul>
+<li>Do not use Reachability to determine if the original request should be sent.
+
+<ul>
+<li>You should try to send it.</li>
+</ul></li>
+<li>You can use Reachability to determine when a request should be automatically retried.
+
+<ul>
+<li>Although it may still fail, a Reachability notification that the connectivity is available is a good time to retry something.</li>
+</ul></li>
+<li>Network reachability is a useful tool for determining why a request might have failed.
+
+<ul>
+<li>After a network request has failed, telling the user they're offline is better than giving them a more technical but accurate error, such as "request timed out."</li>
+</ul></li>
+</ul>
+
+
+<h4><a id="user-content-shared-network-reachability" class="anchor" href="#shared-network-reachability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shared Network Reachability</h4>
+
+<div class="highlight highlight-objective-c"><pre>[[AFNetworkReachabilityManager <span class="pl-c1">sharedManager</span>] <span class="pl-c1">setReachabilityStatusChangeBlock:</span>^(AFNetworkReachabilityStatus status) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Reachability: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, <span class="pl-c1">AFStringFromNetworkReachabilityStatus</span>(status));
+}];
+
+[[AFNetworkReachabilityManager <span class="pl-c1">sharedManager</span>] <span class="pl-c1">startMonitoring</span>];</pre></div>
+
+<h4><a id="user-content-http-manager-reachability" class="anchor" href="#http-manager-reachability" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP Manager Reachability</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSURL</span> *baseURL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/<span class="pl-pds">"</span></span>];
+AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithBaseURL:</span>baseURL];
+
+<span class="pl-c1">NSOperationQueue</span> *operationQueue = manager.operationQueue;
+[manager.reachabilityManager <span class="pl-c1">setReachabilityStatusChangeBlock:</span>^(AFNetworkReachabilityStatus status) {
+    <span class="pl-k">switch</span> (status) {
+        <span class="pl-k">case</span> AFNetworkReachabilityStatusReachableViaWWAN:
+        <span class="pl-k">case</span> AFNetworkReachabilityStatusReachableViaWiFi:
+            [operationQueue <span class="pl-c1">setSuspended:</span><span class="pl-c1">NO</span>];
+            <span class="pl-k">break</span>;
+        <span class="pl-k">case</span> AFNetworkReachabilityStatusNotReachable:
+        <span class="pl-k">default</span>:
+            [operationQueue <span class="pl-c1">setSuspended:</span><span class="pl-c1">YES</span>];
+            <span class="pl-k">break</span>;
+    }
+}];
+
+[manager.reachabilityManager <span class="pl-c1">startMonitoring</span>];</pre></div>
+
+<hr>
+
+<h3><a id="user-content-security-policy" class="anchor" href="#security-policy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Security Policy</h3>
+
+<p><code>AFSecurityPolicy</code> evaluates server trust against pinned X.509 certificates and public keys over secure connections.</p>
+
+<p>Adding pinned SSL certificates to your app helps prevent man-in-the-middle attacks and other vulnerabilities. Applications dealing with sensitive customer data or financial information are strongly encouraged to route all communication over an HTTPS connection with SSL pinning configured and enabled.</p>
+
+<h4><a id="user-content-allowing-invalid-ssl-certificates" class="anchor" href="#allowing-invalid-ssl-certificates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Allowing Invalid SSL Certificates</h4>
+
+<div class="highlight highlight-objective-c"><pre>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager <span class="pl-c1">manager</span>];
+manager.securityPolicy.allowInvalidCertificates = <span class="pl-c1">YES</span>; <span class="pl-c">// not recommended for production</span></pre></div>
+
+<hr>
+
+<h3><a id="user-content-afhttprequestoperation" class="anchor" href="#afhttprequestoperation" aria-hidden="true"><span class="octicon octicon-link"></span></a>AFHTTPRequestOperation</h3>
+
+<p><code>AFHTTPRequestOperation</code> is a subclass of <code>AFURLConnectionOperation</code> for requests using the HTTP or HTTPS protocols. It encapsulates the concept of acceptable status codes and content types, which determine the success or failure of a request.</p>
+
+<p>Although <code>AFHTTPRequestOperationManager</code> is usually the best way to go about making requests, <code>AFHTTPRequestOperation</code> can be used by itself.</p>
+
+<h4><a id="user-content-get-with-afhttprequestoperation" class="anchor" href="#get-with-afhttprequestoperation" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>GET</code> with <code>AFHTTPRequestOperation</code></h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSURL</span> *URL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/resources/123.json<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSURLRequest</span> *request = [<span class="pl-c1">NSURLRequest</span> <span class="pl-c1">requestWithURL:</span>URL];
+AFHTTPRequestOperation *op = [[AFHTTPRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request];
+op.responseSerializer = [AFJSONResponseSerializer <span class="pl-c1">serializer</span>];
+[op <span class="pl-c1">setCompletionBlockWithSuccess:</span>^(AFHTTPRequestOperation *operation, <span class="pl-k">id</span> responseObject) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>JSON: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, responseObject);
+} <span class="pl-c1">failure:</span>^(AFHTTPRequestOperation *operation, <span class="pl-c1">NSError</span> *error) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Error: <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, error);
+}];
+[[<span class="pl-c1">NSOperationQueue</span> <span class="pl-c1">mainQueue</span>] <span class="pl-c1">addOperation:</span>op];</pre></div>
+
+<h4><a id="user-content-batch-of-operations" class="anchor" href="#batch-of-operations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Batch of Operations</h4>
+
+<div class="highlight highlight-objective-c"><pre><span class="pl-c1">NSMutableArray</span> *mutableOperations = [<span class="pl-c1">NSMutableArray</span> <span class="pl-c1">array</span>];
+<span class="pl-k">for</span> (<span class="pl-c1">NSURL</span> *fileURL in filesToUpload) {
+    <span class="pl-c1">NSURLRequest</span> *request = [[AFHTTPRequestSerializer <span class="pl-c1">serializer</span>] <span class="pl-c1">multipartFormRequestWithMethod:</span><span class="pl-s"><span class="pl-pds">@"</span>POST<span class="pl-pds">"</span></span> <span class="pl-c1">URLString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://example.com/upload<span class="pl-pds">"</span></span> <span class="pl-c1">parameters:</span><span class="pl-c1">nil</span> <span class="pl-c1">constructingBodyWithBlock:</span>^(<span class="pl-k">id</span>&lt;AFMultipartFormData&gt; formData) {
+        [formData <span class="pl-c1">appendPartWithFileURL:</span>fileURL <span class="pl-c1">name:</span><span class="pl-s"><span class="pl-pds">@"</span>images[]<span class="pl-pds">"</span></span> <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+    }];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request];
+
+    [mutableOperations <span class="pl-c1">addObject:</span>operation];
+}
+
+<span class="pl-c1">NSArray</span> *operations = [AFURLConnectionOperation <span class="pl-c1">batchOfRequestOperations:</span>@[...] <span class="pl-c1">progressBlock:</span>^(<span class="pl-k">NSUInteger</span> numberOfFinishedOperations, <span class="pl-k">NSUInteger</span> totalNumberOfOperations) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%lu</span> of <span class="pl-c1">%lu</span> complete<span class="pl-pds">"</span></span>, numberOfFinishedOperations, totalNumberOfOperations);
+} <span class="pl-c1">completionBlock:</span>^(<span class="pl-c1">NSArray</span> *operations) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>All operations in batch complete<span class="pl-pds">"</span></span>);
+}];
+[[<span class="pl-c1">NSOperationQueue</span> <span class="pl-c1">mainQueue</span>] <span class="pl-c1">addOperations:</span>operations <span class="pl-c1">waitUntilFinished:</span><span class="pl-c1">NO</span>];</pre></div>
+
+<h2><a id="user-content-unit-tests" class="anchor" href="#unit-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unit Tests</h2>
+
+<p>AFNetworking includes a suite of unit tests within the Tests subdirectory. In order to run the unit tests, you must install the testing dependencies via CocoaPods:</p>
+
+<pre><code>$ cd Tests
+$ pod install
+</code></pre>
+
+<p>Once testing dependencies are installed, you can execute the test suite via the 'iOS Tests' and 'OS X Tests' schemes within Xcode.</p>
+
+<h3><a id="user-content-running-tests-from-the-command-line" class="anchor" href="#running-tests-from-the-command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Tests from the Command Line</h3>
+
+<p>Tests can also be run from the command line or within a continuous integration environment. The <code>xcpretty</code> utility needs to be installed before running the tests from the command line:</p>
+
+<pre><code>$ gem install xcpretty
+</code></pre>
+
+<p>Once <code>xcpretty</code> is installed, you can execute the suite via <code>rake test</code>.</p>
+</article>
+</body>
+</html>

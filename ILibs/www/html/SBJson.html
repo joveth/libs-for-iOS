@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-sbjson-4" class="anchor" href="#sbjson-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>SBJson 4</h1>
+
+<p>JSON (JavaScript Object Notation) is a light-weight data interchange format
+that's easy to read and write for humans and computers alike. This library
+implements chunk-based JSON parsing and generation in Objective-C.</p>
+
+	<h4>For more information, please visit stig/json-framework on GitHub. </h4>
+
+<h2><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<p>SBJson's number one feature is chunk-based operation. Feed the parser one or
+more chunks of UTF8-encoded data and it will call a block you provide with each
+root-level document or array. Or, optionally, for each top-level entry in each
+root-level array. See more in the Version 4 API
+docs.</p>
+
+<p>Other features:</p>
+
+<ul>
+<li>Configurable recursion limit. For safety SBJson defaults to a max nesting
+level of 32 for all input. This can be configured if necessary.</li>
+<li>The writer can optionally sort dictionary keys so output is consistent
+across writes.</li>
+<li>The writer can optionally create human-readable (indented) output.</li>
+</ul>
+
+<h2><a id="user-content-api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Documentation</h2>
+
+<p>Please see the API Documentation for
+more details.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The preferred way to use SBJson is by using
+CocoaPods. In your Podfile use:</p>
+
+<pre><code>pod 'SBJson', '~&gt; 4.0.1'
+</code></pre>
+
+<p>If you depend on a third-party library that requires an earlier version of
+SBJson---or want to install both version 3 and 4 in the same app to do a gradual
+transition---you can instead use:</p>
+
+<pre><code>pod 'SBJson4', '~&gt; 4.0.1'
+</code></pre>
+
+<p>An alternative that I no longer recommend is to copy all the source files (the
+contents of the <code>src/main/objc</code> folder) into your own Xcode project.</p>
+
+<h2><a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<ul>
+<li>https://github.com/stig/ChunkedDelivery - a toy example showing how one can
+use <code>NSURLSessionDataDelegate</code> to do chunked delivery.</li>
+<li>https://github.com/stig/DisplayPretty - a very brief example using SBJson 4
+to reflow JSON on OS X.</li>
+</ul>
+
+<h2><a id="user-content-support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<ul>
+<li>Check StackOverflow questions
+agged with SBJson if
+you have questions about how to use the library. I try to read all questions
+with this tag.</li>
+<li>Use the issue tracker if you
+have found a bug.</li>
+</ul>
+
+</article>
+</body>
+</html>

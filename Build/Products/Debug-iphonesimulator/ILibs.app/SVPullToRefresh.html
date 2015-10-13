@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>SVProgressHUD</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-svpulltorefresh--svinfinitescrolling" class="anchor" href="#svpulltorefresh--svinfinitescrolling" aria-hidden="true"><span class="octicon octicon-link"></span></a>SVPullToRefresh + SVInfiniteScrolling</h1>
+
+<p>These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any UIScrollView (or any of its subclass). Instead of relying on delegates and/or subclassing <code>UIViewController</code>, SVPullToRefresh uses the Objective-C runtime to add the following 3 methods to <code>UIScrollView</code>:</p>
+
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)addPullToRefreshWithActionHandler:(<span class="pl-k">void</span> (^)(<span class="pl-k">void</span>))actionHandler;
+- (<span class="pl-k">void</span>)addPullToRefreshWithActionHandler:(<span class="pl-k">void</span> (^)(<span class="pl-k">void</span>))actionHandler position:(SVPullToRefreshPosition)position;
+- (<span class="pl-k">void</span>)addInfiniteScrollingWithActionHandler:(<span class="pl-k">void</span> (^)(<span class="pl-k">void</span>))actionHandler;</pre></div>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3><a id="user-content-from-cocoapods" class="anchor" href="#from-cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>From CocoaPods</h3>
+
+<p>Add <code>pod 'SVPullToRefresh'</code> to your Podfile or <code>pod 'SVPullToRefresh', :head</code> if you're feeling adventurous.</p>
+
+<h3><a id="user-content-manually" class="anchor" href="#manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manually</h3>
+
+<p><em><strong>Important note if your project doesn't use ARC</strong>: you must add the <code>-fobjc-arc</code> compiler flag to <code>UIScrollView+SVPullToRefresh.m</code> and <code>UIScrollView+SVInfiniteScrolling.m</code> in Target Settings &gt; Build Phases &gt; Compile Sources.</em></p>
+
+<ul>
+<li>Drag the <code>SVPullToRefresh/SVPullToRefresh</code> folder into your project.</li>
+<li>Add the <strong>QuartzCore</strong> framework to your project.</li>
+<li>Import <code>UIScrollView+SVPullToRefresh.h</code> and/or <code>UIScrollView+SVInfiniteScrolling.h</code></li>
+</ul>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>More information,please view samvermette/SVPullToRefresh on GitHub.</p>
+
+<h3><a id="user-content-adding-pull-to-refresh" class="anchor" href="#adding-pull-to-refresh" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Pull to Refresh</h3>
+
+<div class="highlight highlight-objective-c"><pre>[tableView <span class="pl-c1">addPullToRefreshWithActionHandler:</span>^{
+    <span class="pl-c">// prepend data to dataSource, insert cells at top of table view</span>
+    <span class="pl-c">// call [tableView.pullToRefreshView stopAnimating] when done</span>
+}];</pre></div>
+
+<p>or if you want pull to refresh from the bottom</p>
+
+<div class="highlight highlight-objective-c"><pre>[tableView <span class="pl-c1">addPullToRefreshWithActionHandler:</span>^{
+    <span class="pl-c">// prepend data to dataSource, insert cells at top of table view</span>
+    <span class="pl-c">// call [tableView.pullToRefreshView stopAnimating] when done</span>
+} <span class="pl-c1">position:</span>SVPullToRefreshPositionBottom];</pre></div>
+
+<p>If you’d like to programmatically trigger the refresh (for instance in <code>viewDidAppear:</code>), you can do so with:</p>
+
+<div class="highlight highlight-objective-c"><pre>[tableView <span class="pl-c1">triggerPullToRefresh</span>];</pre></div>
+
+<p>You can temporarily hide the pull to refresh view by setting the <code>showsPullToRefresh</code> property:</p>
+
+<div class="highlight highlight-objective-c"><pre>tableView.showsPullToRefresh = <span class="pl-c1">NO</span>;</pre></div>
+
+<h4><a id="user-content-customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h4>
+
+<p>The pull to refresh view can be customized using the following properties/methods:</p>
+
+<div class="highlight highlight-objective-c"><pre>@property (nonatomic, strong) UIColor *arrowColor;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, readwrite) UIActivityIndicatorViewStyle activityIndicatorViewStyle;
+
+- (<span class="pl-k">void</span>)setTitle:(<span class="pl-c1">NSString</span> *)title forState:(SVPullToRefreshState)state;
+- (<span class="pl-k">void</span>)setSubtitle:(<span class="pl-c1">NSString</span> *)subtitle forState:(SVPullToRefreshState)state;
+- (<span class="pl-k">void</span>)setCustomView:(UIView *)view forState:(SVPullToRefreshState)state;</pre></div>
+
+<p>You can access these properties through your scroll view's <code>pullToRefreshView</code> property.</p>
+
+<p>For instance, you would set the <code>arrowColor</code> property using:</p>
+
+<div class="highlight highlight-objective-c"><pre>tableView.pullToRefreshView.arrowColor = [UIColor <span class="pl-c1">whiteColor</span>];</pre></div>
+
+<h3><a id="user-content-adding-infinite-scrolling" class="anchor" href="#adding-infinite-scrolling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding Infinite Scrolling</h3>
+
+<div class="highlight highlight-objective-c"><pre>[tableView <span class="pl-c1">addInfiniteScrollingWithActionHandler:</span>^{
+    <span class="pl-c">// append data to data source, insert new cells at the end of table view</span>
+    <span class="pl-c">// call [tableView.infiniteScrollingView stopAnimating] when done</span>
+}];</pre></div>
+
+<p>If you’d like to programmatically trigger the loading (for instance in <code>viewDidAppear:</code>), you can do so with:</p>
+
+<div class="highlight highlight-objective-c"><pre>[tableView <span class="pl-c1">triggerInfiniteScrolling</span>];</pre></div>
+
+<p>You can temporarily hide the infinite scrolling view by setting the <code>showsInfiniteScrolling</code> property:</p>
+
+<div class="highlight highlight-objective-c"><pre>tableView.showsInfiniteScrolling = <span class="pl-c1">NO</span>;</pre></div>
+
+<h4><a id="user-content-customization-1" class="anchor" href="#customization-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h4>
+
+<p>The infinite scrolling view can be customized using the following methods:</p>
+
+<div class="highlight highlight-objective-c"><pre>- (<span class="pl-k">void</span>)setActivityIndicatorViewStyle:(UIActivityIndicatorViewStyle)activityIndicatorViewStyle;
+- (<span class="pl-k">void</span>)setCustomView:(UIView *)view forState:(SVInfiniteScrollingState)state;</pre></div>
+
+<p>You can access these properties through your scroll view's <code>infiniteScrollingView</code> property. </p>
+
+<h2><a id="user-content-under-the-hood" class="anchor" href="#under-the-hood" aria-hidden="true"><span class="octicon octicon-link"></span></a>Under the hood</h2>
+
+<p>SVPullToRefresh extends <code>UIScrollView</code> by adding new public methods as well as a dynamic properties. </p>
+
+<p>It uses key-value observing to track the scrollView's <code>contentOffset</code>.</p>
+
+</article>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-mwphotobrowser" class="anchor" href="#mwphotobrowser" aria-hidden="true"><span class="octicon octicon-link"></span></a>MWPhotoBrowser</h1>
+
+<p>For more information,please visit mwaterfall/MWPhotoBrowser.</p>
+<h2><a id="user-content-a-simple-ios-photo-and-video-browser-with-optional-grid-view-captions-and-selections" class="anchor" href="#a-simple-ios-photo-and-video-browser-with-optional-grid-view-captions-and-selections" aria-hidden="true"><span class="octicon octicon-link"></span></a>A simple iOS photo and video browser with optional grid view, captions and selections.</h2>
+
+<p>MWPhotoBrowser can display one or more images or videos by providing either <code>UIImage</code> objects, <code>PHAsset</code> objects, or URLs to library assets, web images/videos or local files. The photo browser handles the downloading and caching of photos from the web seamlessly. Photos can be zoomed and panned, and optional (customisable) captions can be displayed.</p>
+
+<p>The browser can also be used to allow the user to select one or more photos using either the grid or main image view.</p>
+
+<p><a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser1.png"><img src="https://camo.githubusercontent.com/2f47c5ac3865bf4b09d3c77e2d325d5d5abf09fe/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657231742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser1t.png" style="max-width:100%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser2.png"><img src="https://camo.githubusercontent.com/63d7c74ca5cd1006c6669957fc27d8eae76f1292/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657232742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser2t.png" style="max-width:100%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser3.png"><img src="https://camo.githubusercontent.com/364e2c6420c8a1e862db9d0990d77e0d5e2a4f9e/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657233742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser3t.png" style="max-width:100%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser4.png"><img src="https://camo.githubusercontent.com/194b07b3ed16c041c6f6f9ba2415da747e60d2ee/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657234742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser4t.png" style="max-width:100%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser5.png"><img src="https://camo.githubusercontent.com/4ae62a60cf5f1a1c71ba661fdb16f45382597f5f/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657235742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser5t.png" style="max-width:100%;"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser6.png"><img src="https://camo.githubusercontent.com/f5bf8304ecd7517b152c330c7a1f2611ac1448ac/68747470733a2f2f7261772e6769746875622e636f6d2f6d776174657266616c6c2f4d5750686f746f42726f777365722f6d61737465722f53637265656e73686f74732f4d5750686f746f42726f7773657236742e706e67" alt="Alt" data-canonical-src="https://raw.github.com/mwaterfall/MWPhotoBrowser/master/Screenshots/MWPhotoBrowser6t.png" style="max-width:100%;"></a></p>
+
+<p>Works on iOS 7+. All strings are localisable so they can be used in apps that support multiple languages.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>MWPhotoBrowser is designed to be presented within a navigation controller. Simply set the delegate (which must conform to <code>MWPhotoBrowserDelegate</code>) and implement the 2 required delegate methods to provide the photo browser with the data in the form of <code>MWPhoto</code> objects. You can create an <code>MWPhoto</code> object by providing a <code>UIImage</code> object, <code>PHAsset</code> object, or a URL containing the path to a file, an image online or an asset from the asset library.</p>
+
+<p><code>MWPhoto</code> objects handle caching, file management, downloading of web images, and various optimisations for you. If however you would like to use your own data model to represent photos you can simply ensure your model conforms to the <code>MWPhoto</code> protocol. You can then handle the management of caching, downloads, etc, yourself. More information on this can be found in <code>MWPhotoProtocol.h</code>.</p>
+
+<p>See the code snippet below for an example of how to implement the photo browser. There is also a simple demo app within the project.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">// Create array of MWPhoto objects</span>
+self.photos = [<span class="pl-c1">NSMutableArray</span> <span class="pl-c1">array</span>];
+
+<span class="pl-c">// Add photos</span>
+[photos <span class="pl-c1">addObject:</span>[MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">fileURLWithPath:</span>[[<span class="pl-c1">NSBundle</span> <span class="pl-c1">mainBundle</span>] <span class="pl-c1">pathForResource:</span><span class="pl-s"><span class="pl-pds">@"</span>photo2l<span class="pl-pds">"</span></span> <span class="pl-c1">ofType:</span><span class="pl-s"><span class="pl-pds">@"</span>jpg<span class="pl-pds">"</span></span>]]]];
+[photos <span class="pl-c1">addObject:</span>[MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg<span class="pl-pds">"</span></span>]]];
+[photos <span class="pl-c1">addObject:</span>[MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg<span class="pl-pds">"</span></span>]]];
+
+<span class="pl-c">// Add video with poster photo</span>
+MWPhoto *video = [MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xpt1/t51.2885-15/e15/11192696_824079697688618_1761661_n.jpg<span class="pl-pds">"</span></span>]];
+video.videoURL = [[<span class="pl-c1">NSURL</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xpa1/t50.2886-16/11200303_1440130956287424_1714699187_n.mp4<span class="pl-pds">"</span></span>];
+[photos <span class="pl-c1">addObject:</span>video];
+
+<span class="pl-c">// Create browser (must be done each time photo browser is</span>
+<span class="pl-c">// displayed. Photo browser objects cannot be re-used)</span>
+MWPhotoBrowser *browser = [[MWPhotoBrowser <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithDelegate:</span><span class="pl-v">self</span>];
+
+<span class="pl-c">// Set options</span>
+browser.displayActionButton = <span class="pl-c1">YES</span>; <span class="pl-c">// Show action button to allow sharing, copying, etc (defaults to YES)</span>
+browser.displayNavArrows = <span class="pl-c1">NO</span>; <span class="pl-c">// Whether to display left and right nav arrows on toolbar (defaults to NO)</span>
+browser.displaySelectionButtons = <span class="pl-c1">NO</span>; <span class="pl-c">// Whether selection buttons are shown on each image (defaults to NO)</span>
+browser.zoomPhotosToFill = <span class="pl-c1">YES</span>; <span class="pl-c">// Images that almost fill the screen will be initially zoomed to fill (defaults to YES)</span>
+browser.alwaysShowControls = <span class="pl-c1">NO</span>; <span class="pl-c">// Allows to control whether the bars and controls are always visible or whether they fade away to show the photo full (defaults to NO)</span>
+browser.enableGrid = <span class="pl-c1">YES</span>; <span class="pl-c">// Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)</span>
+browser.startOnGrid = <span class="pl-c1">NO</span>; <span class="pl-c">// Whether to start on the grid of thumbnails instead of the first photo (defaults to NO)</span>
+browser.autoPlayOnAppear = <span class="pl-c1">NO</span>; <span class="pl-c">// Auto-play first video</span>
+
+<span class="pl-c">// Customise selection images to change colours if required</span>
+browser.customImageSelectedIconName = <span class="pl-s"><span class="pl-pds">@"</span>ImageSelected.png<span class="pl-pds">"</span></span>;
+browser.customImageSelectedSmallIconName = <span class="pl-s"><span class="pl-pds">@"</span>ImageSelectedSmall.png<span class="pl-pds">"</span></span>;
+
+<span class="pl-c">// Optionally set the current visible photo before displaying</span>
+[browser <span class="pl-c1">setCurrentPhotoIndex:</span><span class="pl-c1">1</span>];
+
+<span class="pl-c">// Present</span>
+[<span class="pl-v">self</span>.navigationController <span class="pl-c1">pushViewController:</span>browser <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+
+<span class="pl-c">// Manipulate</span>
+[browser <span class="pl-c1">showNextPhotoAnimated:</span><span class="pl-c1">YES</span>];
+[browser <span class="pl-c1">showPreviousPhotoAnimated:</span><span class="pl-c1">YES</span>];
+[browser <span class="pl-c1">setCurrentPhotoIndex:</span><span class="pl-c1">10</span>];</pre></div>
+
+<p>Then respond to the required delegate methods:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">NSUInteger</span>)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    <span class="pl-k">return</span> self.<span class="pl-smi">photos</span>.<span class="pl-smi">count</span>;
+}
+
+- (<span class="pl-k">id</span> &lt;MWPhoto&gt;)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(<span class="pl-k">NSUInteger</span>)index {
+    <span class="pl-k">if</span> (<span class="pl-c1">index</span> &lt; self.<span class="pl-smi">photos</span>.<span class="pl-smi">count</span>) {
+        <span class="pl-k">return</span> [<span class="pl-v">self</span>.photos <span class="pl-c1">objectAtIndex:</span><span class="pl-c1">index</span>];
+    }
+    <span class="pl-k">return</span> <span class="pl-c1">nil</span>;
+}</pre></div>
+
+<p>You can present the browser modally simply by wrapping it in a new navigation controller and presenting that. The demo app allows you to toggle between the two presentation types.</p>
+
+<h3><a id="user-content-videos" class="anchor" href="#videos" aria-hidden="true"><span class="octicon octicon-link"></span></a>Videos</h3>
+
+<p>You can represent videos in MWPhoto objects by providing a standard MWPhoto image object with a <code>videoURL</code>. You can also use a <code>PHAsset</code> object or a URL to an assets library video.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">// Video with URL including poster photo</span>
+MWPhoto *video = [MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xpt1/t51.2885-15/e15/11192696_824079697688618_1761661_n.jpg<span class="pl-pds">"</span></span>]];
+video.videoURL = [<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xpa1/t50.2886-16/11200303_1440130956287424_1714699187_n.mp4<span class="pl-pds">"</span></span>];
+
+<span class="pl-c">// Video with PHAsset</span>
+MWPhoto *video = [MWPhoto <span class="pl-c1">photoWithAsset:</span>asset <span class="pl-c1">targetSize:</span>[UIScreen <span class="pl-c1">mainScreen</span>].bounds.size]; <span class="pl-c">// Example sizing</span>
+
+<span class="pl-c">// Video with ALAsset</span>
+MWPhoto *video = [MWPhoto <span class="pl-c1">photoWithURL:</span>asset.defaultRepresentation.url];
+<span class="pl-k">if</span> ([asset <span class="pl-c1">valueForProperty:</span>ALAssetPropertyType] == ALAssetTypeVideo) {
+    photo.<span class="pl-smi">videoURL</span> = asset.<span class="pl-smi">defaultRepresentation</span>.<span class="pl-smi">url</span>;
+}
+
+<span class="pl-c">// Video with no poster photo</span>
+MWPhoto *video = [MWPhoto <span class="pl-c1">videoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xfa1/t50.2886-16/11237510_945154435524423_2137519922_n.mp4<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c">// Video grid thumbnail</span>
+MWPhoto *videoThumb = [MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>https://scontent.cdninstagram.com/hphotos-xaf1/t51.2885-15/s150x150/e15/11240463_963135443745570_1519872157_n.jpg<span class="pl-pds">"</span></span>]];
+videoThumb.isVideo = <span class="pl-c1">YES</span>;
+
+<span class="pl-c">// Video grid thumbnail for video with no poster photo</span>
+MWPhoto *videoThumb = [MWPhoto <span class="pl-c1">new</span>];
+videoThumb.isVideo = <span class="pl-c1">YES</span>;
+</pre></div>
+
+<h3><a id="user-content-grid" class="anchor" href="#grid" aria-hidden="true"><span class="octicon octicon-link"></span></a>Grid</h3>
+
+<p>In order to properly show the grid of thumbnails, you must ensure the property <code>enableGrid</code> is set to <code>YES</code>, and implement the following delegate method:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">id</span> &lt;MWPhoto&gt;)photoBrowser:(MWPhotoBrowser *)photoBrowser thumbPhotoAtIndex:(<span class="pl-k">NSUInteger</span>)index;</pre></div>
+
+<p>The photo browser can also start on the grid by enabling the <code>startOnGrid</code> property.</p>
+
+<h3><a id="user-content-actions" class="anchor" href="#actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Actions</h3>
+
+<p>By default, if the action button is visible then the image (and caption if it exists) are sent to a UIActivityViewController.</p>
+
+<p>You can provide a custom action by implementing the following delegate method:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)photoBrowser:(MWPhotoBrowser *)photoBrowser actionButtonPressedForPhotoAtIndex:(<span class="pl-k">NSUInteger</span>)index {
+    <span class="pl-c">// Do your thing!</span>
+}</pre></div>
+
+<h3><a id="user-content-photo-captions" class="anchor" href="#photo-captions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Photo Captions</h3>
+
+<p>Photo captions can be displayed simply by setting the <code>caption</code> property on specific photos:</p>
+
+<div class="highlight highlight-source-objc"><pre>MWPhoto *photo = [MWPhoto <span class="pl-c1">photoWithURL:</span>[<span class="pl-c1">NSURL</span> <span class="pl-c1">URLWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>http://farm4.static.flickr.com/3629/3339128908_7aecabc34b.jpg<span class="pl-pds">"</span></span>]];
+photo.caption = <span class="pl-s"><span class="pl-pds">@"</span>Campervan<span class="pl-pds">"</span></span>;</pre></div>
+
+<p>No caption will be displayed if the caption property is not set.</p>
+
+<h4><a id="user-content-custom-captions" class="anchor" href="#custom-captions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom Captions</h4>
+
+<p>By default, the caption is a simple black transparent view with a label displaying the photo's caption in white. If you want to implement your own caption view, follow these steps:</p>
+
+<ol>
+<li>Optionally use a subclass of <code>MWPhoto</code> for your photos so you can store more data than a simple caption string.</li>
+<li>Subclass <code>MWCaptionView</code> and override <code>-setupCaption</code> and <code>-sizeThatFits:</code> (and any other UIView methods you see fit) to layout your own view and set it's size. More information on this can be found in <code>MWCaptionView.h</code></li>
+<li>Implement the <code>-photoBrowser:captionViewForPhotoAtIndex:</code> MWPhotoBrowser delegate method (shown below).</li>
+</ol>
+
+<p>Example delegate method for custom caption view:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (MWCaptionView *)photoBrowser:(MWPhotoBrowser *)photoBrowser captionViewForPhotoAtIndex:(<span class="pl-k">NSUInteger</span>)index {
+    MWPhoto *photo = [<span class="pl-v">self</span>.photos <span class="pl-c1">objectAtIndex:</span><span class="pl-c1">index</span>];
+    MyMWCaptionViewSubclass *captionView = [[MyMWCaptionViewSubclass <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithPhoto:</span>photo];
+    <span class="pl-k">return</span> captionView;
+}</pre></div>
+
+<h4><a id="user-content-selections" class="anchor" href="#selections" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selections</h4>
+
+<p>The photo browser can display check boxes allowing the user to select one or more of the photos. To use this feature, simply enable the <code>displaySelectionButtons</code> property, and implement the following delegate methods:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">BOOL</span>)photoBrowser:(MWPhotoBrowser *)photoBrowser isPhotoSelectedAtIndex:(<span class="pl-k">NSUInteger</span>)index {
+    <span class="pl-k">return</span> [[_selections <span class="pl-c1">objectAtIndex:</span><span class="pl-c1">index</span>] <span class="pl-c1">boolValue</span>];
+}
+
+- (<span class="pl-k">void</span>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(<span class="pl-k">NSUInteger</span>)index selectedChanged:(<span class="pl-k">BOOL</span>)selected {
+    [_selections <span class="pl-c1">replaceObjectAtIndex:</span><span class="pl-c1">index</span> <span class="pl-c1">withObject:</span>[<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithBool:</span>selected]];
+}</pre></div>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>MWPhotoBrowser is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">"</span>MWPhotoBrowser<span class="pl-pds">"</span></span></pre></div>
+
+<h2><a id="user-content-usage-1" class="anchor" href="#usage-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+
+<p>Then import the photo browser into your source files (or into your bridging header if you're using with Swift and not using frameworks with Cocoapods):</p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>MWPhotoBrowser.h<span class="pl-pds">"</span></span></pre></div>
+
+<p>If you are using Swift and frameworks, then you can just import the browser into your Swift source file:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-c1">MWPhotoBrowser</span></pre></div>
+
+<h2><a id="user-content-author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p>Michael Waterfall, michael@d3i.com</p>
+
+</article>
+</body>
+</html>

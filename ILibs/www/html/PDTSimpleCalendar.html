@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-pdtsimplecalendar" class="anchor" href="#pdtsimplecalendar" aria-hidden="true"><span class="octicon octicon-link"></span></a>PDTSimpleCalendar</h1>
+
+<p>PDTSimpleCalendar is a very simple calendar/date picker component for your iOS apps based on UICollectionView.More information,Please visit <b>jivesoftware/PDTSimpleCalendar</b> on GitHub.</p>
+
+<p><a href="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/default.png" target="_blank"><img src="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/default.png" alt="Default" style="max-width:100%;"></a>
+<a href="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/scrolling.png" target="_blank"><img src="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/scrolling.png" alt="Scrolling" style="max-width:100%;"></a>
+<a href="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/hebrew.png" target="_blank"><img src="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/hebrew.png" alt="Hebrew" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3><a id="user-content-cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cocoapods</h3>
+
+<p>in your <code>Podfile</code> just add:</p>
+
+<p><code>pod 'PDTSimpleCalendar', '~&gt; 0.9.1'</code></p>
+
+<p>then run <code>pod install</code></p>
+
+<p>And finally in your project import <code>#import &lt;PDTSimpleCalendar/PDTSimpleCalendar.h&gt;</code></p>
+
+<h3><a id="user-content-carthage" class="anchor" href="#carthage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Carthage</h3>
+
+<p>In your <code>Cartfile</code> simply add:</p>
+
+<p><code>github "jivesoftware/PDTSimpleCalendar" ~&gt; 0.9.1</code></p>
+
+<p>run <code>carthage update</code></p>
+
+<p>Finally you need to add the built framework to your project. For more information about Carthage : github.com/Carthage/Carthage</p>
+
+<p><strong>Warning</strong>: Carthage uses dynamic framework and will only work if your app targets iOS 8.0 or later.</p>
+
+<h3><a id="user-content-old-school" class="anchor" href="#old-school" aria-hidden="true"><span class="octicon octicon-link"></span></a>Old-School</h3>
+
+<p>If you don't like cocoapods or Carthage or Cocoapods-Rome, you can still import it using <code>git submodule</code> or simply copy/paste all the source files in <code>PDTSimpleCalendar</code> to your project.</p>
+
+<h2><a id="user-content-customize-it" class="anchor" href="#customize-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customize it</h2>
+
+<h3><a id="user-content-calendar" class="anchor" href="#calendar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calendar</h3>
+
+<ul>
+<li><code>firstDate</code> : When the calendar must starts. If you don't specify anything, it will default to the first day of the current month (based on <code>[NSDate date]</code>). If <code>firstDate</code> is not the 1st of the month, the calendar will display the full month, but dates &lt; <code>firstDate</code> will be disabled.</li>
+<li><code>lastDate</code> : When the calendar must ends. If you don't specify anything, it will default to the last day of the next year (based on <code>firstDate</code>). If <code>lastDate</code> is not the last day of the month, the calendar will display the full month, but dates &gt; <code>lastDate</code> will be disabled.</li>
+<li><code>calendar</code> : Which calendar to use for display and date calculations. You can set any calendar supported by <code>NSCalendar</code>. the default value will be <code>[NSCalendar currentCalendar]</code>.</li>
+<li><code>weekdayHeaderEnabled</code>: If enabled, add an extra header on top of the calendar with the days of the week. Default is NO.</li>
+<li><code>weekdayTextType</code>: If weekday header is enabled,  you can customize the format of the label. (Short (3 letters), VeryShort (1 letter), StandAlone (Full name of the day))</li>
+</ul>
+
+<h3><a id="user-content-colors" class="anchor" href="#colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colors</h3>
+
+<p>You can change the display of the calendar using <code>backgroundColor</code> &amp; <code>overlayTextColor</code> properties on <code>PDTSimpleCalendarViewController</code>.</p>
+
+<p>Other colors can be set using UIAppearance on <code>PDTSimpleCalendarViewCell</code>, <code>PDTSimpleCalendarViewHeader</code> &amp; <code>PDTSimpleCalendarViewWeekdayHeader</code></p>
+
+<pre><code>[[PDTSimpleCalendarViewCell appearance] setCircleDefaultColor:[UIColor whiteColor]];
+[[PDTSimpleCalendarViewCell appearance] setCircleSelectedColor:[UIColor orangeColor]];
+[[PDTSimpleCalendarViewCell appearance] setCircleTodayColor:[UIColor blueColor]];
+[[PDTSimpleCalendarViewCell appearance] setTextDefaultColor:[UIColor redColor]];
+[[PDTSimpleCalendarViewCell appearance] setTextSelectedColor:[UIColor purpleColor]];
+[[PDTSimpleCalendarViewCell appearance] setTextTodayColor:[UIColor magentaColor]];
+[[PDTSimpleCalendarViewCell appearance] setTextDisabledColor:[UIColor yellowColor]];
+
+[[PDTSimpleCalendarViewHeader appearance] setTextColor:[UIColor redColor]];
+[[PDTSimpleCalendarViewHeader appearance] setSeparatorColor:[UIColor orangeColor]];
+
+[[PDTSimpleCalendarViewWeekdayHeader appearance] setHeaderBackgroundColor:[UIColor lightGrayColor]];
+[[PDTSimpleCalendarViewWeekdayHeader appearance] setTextColor:[UIColor orangeColor]];
+</code></pre>
+
+<p><em>See the Demo for the full API and even more customization.</em></p>
+
+<p>Here is how it looks in the Producteev app:</p>
+
+<p><a href="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/producteev.png" target="_blank"><img src="https://github.com/jivesoftware/PDTSimpleCalendar/raw/master/Documentation/producteev.png" alt="Producteev" style="max-width:100%;"></a></p>
+
+</article>
+</body>
+</html>

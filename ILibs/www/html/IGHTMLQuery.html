@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is it?</h1>
+
+<p>IGHTMLQuery is a lightweight XML/HTML parser for iOS, built on top of libxml. It is inspired by jQuery and nokogiri. Consider following snippets:</p>
+
+<div class="highlight highlight-source-objc"><pre>IGXMLDocument* node = [[IGXMLDocument <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithXMLString:</span>catelogXml <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];
+<span class="pl-c1">NSString</span>* title = [[[node <span class="pl-c1">queryWithXPath:</span><span class="pl-s"><span class="pl-pds">@"</span>//cd/title<span class="pl-pds">"</span></span>] <span class="pl-c1">firstObject</span>] <span class="pl-c1">text</span>];
+[[node <span class="pl-c1">queryWithXPath:</span><span class="pl-s"><span class="pl-pds">@"</span>//title<span class="pl-pds">"</span></span>] <span class="pl-c1">enumerateNodesUsingBlock:</span>^(IGXMLNode *title, <span class="pl-k">NSUInteger</span> idx, <span class="pl-k">BOOL</span> *stop) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>title = <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, title.<span class="pl-smi">text</span>);
+}];
+
+<span class="pl-c">// or use CSS Selector</span>
+[[node <span class="pl-c1">queryWithCSS:</span><span class="pl-s"><span class="pl-pds">@"</span>title<span class="pl-pds">"</span></span>] <span class="pl-c1">enumerateNodesUsingBlock:</span>^(IGXMLNode *title, <span class="pl-k">NSUInteger</span> idx, <span class="pl-k">BOOL</span> *stop) {
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>title = <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, title.<span class="pl-smi">text</span>);
+}];
+
+<span class="pl-c">// quick manipulation</span>
+[[node <span class="pl-c1">queryWithXPath:</span><span class="pl-s"><span class="pl-pds">@"</span>//title<span class="pl-pds">"</span></span>] <span class="pl-c1">appendWithXMLString:</span><span class="pl-s"><span class="pl-pds">@"</span>&lt;message&gt;Hi!&lt;/message&gt;<span class="pl-pds">"</span></span>];</pre></div>
+
+<h2><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Use XPath and CSS Selector for document searching.</li>
+<li>jQuery style chainable syntax.</li>
+<li>XML traversal and manipulation.</li>
+</ul>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>IGHTMLQuery is available through <a href="http://cocoapods.org/">CocoaPods</a>, to install it simply add the following line to your Podfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">"</span>IGHTMLQuery<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 0.8.4<span class="pl-pds">"</span></span></pre></div>
+
+<p>Alternatively:</p>
+
+<ol>
+<li>Add all the source files in <code>Classes</code> to your Xcoe project</li>
+<li>In "Build Phases" &gt; "Link Binary With Libraries, add <code>libxml2</code>.</li>
+<li>In "Build Setting", find "Header Search Paths" and add "$(SDK_DIR)/usr/include/libxml2"</li>
+</ol>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3><a id="user-content-import-header" class="anchor" href="#import-header" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import header</h3>
+
+<p>For each files using IGHTMLQuery, import <code>IGHTMLQuery.h</code>:</p>
+
+<pre><code>#import 'IGHTMLQuery.h'
+</code></pre>
+
+<h3><a id="user-content-create-a-document" class="anchor" href="#create-a-document" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a document</h3>
+
+<p>Create a XML document:</p>
+
+<div class="highlight highlight-source-objc"><pre>IGXMLDocument* node = [[IGXMLDocument <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithXMLString:</span>xml <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<p>Create a HTML document:</p>
+
+<div class="highlight highlight-source-objc"><pre>IGHTMLDocument* node = [[IGHTMLDocument <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithHTMLString:</span>html <span class="pl-c1">error:</span><span class="pl-c1">nil</span>];</pre></div>
+
+<h3><a id="user-content-traversal" class="anchor" href="#traversal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Traversal</h3>
+
+<p>Use <code>parent</code>, <code>nextSibling</code>, <code>previousSibling</code>, <code>children</code> and <code>firstChild</code> to traverse the document.</p>
+
+<h3><a id="user-content-query-using-xpath-or-css-selector" class="anchor" href="#query-using-xpath-or-css-selector" aria-hidden="true"><span class="octicon octicon-link"></span></a>Query using XPath or CSS Selector</h3>
+
+<p>You can query the document or any node with <code>queryWithXPath:</code> or <code>queryWithCSS:</code> methods. They will always return a <code>IGXMLNodeSet</code> object, which is a set like object that you can chain query and operations.</p>
+
+<div class="highlight highlight-source-objc"><pre>IGXMLNodeSet* contents = [doc <span class="pl-c1">queryWithXPath:</span><span class="pl-s"><span class="pl-pds">@"</span>//div[@class='content']<span class="pl-pds">"</span></span>];
+[contents <span class="pl-c1">enumerateNodesUsingBlock:</span>^(IGXMLNode* content, <span class="pl-k">NSUInteger</span> idx, <span class="pl-k">BOOL</span> *stop){
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, content.<span class="pl-smi">xml</span>);
+}];
+
+<span class="pl-c">// use a @try/@catch block for queryWithCSS, as it can throw an exception if </span>
+<span class="pl-c">// the CSS Selector cannot be converted to XPath.</span>
+<span class="pl-k">@try</span> {
+  contents = [doc <span class="pl-c1">queryWithCSS:</span><span class="pl-s"><span class="pl-pds">@"</span>div.content<span class="pl-pds">"</span></span>];
+  [contents <span class="pl-c1">enumerateNodesUsingBlock:</span>^(IGXMLNode* content, <span class="pl-k">NSUInteger</span> idx, <span class="pl-k">BOOL</span> *stop){
+      <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, content.<span class="pl-smi">xml</span>);
+  }];
+} <span class="pl-k">@catch</span>(<span class="pl-c1">NSException</span> * e) {
+  <span class="pl-c">// handle error</span>
+}</pre></div>
+
+<h3><a id="user-content-document-manipulation" class="anchor" href="#document-manipulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Document Manipulation</h3>
+
+<p>You can change the document using methods in <code>IGXMLNodeManipulation</code> protocol.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">@protocol</span> <span class="pl-en">IGXMLNodeManipulation</span> &lt;NSObject&gt;
+
+-(<span class="pl-k">instancetype</span>) <span class="pl-en">appendWithNode</span><span class="pl-en">:</span>(IGXMLNode*)<span class="pl-smi">child</span>;
+
+-(<span class="pl-k">instancetype</span>) <span class="pl-en">prependWithNode</span><span class="pl-en">:</span>(IGXMLNode*)<span class="pl-smi">child</span>;
+
+-(<span class="pl-k">instancetype</span>) <span class="pl-en">addChildWithNode</span><span class="pl-en">:</span>(IGXMLNode*)<span class="pl-smi">child</span>;
+
+-(<span class="pl-k">instancetype</span>) <span class="pl-en">addNextSiblingWithNode</span><span class="pl-en">:</span>(IGXMLNode*)<span class="pl-smi">child</span>;
+
+-(<span class="pl-k">instancetype</span>) <span class="pl-en">addPreviousSiblingWithNode</span><span class="pl-en">:</span>(IGXMLNode*)<span class="pl-smi">child</span>;
+
+-(<span class="pl-k">void</span>) <span class="pl-en">empty</span>;
+
+-(<span class="pl-k">void</span>) <span class="pl-en">remove</span>;
+
+<span class="pl-k">@end</span>
+</pre></div>
+
+<h2><a id="user-content-javascriptruby-support" class="anchor" href="#javascriptruby-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>JavaScript/Ruby support</h2>
+
+<p>All classes in IGHTMLQuery supports JavaScriptCore exports. Additionally there
+are Ruby wrappers to used with <a href="https://github.com/siuying/JavaScriptCoreOpalAdditions">JavaScriptCoreOpalAdditions</a>, which allow you to manipulate DOM with Ruby in Objective-C like this ...</p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>JSContext+IGHTMLQueryRubyAdditions.h<span class="pl-pds">"</span></span>
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>JSContext+OpalAdditions.h<span class="pl-pds">"</span></span>
+
+<span class="pl-c">// load IGHTMLQuery ruby wrapper classes</span>
+[context <span class="pl-c1">configureIGHTMLQuery</span>];
+
+<span class="pl-c">// create a lambda that evalulate script on the fly</span>
+JSValue* instanceEval = [context <span class="pl-c1">evaluateRuby:</span><span class="pl-s"><span class="pl-pds">@"</span>lambda { |doc, script| XMLNode.new(doc).instance_eval(&amp;eval(<span class="pl-cce">\"</span>lambda { #{script} }<span class="pl-cce">\"</span>)) }<span class="pl-pds">"</span></span>];
+
+<span class="pl-c">// a simple script that find the title of first cd have a price less than 9.0</span>
+JSValue* node = [instanceEval <span class="pl-c1">callWithArguments:</span>@[doc, <span class="pl-s"><span class="pl-pds">@"</span>self.xpath('//cd').find {|node| node.xpath('./price').text.to_f &lt; 9.0 }.xpath('./title').text<span class="pl-pds">"</span></span>]];
+
+<span class="pl-c">// convert the result to string</span>
+<span class="pl-c1">NSString</span>* title = [node <span class="pl-c1">toString</span>];
+<span class="pl-en">XCTAssertEqualObjects</span>((<span class="pl-s"><span class="pl-pds">@"</span>Greatest Hits<span class="pl-pds">"</span></span>), title, @"title should be Greatest Hits");</pre></div>
+
+<p>To use IGHTMLQuery with Ruby support, add following line to your Podfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">"</span>IGHTMLQuery/Ruby<span class="pl-pds">"</span></span></pre></div>
+
+<p>See <a href="https://github.com/siuying/IGHTMLQuery/blob/master/IGHTMLQueryTests/IGRubyTests.m">Test Cases</a> for more detail.</p>
+
+<h2><a id="user-content-breaking-changes" class="anchor" href="#breaking-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Breaking Changes</h2>
+
+<h3><a id="user-content-072" class="anchor" href="#072" aria-hidden="true"><span class="octicon octicon-link"></span></a>0.7.2</h3>
+
+<p>In previous version, the method <code>[[IGHTMLDocument alloc] initWithHTMLString:]</code> will create html element without implied HTML tag. (HTML_PARSE_NOIMPLIED option in libxml). Since 0.7.2, HTML_PARSE_NOIMPLIED will no longer be the default.</p>
+
+<p>If you want to maintain the old behavior, check the <code>[[IGHTMLDocument alloc] initWithHTMLFragmentString:]</code> method.</p>
+</article>
+</body>
+</html>

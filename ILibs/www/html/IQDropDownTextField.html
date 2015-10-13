@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-iqdropdowntextfield" class="anchor" href="#iqdropdowntextfield" aria-hidden="true"><span class="octicon octicon-link"></span></a>IQDropDownTextField</h1>
+
+<p>TextField with DropDown support using UIPickerView.More information,please visit hackiftekhar/IQDropDownTextField on GitHub.</p>
+
+<p><img src="https://camo.githubusercontent.com/c8d55a7a2c076fba38637c49d6e76234b88de8d2/687474703a2f2f692e696d6775722e636f6d2f4b65755a3853782e706e67" alt="Sample" data-canonical-src="http://i.imgur.com/KeuZ8Sx.png" style="max-width:100%;"></p>
+
+<h2><a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h2>
+
+<p>Install using <a href="http://cocoapods.org">cocoapods</a>. Add in your <code>Podfile</code>:</p>
+
+<pre><code>pod 'IQDropDownTextField'
+</code></pre>
+
+<h3><a id="user-content-swift-projects" class="anchor" href="#swift-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift Projects</h3>
+
+<p>Add the <code>.h</code> file in your <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html">bridging header</a> </p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>IQDropDownTextField.h<span class="pl-pds">"</span></span></pre></div>
+
+<h2><a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Use</h2>
+
+<p>In IB (<em>story boards or xibs</em>) you can add <code>UITextField</code>'s and set the class as <code>IQDropDownTextField</code></p>
+
+<h3><a id="user-content-objective-c" class="anchor" href="#objective-c" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objective-C</h3>
+
+<p>Nothing more easy than it!</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">@implementation</span> <span class="pl-en">ViewController</span>
+
+- (<span class="pl-k">void</span>)<span class="pl-en">viewDidLoad</span>
+{
+    [<span class="pl-v">super</span> <span class="pl-c1">viewDidLoad</span>];
+
+    textFieldTextPicker.<span class="pl-smi">isOptionalDropDown</span> = <span class="pl-c1">NO</span>;
+    [textFieldTextPicker <span class="pl-c1">setItemList:</span>[<span class="pl-c1">NSArray</span> <span class="pl-c1">arrayWithObjects:</span><span class="pl-s"><span class="pl-pds">@"</span>London<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">@"</span>Johannesburg<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">@"</span>Moscow<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">@"</span>Mumbai<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">@"</span>Tokyo<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">@"</span>Sydney<span class="pl-pds">"</span></span>, <span class="pl-c1">nil</span>]];
+}
+<span class="pl-k">@end</span>
+</pre></div>
+
+<h3><a id="user-content-swift" class="anchor" href="#swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h3>
+
+<p>It's very simple to setup your <code>IQDropDownTextField</code>. The sample below shows you how to:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">class</span> MyController <span class="pl-k">:</span> UIViewController {
+  <span class="pl-k">@IBOutlet</span> <span class="pl-k">weak</span> <span class="pl-k">var</span> occupationTextField: IQDropDownTextField<span class="pl-k">!</span>
+
+  <span class="pl-k">override</span> <span class="pl-k">func</span> <span class="pl-en">viewDidLoad</span>() {
+    occupationTextField<span class="pl-k">.</span>isOptionalDropDown <span class="pl-k">=</span> <span class="pl-c1">false</span>
+    occupationTextField<span class="pl-k">.</span>itemList <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">"</span>programmer<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>teacher<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>engineer<span class="pl-pds">"</span></span>]
+  }
+}</pre></div>
+
+<p>And that's all you need! =)</p>
+
+</article>
+</body>
+</html>

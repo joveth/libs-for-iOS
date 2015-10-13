@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-touchxml" class="anchor" href="#touchxml" aria-hidden="true"><span class="octicon octicon-link"></span></a>TouchXML</h1>
+
+<h2><a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>TouchXML is a lightweight replacement for Cocoa's NSXML* cluster of
+classes. It is based on the commonly available Open Source libxml2
+library.</p>
+
+
+<h2><a id="user-content-automatic-reference-counting-arc" class="anchor" href="#automatic-reference-counting-arc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic Reference Counting (ARC)</h2>
+
+<p>The "master" branch of TouchJSON does NOT use Automatic Reference Counting (ARC).</p>
+
+<p>There is a branch that does use ARC - this is found at "features/ARC".</p>
+
+<p>Most new development occurs on the ARC branch. At some point the non-ARC branch will put into
+maintenance mode and the ARC branch will become the primary branch.</p>
+
+<h2><a id="user-content-goals" class="anchor" href="#goals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Goals</h2>
+
+<p>The goal is to create a lightweight  NSXML* style XML api that can used
+in environments without NSXML* (e.g. iPhone).</p>
+
+<ul>
+<li><p>XML read only. The aim is to make a lite API for reading XML. I'm
+assuming most applications will only need to read XML and wont need to
+generate it (AJAX applications tend to receive XML data but transmit
+data via URL or HTTP form-encoding). Please let me know if your
+application needs XML write support.</p></li>
+<li><p>Lightweight. Rarely used NSXML* functionality should not be
+implemented.</p></li>
+</ul>
+
+<p>See http://github.com/TouchCode/TouchXML for more.</p>
+</article>
+</body>
+</html>

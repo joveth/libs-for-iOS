@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-dznemptydataset" class="anchor" href="#dznemptydataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>DZNEmptyDataSet</h1>
+
+<h3><a id="user-content-the-empty-data-set-pattern" class="anchor" href="#the-empty-data-set-pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Empty Data Set Pattern</h3>
+
+<p>Also known as <em>Empty State</em> or <em>Blank Slate</em>.</p>
+
+<p>Most applications show lists of content (data sets), which many turn out to be empty at one point, specially for new users with blank accounts. Empty screens create confusion by not being clear about what's going on, if there is an error/bug or if the user is supposed to do something within your app to be able to consume the content.</p>
+<p>For more information,please visit <b>dzenbot/DZNEmptyDataSet</b> on GitHub.</p>
+
+<p><a href="https://raw.githubusercontent.com/dzenbot/UITableView-DataSet/master/Examples/Applications/Screenshots/Screenshots_row1.png" target="_blank"><img src="https://raw.githubusercontent.com/dzenbot/UITableView-DataSet/master/Examples/Applications/Screenshots/Screenshots_row1.png" alt="Screenshots_Row1" style="max-width:100%;"></a>
+<a href="https://raw.githubusercontent.com/dzenbot/UITableView-DataSet/master/Examples/Applications/Screenshots/Screenshots_row2.png" target="_blank"><img src="https://raw.githubusercontent.com/dzenbot/UITableView-DataSet/master/Examples/Applications/Screenshots/Screenshots_row2.png" alt="Screenshots_Row2" style="max-width:100%;"></a>
+(<em>These are real life examples, available in the 'Applications' sample project</em>)</p>
+
+<p><strong>Empty Data Sets</strong> are helpful for:</p>
+
+<ul>
+<li>Avoiding white-screens and communicating to your users why the screen is empty.</li>
+<li>Calling to action (particularly as an onboarding process).</li>
+<li>Avoiding other interruptive mechanisms like showing error alerts.</li>
+<li>Beeing consistent and improving the user experience.</li>
+<li>Delivering a brand presence.</li>
+</ul>
+
+<h3><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h3>
+
+<ul>
+<li>Compatible with UITableView and UICollectionView. Also compatible with UISearchDisplayController and UIScrollView.</li>
+<li>Gives multiple possibilities of layout and appearance, by showing an image and/or title label and/or description label and/or button.</li>
+<li>Uses NSAttributedString for easier appearance customisation.</li>
+<li>Uses auto-layout to automagically center the content to the tableview, with auto-rotation support. Also accepts custom vertical and horizontal alignment.</li>
+<li>Background color customisation.</li>
+<li>Allows tap gesture on the whole tableview rectangle (useful for resigning first responder or similar actions).</li>
+<li>For more advanced customisation, it allows a custom view.</li>
+<li>Compatible with Storyboard.</li>
+<li>Compatible with iOS 6 or later.</li>
+<li>Compatible with iPhone and iPad.</li>
+<li><strong>App Store ready</strong></li>
+</ul>
+
+<p>This library has been designed in a way where you won't need to extend UITableView or UICollectionView class. It will still work when using UITableViewController or UICollectionViewController.
+By just conforming to DZNEmptyDataSetSource &amp; DZNEmptyDataSetDelegate, you will be able to fully customize the content and appearance of the empty states for your application.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+	<p>Available in <b>Cocoa Pods</b></p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>DZNEmptyDataSet<span class="pl-pds">'</span></span></pre></div>
+
+<p>To integrate DZNEmptyDataSet into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+
+<pre lang="ogdl"><code>github "dzenbot/DZNEmptyDataSet"
+</code></pre>
+
+<h2><a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>For complete documentation,visit CocoaPods' auto-generated doc</p>
+
+<h3><a id="user-content-import" class="anchor" href="#import" aria-hidden="true"><span class="octicon octicon-link"></span></a>Import</h3>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>UIScrollView+EmptyDataSet.h<span class="pl-pds">"</span></span></pre></div>
+
+<h3><a id="user-content-protocol-conformance" class="anchor" href="#protocol-conformance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Protocol Conformance</h3>
+
+<p>Conform to datasource and/or delegate.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">@interface</span> <span class="pl-en">MainViewController</span> : <span class="pl-e">UITableViewController</span> &lt;DZNEmptyDataSetSource, DZNEmptyDataSetDelegate&gt;
+
+- (<span class="pl-k">void</span>)<span class="pl-en">viewDidLoad</span>
+{
+    [<span class="pl-v">super</span> <span class="pl-c1">viewDidLoad</span>];
+
+    self.<span class="pl-smi">tableView</span>.<span class="pl-smi">emptyDataSetSource</span> = self;
+    self.<span class="pl-smi">tableView</span>.<span class="pl-smi">emptyDataSetDelegate</span> = self;
+
+    <span class="pl-c">// A little trick for removing the cell separators</span>
+    self.<span class="pl-smi">tableView</span>.<span class="pl-smi">tableFooterView</span> = [UIView <span class="pl-c1">new</span>];
+}</pre></div>
+
+<h3><a id="user-content-data-source-implementation" class="anchor" href="#data-source-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Source Implementation</h3>
+
+<p>Return the content you want to show on the empty state, and take advantage of NSAttributedString features to customise the text appearance.</p>
+
+<p>The image for the empty state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> [UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>empty_placeholder<span class="pl-pds">"</span></span>];
+}</pre></div>
+
+<p>The attributed string for the title of the empty state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">NSAttributedString</span> *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-c1">NSString</span> *text = <span class="pl-s"><span class="pl-pds">@"</span>Please Allow Photo Access<span class="pl-pds">"</span></span>;
+
+    <span class="pl-c1">NSDictionary</span> *attributes = @{<span class="pl-c1">NSFontAttributeName</span>: [UIFont <span class="pl-c1">boldSystemFontOfSize:</span><span class="pl-c1">18</span>.<span class="pl-c1">0f</span>],
+                                 <span class="pl-c1">NSForegroundColorAttributeName</span>: [UIColor <span class="pl-c1">darkGrayColor</span>]};
+
+    <span class="pl-k">return</span> [[<span class="pl-c1">NSAttributedString</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithString:</span>text <span class="pl-c1">attributes:</span>attributes];
+}</pre></div>
+
+<p>The attributed string for the description of the empty state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">NSAttributedString</span> *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-c1">NSString</span> *text = <span class="pl-s"><span class="pl-pds">@"</span>This allows you to share photos from your library and save photos to your camera roll.<span class="pl-pds">"</span></span>;
+
+    <span class="pl-c1">NSMutableParagraphStyle</span> *paragraph = [<span class="pl-c1">NSMutableParagraphStyle</span> <span class="pl-c1">new</span>];
+    paragraph.<span class="pl-smi">lineBreakMode</span> = NSLineBreakByWordWrapping;
+    paragraph.<span class="pl-smi">alignment</span> = NSTextAlignmentCenter;
+
+    <span class="pl-c1">NSDictionary</span> *attributes = @{<span class="pl-c1">NSFontAttributeName</span>: [UIFont <span class="pl-c1">systemFontOfSize:</span><span class="pl-c1">14</span>.<span class="pl-c1">0f</span>],
+                                 <span class="pl-c1">NSForegroundColorAttributeName</span>: [UIColor <span class="pl-c1">lightGrayColor</span>],
+                                 <span class="pl-c1">NSParagraphStyleAttributeName</span>: paragraph};
+
+    <span class="pl-k">return</span> [[<span class="pl-c1">NSAttributedString</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithString:</span>text <span class="pl-c1">attributes:</span>attributes];                      
+}</pre></div>
+
+<p>The attributed string to be used for the specified button state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">NSAttributedString</span> *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    <span class="pl-c1">NSDictionary</span> *attributes = @{<span class="pl-c1">NSFontAttributeName</span>: [UIFont <span class="pl-c1">boldSystemFontOfSize:</span><span class="pl-c1">17</span>.<span class="pl-c1">0f</span>]};
+
+    <span class="pl-k">return</span> [[<span class="pl-c1">NSAttributedString</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithString:</span><span class="pl-s"><span class="pl-pds">@"</span>Continue<span class="pl-pds">"</span></span> <span class="pl-c1">attributes:</span>attributes];
+}</pre></div>
+
+<p>or the image to be used for the specified button state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state
+{
+    <span class="pl-k">return</span> [UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>button_image<span class="pl-pds">"</span></span>];
+}</pre></div>
+
+<p>The background color for the empty state:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> [UIColor <span class="pl-c1">whiteColor</span>];
+}</pre></div>
+
+<p>If you need a more complex layout, you can return a custom view instead:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+{
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithActivityIndicatorStyle:</span>UIActivityIndicatorViewStyleGray];
+    [activityView <span class="pl-c1">startAnimating</span>];
+    <span class="pl-k">return</span> activityView;
+}</pre></div>
+
+<p>Additionally, you can also adjust the vertical alignment of the content view (ie: useful when there is tableHeaderView visible):</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">CGFloat</span>)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> -self.<span class="pl-smi">tableView</span>.<span class="pl-smi">tableHeaderView</span>.<span class="pl-smi">frame</span>.<span class="pl-smi">size</span>.<span class="pl-smi">height</span>/<span class="pl-c1">2</span>.<span class="pl-c1">0f</span>;
+}</pre></div>
+
+<p>Finally, you can separate components from each other (default separation is 11 pts):</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-c1">CGFloat</span>)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> <span class="pl-c1">20</span>.<span class="pl-c1">0f</span>;
+}</pre></div>
+
+<h3><a id="user-content-delegate-implementation" class="anchor" href="#delegate-implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delegate Implementation</h3>
+
+<p>Return the behaviours you would expect from the empty states, and receive the user events.</p>
+
+<p>Asks to know if the empty state should be rendered and displayed (Default is YES) :</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">BOOL</span>)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> <span class="pl-c1">YES</span>;
+}</pre></div>
+
+<p>Asks for interaction permission (Default is YES) :</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">BOOL</span>)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> <span class="pl-c1">YES</span>;
+}</pre></div>
+
+<p>Asks for scrolling permission (Default is NO) :</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">BOOL</span>)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
+{
+    <span class="pl-k">return</span> <span class="pl-c1">YES</span>;
+}</pre></div>
+
+<p>Notifies when the dataset view was tapped:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)emptyDataSetDidTapView:(UIScrollView *)scrollView
+{
+    <span class="pl-c">// Do something</span>
+}</pre></div>
+
+<p>Notifies when the data set call to action button was tapped:</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)emptyDataSetDidTapButton:(UIScrollView *)scrollView
+{
+    <span class="pl-c">// Do something</span>
+}</pre></div>
+
+<h3><a id="user-content-refresh-layout" class="anchor" href="#refresh-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refresh layout</h3>
+
+<p>If you need to refresh the empty state layout, simply call:</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">self</span>.tableView <span class="pl-c1">reloadData</span>];</pre></div>
+
+<p>or</p>
+
+<div class="highlight highlight-source-objc"><pre>[<span class="pl-v">self</span>.collectionView <span class="pl-c1">reloadData</span>];</pre></div>
+
+<p>depending of which you are using.</p>
+
+<h3><a id="user-content-force-layout-update" class="anchor" href="#force-layout-update" aria-hidden="true"><span class="octicon octicon-link"></span></a>Force layout update</h3>
+
+<p>You can also call <code>[self.tableView reloadEmptyDataSet]</code> to invalidate the current empty state layout and trigger a layout update, bypassing <code>-reloadData</code>. This might be useful if you have a lot of logic on your data source that you want to avoid calling, when not needed. <code>[self.tableView reloadEmptyDataSet]</code> is the only way to refresh content when using with UIScrollView.</p>
+
+<h2><a id="user-content-sample-projects" class="anchor" href="#sample-projects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample projects</h2>
+
+<h4><a id="user-content-applications" class="anchor" href="#applications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Applications</h4>
+
+<p>This project replicates several popular application's empty states (~20) with their exact content and appearance, such as Airbnb, Dropbox, Facebook, Foursquare, and many others. See how easy and flexible it is to customize the appearance of your empty states. You can also use this project as a playground to test things.</p>
+
+<h4><a id="user-content-countries" class="anchor" href="#countries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Countries</h4>
+
+<p>This project shows a list of the world countries loaded from CoreData. It uses NSFecthedResultController for filtering search. When searching and no content is matched, a simple empty state is shown. See how to interact between the UITableViewDataSource and the DZNEmptyDataSetSource protocols, while using a typical CoreData stack.</p>
+
+<h4><a id="user-content-colors" class="anchor" href="#colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Colors</h4>
+
+<p>This project is a simple example of how this library also works with UICollectionView and UISearchDisplayController, while using Storyboards.</p>
+
+</article>
+</body>
+</html>

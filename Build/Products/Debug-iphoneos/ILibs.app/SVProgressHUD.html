@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>SVProgressHUD</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-svprogresshud" class="anchor" href="#svprogresshud" aria-hidden="true"><span class="octicon octicon-link"></span></a>SVProgressHUD</h1>
+
+<p><code>SVProgressHUD</code> is a clean and easy-to-use HUD meant to display the progress of an ongoing task.More information, please view TransitApp/SVProgressHUD on GitHub</p>
+
+<p><a href="https://camo.githubusercontent.com/6ed028acbf67707d622344e0ef1bc3b098425b50/687474703a2f2f662e636c2e6c792f6974656d732f32473146315a304d306b306832553356317033392f535650726f67726573734855442e676966" target="_blank"><img src="https://camo.githubusercontent.com/6ed028acbf67707d622344e0ef1bc3b098425b50/687474703a2f2f662e636c2e6c792f6974656d732f32473146315a304d306b306832553356317033392f535650726f67726573734855442e676966" alt="SVProgressHUD" data-canonical-src="http://f.cl.ly/items/2G1F1Z0M0k0h2U3V1p39/SVProgressHUD.gif" style="max-width:90%;"></a></p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3><a id="user-content-from-cocoapods" class="anchor" href="#from-cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>From CocoaPods</h3>
+
+<p>CocoaPods is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like <code>SVProgressHUD</code> in your projects. Simply add the following line to your Podfile:</p>
+
+<div class="highlight highlight-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>SVProgressHUD<span class="pl-pds">'</span></span></pre></div>
+
+<p>If you want to use the latest features of <code>SVProgressHUD</code> add <code>:head</code>:</p>
+
+<div class="highlight highlight-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>SVProgressHUD<span class="pl-pds">'</span></span>, <span class="pl-c1">:head</span></pre></div>
+
+<p>This pulls from the <code>master</code> branch directly. We are usually careful about what we push there and this is the version we use ourselves in all of our projects.</p>
+
+<h3><a id="user-content-carthage" class="anchor" href="#carthage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Carthage</h3>
+
+<p>You can install <code>SVProgressHUD</code> with Carthage .</p>
+
+
+<h3><a id="user-content-manually" class="anchor" href="#manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manually</h3>
+
+<ul>
+<li>Drag the <code>SVProgressHUD/SVProgressHUD</code> folder into your project.</li>
+<li>Take care that <code>SVProgressHUD.bundle</code> is added to <code>Targets-&gt;Build Phases-&gt;Copy Bundle Resources</code>.</li>
+<li>Add the <strong>QuartzCore</strong> framework to your project.</li>
+</ul>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>(see sample Xcode project in <code>/Demo</code>)</p>
+
+<p><code>SVProgressHUD</code> is created as a singleton (i.e. it doesn't need to be explicitly allocated and instantiated; you directly call <code>[SVProgressHUD method]</code>).</p>
+
+<p><strong>Use <code>SVProgressHUD</code> wisely! Only use it if you absolutely need to perform a task before taking the user forward. Bad use case examples: pull to refresh, infinite scrolling, sending message.</strong></p>
+
+<p>Using <code>SVProgressHUD</code> in your app will usually look as simple as this (using Grand Central Dispatch):</p>
+
+<div class="highlight highlight-objective-c"><pre>[SVProgressHUD <span class="pl-c1">show</span>];
+<span class="pl-en">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="pl-c1">0</span>), ^{
+    <span class="pl-c">// time-consuming task</span>
+    <span class="pl-c1">dispatch_async</span>(<span class="pl-c1">dispatch_get_main_queue</span>(), ^{
+        [SVProgressHUD <span class="pl-c1">dismiss</span>];
+    });
+});</pre></div>
+
+<h3><a id="user-content-showing-the-hud" class="anchor" href="#showing-the-hud" aria-hidden="true"><span class="octicon octicon-link"></span></a>Showing the HUD</h3>
+
+<p>You can show the status of indeterminate tasks using one of the following:</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)show;
++ (<span class="pl-k">void</span>)showWithStatus:(<span class="pl-c1">NSString</span>*)string;</pre></div>
+
+<p>If you'd like the HUD to reflect the progress of a task, use one of these:</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)showProgress:(<span class="pl-c1">CGFloat</span>)progress;
++ (<span class="pl-k">void</span>)showProgress:(<span class="pl-c1">CGFloat</span>)progress status:(<span class="pl-c1">NSString</span>*)status;</pre></div>
+
+<h3><a id="user-content-dismissing-the-hud" class="anchor" href="#dismissing-the-hud" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dismissing the HUD</h3>
+
+<p>The HUD can be dismissed using:</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)dismiss;
++ (<span class="pl-k">void</span>)dismissWithDelay:(<span class="pl-c1">NSTimeInterval</span>)delay;</pre></div>
+
+<p>If you'd like to stack HUDs, you can balance out every show call using:</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)popActivity;</pre></div>
+
+<p>The HUD will get dismissed once the <code>popActivity</code> calls will match the number of show calls.  </p>
+
+<p>Or show a confirmation glyph before before getting dismissed a little bit later. The display time depends on the length of the given string (between 0.5 and 5 seconds).</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)showInfoWithStatus:(<span class="pl-c1">NSString</span> *)string;
++ (<span class="pl-k">void</span>)showSuccessWithStatus:(<span class="pl-c1">NSString</span>*)string;
++ (<span class="pl-k">void</span>)showErrorWithStatus:(<span class="pl-c1">NSString</span> *)string;
++ (<span class="pl-k">void</span>)showImage:(UIImage*)image status:(<span class="pl-c1">NSString</span>*)string;</pre></div>
+
+<h2><a id="user-content-customization" class="anchor" href="#customization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customization</h2>
+
+<p><code>SVProgressHUD</code> can be customized via the following methods:</p>
+
+<div class="highlight highlight-objective-c"><pre>+ (<span class="pl-k">void</span>)setDefaultStyle:(SVProgressHUDStyle)style;                  <span class="pl-c">// default is SVProgressHUDStyleLight</span>
++ (<span class="pl-k">void</span>)setDefaultMaskType:(SVProgressHUDMaskType)maskType;         <span class="pl-c">// default is SVProgressHUDMaskTypeNone</span>
++ (<span class="pl-k">void</span>)setDefaultAnimationType:(SVProgressHUDAnimationType)type;   <span class="pl-c">// default is SVProgressHUDAnimationTypeFlat</span>
++ (<span class="pl-k">void</span>)setRingThickness:(<span class="pl-c1">CGFloat</span>)width;                            <span class="pl-c">// default is 2 pt</span>
++ (<span class="pl-k">void</span>)setCornerRadius:(<span class="pl-c1">CGFloat</span>)cornerRadius;                      <span class="pl-c">// default is 14 pt</span>
++ (<span class="pl-k">void</span>)setFont:(UIFont*)font;                                      <span class="pl-c">// default is [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]</span>
++ (<span class="pl-k">void</span>)setForegroundColor:(UIColor*)color;                         <span class="pl-c">// default is [UIColor blackColor], only used for SVProgressHUDStyleCustom</span>
++ (<span class="pl-k">void</span>)setBackgroundColor:(UIColor*)color;                         <span class="pl-c">// default is [UIColor whiteColor], only used for SVProgressHUDStyleCustom</span>
++ (<span class="pl-k">void</span>)setInfoImage:(UIImage*)image;                               <span class="pl-c">// default is the bundled info image provided by Freepik</span>
++ (<span class="pl-k">void</span>)setSuccessImage:(UIImage*)image;                            <span class="pl-c">// default is bundled success image from Freepik</span>
++ (<span class="pl-k">void</span>)setErrorImage:(UIImage*)image;                              <span class="pl-c">// default is bundled error image from Freepik</span>
++ (<span class="pl-k">void</span>)setViewForExtension:(UIView*)view;                          <span class="pl-c">// default is nil, only used if #define SV_APP_EXTENSIONS is set</span></pre></div>
+
+<h2><a id="user-content-notifications" class="anchor" href="#notifications" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notifications</h2>
+
+<p><code>SVProgressHUD</code> posts four notifications via <code>NSNotificationCenter</code> in response to being shown/dismissed:</p>
+
+<ul>
+<li><code>SVProgressHUDWillAppearNotification</code> when the show animation starts</li>
+<li><code>SVProgressHUDDidAppearNotification</code> when the show animation completes</li>
+<li><code>SVProgressHUDWillDisappearNotification</code> when the dismiss animation starts</li>
+<li><code>SVProgressHUDDidDisappearNotification</code> when the dismiss animation completes</li>
+</ul>
+
+<p>Each notification passes a <code>userInfo</code> dictionary holding the HUD's status string (if any), retrievable via <code>SVProgressHUDStatusUserInfoKey</code>.</p>
+
+<p><code>SVProgressHUD</code> also posts <code>SVProgressHUDDidReceiveTouchEventNotification</code> when users touch on the overall screen or <code>SVProgressHUDDidTouchDownInsideNotification</code> when a user touches on the HUD directly. For this notifications <code>userInfo</code> is not passed but the object parameter contains the <code>UIEvent</code> that related to the touch.</p>
+
+<h2><a id="user-content-app-extensions" class="anchor" href="#app-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>App Extensions</h2>
+
+<p>When using <code>SVProgressHUD</code> in an App Extension, <code>#define SV_APP_EXTENSIONS</code> to avoid using unavailable APIs. Additionally call <code>setViewForExtension:</code> from your extensions view controller with <code>self.view</code>.</p>
+
+</article>
+</body>
+</html>

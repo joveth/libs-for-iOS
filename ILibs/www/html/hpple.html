@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+
+<h1><a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>DESCRIPTION</h1>
+
+<p>Hpple: A nice Objective-C wrapper on the XPathQuery library for parsing HTML.For more information,please visit topfunky/hpple on GitHub.</p>
+
+<p>Inspired by why the lucky stiff's Hpricot.</p>
+
+<h1><a id="user-content-credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>CREDITS</h1>
+
+<p>Hpple was created by Geoffrey Grosenbach,Topfunky Corporation and PeepCode Screencasts.</p>
+
+<p>Contributors</p>
+
+<h1><a id="user-content-features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>FEATURES</h1>
+
+<ul>
+<li>Easy searching by XPath (CSS selectors are planned)</li>
+<li>Parses HTML (XML coming soon)</li>
+<li>Easy access to tag content, name, and attributes.</li>
+</ul>
+
+<h1><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>INSTALLATION</h1>
+
+<ul>
+<li>Open your XCode project and the Hpple project.</li>
+<li>Drag the "Hpple" directory to your project.</li>
+<li>Add the libxml2.2.dylib framework to your project and search paths as described at Cocoa with Love</li>
+</ul>
+
+<p>More documentation and short screencast coming soon...</p>
+
+<h1><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>USAGE</h1>
+
+<p>See TFHppleHTMLTest.m in the Hpple project for samples.</p>
+
+<pre>#import "TFHpple.h"
+
+NSData  * data      = [NSData dataWithContentsOfFile:@"index.html"];
+
+TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
+NSArray * elements  = [doc search:@"//a[@class='sponsor']"];
+
+TFHppleElement * element = [elements objectAtIndex:0];
+[e text];                       // The text inside the HTML element (the content of the first text node)
+[e tagName];                    // "a"
+[e attributes];                 // NSDictionary of href, class, id, etc.
+[e objectForKey:@"href"];       // Easy access to single attribute
+[e firstChildWithTagName:@"b"]; // The first "b" child node
+
+</pre>
+
+<h1><a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<ul>
+<li>Internal error catching and messages</li>
+<li>CSS3 selectors in addition to XPath</li>
+</ul>
+</article>
+</body>
+</html>

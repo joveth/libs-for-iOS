@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>MBProgressHUD</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-mgswipetablecell" class="anchor" href="#mgswipetablecell" aria-hidden="true"><span class="octicon octicon-link"></span></a>MGSwipeTableCell</h1>
+
+<p>MGSwipeTableCell is an easy to use UITableViewCell subclass that allows to display swipeable buttons with a variety of transitions. </p>
+
+<p>This library is compatible with all the different ways to create a UITableViewCell: system predefined styles, programmatically created cells, cells loaded from a xib and prototype cells within a storyboard. You can use autolayout if you want.</p>
+
+<p>Works on iOS &gt;= 5.0. Tested on all iOS versions on iPhone and iPad: iOS 5, iOS 6, iOS 7 and iOS 8..For more information,please visit MortimerGoro/MGSwipeTableCell on GitHub.</p>
+
+<h2><a id="user-content-transitions-demo" class="anchor" href="#transitions-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>install</h2>
+	<p><code>pod 'MGSwipeTableCell' </code></p>
+
+<h2><a id="user-content-transitions-demo" class="anchor" href="#transitions-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transitions demo</h2>
+
+<h3><a id="user-content-border-transition" class="anchor" href="#border-transition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Border transition</h3>
+
+<p align="center"><a href="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/border.gif" target="_blank"><img src="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/border.gif" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-clip-transition" class="anchor" href="#clip-transition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clip transition</h3>
+
+<p align="center"><a href="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/clip.gif" target="_blank"><img src="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/clip.gif" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-3d-transition" class="anchor" href="#3d-transition" aria-hidden="true"><span class="octicon octicon-link"></span></a>3D transition</h3>
+
+<p align="center"><a href="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/3d.gif" target="_blank"><img src="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/3d.gif" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-static-transition" class="anchor" href="#static-transition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static transition</h3>
+
+<p align="center"><a href="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/static.gif" target="_blank"><img src="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/static.gif" style="max-width:100%;"></a></p>
+
+<h3><a id="user-content-drag-transition" class="anchor" href="#drag-transition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Drag transition</h3>
+
+<p align="center"><a href="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/drag.gif" target="_blank"><img src="https://raw.githubusercontent.com/MortimerGoro/MGSwipeTableCell/master/readme-assets/drag.gif" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-api-reference" class="anchor" href="#api-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Reference</h2>
+
+<p>See <code>MGSwipeTableCell.h</code> header file for a complete overview of the capabilities of the class.</p>
+
+<p>See <code>MailAppDemo</code> for a complete project which mimics iOS 8.0 Mail App</p>
+
+<p>See <code>SpotifyDemo</code> for a complete project which mimics Spotify App swipe style</p>
+
+<p>See <code>MGSwipeDemo</code> for a complete project where you can test the variety of transitions on a real device/simulator.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3><a id="user-content-basic" class="anchor" href="#basic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic</h3>
+
+<p>Integrating MGSwipeTableCell in your project is veary easy. Basically, you only have to inherit from MGSwipeTableCell instead of UITableViewCell, or directly instantiate MGSwipeTableCell instances with iOS predefined cell styles. You can layout your cell content as you are used to do, MGSwipeTableCell doesn't force you to change layouts.</p>
+
+<p>Here is a example of a MGSwipeTableCell using iOS predefined styles. You can set an array of buttons to cell.leftButtons and/or cell.rightButtons properties. MGSwipeButton is a convenience class, you are not force to use it. You can use your own UIButtons or UIViews. You can configure transitions (and swipe thresholds) with the leftSwipeSettings and/or rightSwipeSettings properties</p>
+
+<div class="highlight highlight-source-objc"><pre>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(<span class="pl-c1">NSIndexPath</span> *)indexPath
+{
+    <span class="pl-k">static</span> <span class="pl-c1">NSString</span> * reuseIdentifier = <span class="pl-s"><span class="pl-pds">@"</span>programmaticCell<span class="pl-pds">"</span></span>;
+    MGSwipeTableCell * cell = [<span class="pl-v">self</span>.tableView <span class="pl-c1">dequeueReusableCellWithIdentifier:</span>reuseIdentifier];
+    <span class="pl-k">if</span> (!cell) {
+        cell = [[MGSwipeTableCell <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithStyle:</span>UITableViewCellStyleSubtitle <span class="pl-c1">reuseIdentifier:</span>reuseIdentifier];
+    }
+
+    cell.<span class="pl-smi">textLabel</span>.<span class="pl-smi">text</span> = <span class="pl-s"><span class="pl-pds">@"</span>Title<span class="pl-pds">"</span></span>;
+    cell.<span class="pl-smi">detailTextLabel</span>.<span class="pl-smi">text</span> = <span class="pl-s"><span class="pl-pds">@"</span>Detail text<span class="pl-pds">"</span></span>;
+    cell.<span class="pl-smi">delegate</span> = self; <span class="pl-c">//optional</span>
+
+
+    <span class="pl-c">//configure left buttons</span>
+    cell.<span class="pl-smi">leftButtons</span> = @[[MGSwipeButton <span class="pl-c1">buttonWithTitle:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span> <span class="pl-c1">icon:</span>[UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>check.png<span class="pl-pds">"</span></span>] <span class="pl-c1">backgroundColor:</span>[UIColor <span class="pl-c1">greenColor</span>]],
+                          [MGSwipeButton <span class="pl-c1">buttonWithTitle:</span><span class="pl-s"><span class="pl-pds">@"</span><span class="pl-pds">"</span></span> <span class="pl-c1">icon:</span>[UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>fav.png<span class="pl-pds">"</span></span>] <span class="pl-c1">backgroundColor:</span>[UIColor <span class="pl-c1">blueColor</span>]]];
+    cell.<span class="pl-smi">leftSwipeSettings</span>.<span class="pl-smi">transition</span> = MGSwipeTransition3D;
+
+    <span class="pl-c">//configure right buttons</span>
+    cell.<span class="pl-smi">rightButtons</span> = @[[MGSwipeButton <span class="pl-c1">buttonWithTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>Delete<span class="pl-pds">"</span></span> <span class="pl-c1">backgroundColor:</span>[UIColor <span class="pl-c1">redColor</span>]],
+                           [MGSwipeButton <span class="pl-c1">buttonWithTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>More<span class="pl-pds">"</span></span> <span class="pl-c1">backgroundColor:</span>[UIColor <span class="pl-c1">lightGrayColor</span>]]];
+    cell.<span class="pl-smi">rightSwipeSettings</span>.<span class="pl-smi">transition</span> = MGSwipeTransition3D;
+    <span class="pl-k">return</span> cell;
+}</pre></div>
+
+<p>In order to listen button click events you have 2 options. You can implement the optional MGSwipeTableCellDelegate. If you are lazy to do that MGSwipeButton class comes with a convenience block callback ;)</p>
+
+<div class="highlight highlight-source-objc"><pre>[MGSwipeButton <span class="pl-c1">buttonWithTitle:</span><span class="pl-s"><span class="pl-pds">@"</span>More<span class="pl-pds">"</span></span> <span class="pl-c1">backgroundColor:</span>[UIColor <span class="pl-c1">lightGrayColor</span>] <span class="pl-c1">callback:</span>^<span class="pl-c1">BOOL</span>(MGSwipeTableCell *sender) {
+      <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Convenience callback for swipe buttons!<span class="pl-pds">"</span></span>);
+}]</pre></div>
+
+<h3><a id="user-content-delegate" class="anchor" href="#delegate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Delegate</h3>
+
+<p>MGSwipeTableCellDelegate is an optional delegate to configure swipe buttons or to receive triggered actions or another events. Buttons can be configured inline when the cell is created instead of using this delegate, but using the delegate improves memory usage because buttons are only created in demand.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">@protocol</span> <span class="pl-en">MGSwipeTableCellDelegate</span> &lt;NSObject&gt;
+
+<span class="pl-k">@optional</span>
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Delegate method to enable/disable swipe gestures</span>
+<span class="pl-c"> * @return YES if swipe is allowed</span>
+<span class="pl-c"> **/</span>
+-(<span class="pl-k">BOOL</span>) <span class="pl-en">swipeTableCell</span><span class="pl-en">:</span>(MGSwipeTableCell*) <span class="pl-smi">cell</span> <span class="pl-en">canSwipe</span><span class="pl-en">:</span>(MGSwipeDirection) <span class="pl-smi">direction</span>;
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Delegate method invoked when the current swipe state changes</span>
+<span class="pl-c"> @param state the current Swipe State</span>
+<span class="pl-c"> @param gestureIsActive YES if the user swipe gesture is active. No if the uses has already ended the gesture</span>
+<span class="pl-c"> **/</span>
+-(<span class="pl-k">void</span>) <span class="pl-en">swipeTableCell</span><span class="pl-en">:</span>(MGSwipeTableCell*) <span class="pl-smi">cell</span> <span class="pl-en">didChangeSwipeState</span><span class="pl-en">:</span>(MGSwipeState) <span class="pl-smi">state</span> <span class="pl-en">gestureIsActive</span><span class="pl-en">:</span>(<span class="pl-k">BOOL</span>) <span class="pl-smi">gestureIsActive</span>;
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Called when the user clicks a swipe button or when a expandable button is automatically triggered</span>
+<span class="pl-c"> * @return YES to autohide the current swipe buttons</span>
+<span class="pl-c"> **/</span>
+-(<span class="pl-k">BOOL</span>) <span class="pl-en">swipeTableCell</span><span class="pl-en">:</span>(MGSwipeTableCell*) <span class="pl-smi">cell</span> <span class="pl-en">tappedButtonAtIndex</span><span class="pl-en">:</span>(<span class="pl-k">NSInteger</span>) <span class="pl-smi">index</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(MGSwipeDirection)<span class="pl-smi">direction</span> <span class="pl-en">fromExpansion</span><span class="pl-en">:</span>(<span class="pl-k">BOOL</span>) <span class="pl-smi">fromExpansion</span>;
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Delegate method to setup the swipe buttons and swipe/expansion settings</span>
+<span class="pl-c"> * Buttons can be any kind of UIView but it's recommended to use the convenience MGSwipeButton class</span>
+<span class="pl-c"> * Setting up buttons with this delegate instead of using cell properties improves memory usage because buttons are only created in demand</span>
+<span class="pl-c"> * @param swipeTableCell the UITableVieCel to configure. You can get the indexPath using [tableView indexPathForCell:cell]</span>
+<span class="pl-c"> * @param direction The swipe direction (left to right or right to left)</span>
+<span class="pl-c"> * @param swipeSettings instance to configure the swipe transition and setting (optional)</span>
+<span class="pl-c"> * @param expansionSettings instance to configure button expansions (optional)</span>
+<span class="pl-c"> * @return Buttons array</span>
+<span class="pl-c"> **/</span>
+-(<span class="pl-c1">NSArray</span>*) <span class="pl-en">swipeTableCell</span><span class="pl-en">:</span>(MGSwipeTableCell*) <span class="pl-smi">cell</span> <span class="pl-en">swipeButtonsForDirection</span><span class="pl-en">:</span>(MGSwipeDirection)<span class="pl-smi">direction</span>
+             <span class="pl-en">swipeSettings</span><span class="pl-en">:</span>(MGSwipeSettings*) <span class="pl-smi">swipeSettings</span> <span class="pl-en">expansionSettings</span><span class="pl-en">:</span>(MGSwipeExpansionSettings*) <span class="pl-smi">expansionSettings</span>;
+
+<span class="pl-k">@end</span></pre></div>
+
+<h3><a id="user-content-expandable-buttons" class="anchor" href="#expandable-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expandable buttons</h3>
+
+<p>Buttons are not expandable by default. You can set up expandable buttons using cell.leftExpansion and cell.rightExpansion properties</p>
+
+<p>Expandable button events are triggered automatically when the user ends the swipe gesture and the expansion is active (configurable via threshold value). Triggered expandable buttons can bounce back to their initial position or fill the entire UITableViewCell, you can select the desired animation using fillOnTrigger property.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">@interface</span> <span class="pl-en">MGSwipeExpansionSettings</span>: <span class="pl-e">NSObject</span>
+<span class="pl-c">/** index of the expandable button (in the left or right buttons arrays) */</span>
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">assign</span>) <span class="pl-k">NSInteger</span> buttonIndex;
+<span class="pl-c">/** if true the button fills the cell on trigger, else it bounces back to its initial position */</span>
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">assign</span>) <span class="pl-k">BOOL</span> fillOnTrigger;
+<span class="pl-c">/** Size proportional threshold to trigger the expansion button. Default value 1.5 */</span>
+<span class="pl-k">@property</span> (<span class="pl-k">nonatomic</span>, <span class="pl-k">assign</span>) <span class="pl-c1">CGFloat</span> threshold;
+<span class="pl-k">@end</span></pre></div>
+
+</article>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-rncryptor" class="anchor" href="#rncryptor" aria-hidden="true"><span class="octicon octicon-link"></span></a>RNCryptor</h1>
+
+<p>Cross-language AES Encryptor/Decryptor data
+format.For more information,please visit RNCryptor/RNCryptor on GitHub.</p>
+
+<p>The primary target is Objective-C, but implementations are available in
+<a href="https://github.com/RNCryptor/RNCryptor-cpp">C++</a>,
+<a href="https://github.com/RNCryptor/RNCryptor-cs">C#</a>,
+<a href="https://github.com/RNCryptor/JNCryptor">Java</a>,
+<a href="https://github.com/RNCryptor/RNCryptor-php">PHP</a>,
+<a href="https://github.com/RNCryptor/RNCryptor-python">Python</a>,
+<a href="https://github.com/RNCryptor/rncryptor-js">Javascript</a>,
+and <a href="https://github.com/RNCryptor/ruby_rncryptor">Ruby</a>.</p>
+
+<p>The data format includes all the metadata required to securely implement AES
+encryption, as described in <a href="http://robnapier.net/aes-commoncrypto">"Properly encrypting with AES with
+CommonCrypto,"</a> and <a href="http://iosptl.com"><em>iOS 6
+Programming Pushing the Limits</em></a>, Chapter 15. Specifically,
+it includes:</p>
+
+<ul>
+<li>AES-256 encryption</li>
+<li>CBC mode</li>
+<li>Password stretching with PBKDF2</li>
+<li>Password salting</li>
+<li>Random IV</li>
+<li>Encrypt-then-hash HMAC</li>
+</ul>
+
+<h2><a id="user-content-basic-objective-c-usage" class="anchor" href="#basic-objective-c-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Objective-C Usage</h2>
+
+<p>The most common in-memory use case is as follows:</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSData</span> *data = [<span class="pl-s"><span class="pl-pds">@"</span>Data<span class="pl-pds">"</span></span> <span class="pl-c1">dataUsingEncoding:</span>NSUTF8StringEncoding];
+<span class="pl-c1">NSError</span> *error;
+<span class="pl-c1">NSData</span> *encryptedData = [RNEncryptor <span class="pl-c1">encryptData:</span>data
+                                    <span class="pl-c1">withSettings:</span><span class="pl-c1">kRNCryptorAES256Settings</span>
+                                          <span class="pl-c1">password:</span>aPassword
+                                             <span class="pl-c1">error:</span>&amp;error];</pre></div>
+
+<p>This generates an <code>NSData</code> including a header, encryption salt, HMAC salt, IV,
+ciphertext, and HMAC. To decrypt this bundle:</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSData</span> *decryptedData = [RNDecryptor <span class="pl-c1">decryptData:</span>encryptedData
+                                    <span class="pl-c1">withPassword:</span>aPassword
+                                           <span class="pl-c1">error:</span>&amp;error];</pre></div>
+
+<p>Note that <code>RNDecryptor</code> does not require settings. These are read from the
+header.</p>
+
+<h2><a id="user-content-asynchronous-use" class="anchor" href="#asynchronous-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronous use</h2>
+
+<p><code>RNCryptor suports asynchronous use, specifically designed to work with
+</code>NSURLConnection. This is also useful for cases where the encrypted or decrypted
+<code>data will not comfortably fit in memory. If the data will comfortably fit in
+</code>memory, asynchronous operation is best acheived using dispatch_async().</p>
+
+<p>To operate in asynchronous mode, you create an <code>RNEncryptor</code> or <code>RNDecryptor</code>,
+providing it a handler. This handler will be called as data is encrypted or
+decrypted. As data becomes available, call <code>addData:</code>. When you reach the end of
+the data call <code>finish</code>.</p>
+
+<div class="highlight highlight-source-objc"><pre>- (<span class="pl-k">void</span>)connection:(<span class="pl-c1">NSURLConnection</span> *)connection didReceiveData:(<span class="pl-c1">NSData</span> *)data {
+  [<span class="pl-v">self</span>.encryptedData <span class="pl-c1">addData:</span>[<span class="pl-v">self</span>.cryptor <span class="pl-c1">addData:</span>data]];
+}
+
+- (<span class="pl-k">void</span>)connectionDidFinishLoading:(<span class="pl-c1">NSURLConnection</span> *)connection {
+  [<span class="pl-v">self</span>.cryptor <span class="pl-c1">finish</span>];
+}
+
+<span class="pl-c">// Other connection delegates</span>
+
+- (<span class="pl-k">void</span>)decryptionDidFinish {
+  <span class="pl-k">if</span> (self.<span class="pl-smi">cryptor</span>.<span class="pl-smi">error</span>) {
+    <span class="pl-c">// An error occurred. You cannot trust encryptedData at this point</span>
+  }
+  <span class="pl-k">else</span> {
+    <span class="pl-c">// self.encryptedData is complete. Use it as you like</span>
+  }
+  self.<span class="pl-smi">encryptedData</span> = <span class="pl-c1">nil</span>;
+  self.<span class="pl-smi">cryptor</span> = <span class="pl-c1">nil</span>;
+  self.<span class="pl-smi">connection</span> = <span class="pl-c1">nil</span>;
+}
+
+- (<span class="pl-k">void</span>)decryptRequest:(<span class="pl-c1">NSURLRequest</span> *)request {
+  self.<span class="pl-smi">encryptedData</span> = [<span class="pl-c1">NSMutableData</span> <span class="pl-c1">data</span>];
+  self.<span class="pl-smi">connection</span> = [[<span class="pl-c1">NSURLConnection</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithRequest:</span>request <span class="pl-c1">delegate:</span><span class="pl-v">self</span>];
+  self.<span class="pl-smi">cryptor</span> = [[RNDecryptor <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithPassword:</span><span class="pl-v">self</span>.password
+                                               <span class="pl-c1">handler:</span>^(RNCryptor *cryptor, <span class="pl-c1">NSData</span> *data) {
+                                                   [<span class="pl-v">self</span>.decryptedData <span class="pl-c1">appendData:</span>data];
+                                                   <span class="pl-k">if</span> (cryptor.<span class="pl-smi">isFinished</span>) {
+                                                     [<span class="pl-v">self</span> <span class="pl-c1">decryptionDidFinish</span>];
+                                                   }
+                                                 }];
+}</pre></div>
+
+<h2><a id="user-content-async-and-streams" class="anchor" href="#async-and-streams" aria-hidden="true"><span class="octicon octicon-link"></span></a>Async and Streams</h2>
+
+<p>When performing async operations on streams, the data can come very quickly
+(particularly if you're reading from a local file). If you use RNCryptor in a
+naïve way, you'll queue a work blocks faster than the engine can process them
+and your memory usage will spike. This is particularly true if there's only one
+core, such as on an iPad 1. The solution is to only dispatch new work blocks as
+the previous work blocks complete.</p>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">// Make sure that this number is larger than the header + 1 block.</span>
+<span class="pl-c">// 33+16 bytes = 49 bytes. So it shouldn't be a problem.</span>
+<span class="pl-k">int</span> blockSize = <span class="pl-c1">32</span> * <span class="pl-c1">1024</span>;
+
+<span class="pl-c1">NSInputStream</span> *cryptedStream = [<span class="pl-c1">NSInputStream</span> <span class="pl-c1">inputStreamWithFileAtPath:</span><span class="pl-s"><span class="pl-pds">@"</span>C++ Spec.pdf<span class="pl-pds">"</span></span>];
+<span class="pl-c1">NSOutputStream</span> *decryptedStream = [<span class="pl-c1">NSOutputStream</span> <span class="pl-c1">outputStreamToFileAtPath:</span><span class="pl-s"><span class="pl-pds">@"</span>/tmp/C++.crypt<span class="pl-pds">"</span></span> <span class="pl-c1">append:</span><span class="pl-c1">NO</span>];
+
+[cryptedStream <span class="pl-c1">open</span>];
+[decryptedStream <span class="pl-c1">open</span>];
+
+<span class="pl-c">// We don't need to keep making new NSData objects. We can just use one repeatedly.</span>
+__block <span class="pl-c1">NSMutableData</span> *data = [<span class="pl-c1">NSMutableData</span> <span class="pl-c1">dataWithLength:</span>blockSize];
+__block RNEncryptor *decryptor = <span class="pl-c1">nil</span>;
+
+<span class="pl-c1">dispatch_block_t</span> readStreamBlock = ^{
+  [data <span class="pl-c1">setLength:</span>blockSize];
+  <span class="pl-k">NSInteger</span> bytesRead = [cryptedStream <span class="pl-c1">read</span>:[data <span class="pl-c1">mutableBytes</span>] <span class="pl-c1">maxLength:</span>blockSize];
+  <span class="pl-k">if</span> (bytesRead &lt; <span class="pl-c1">0</span>) {
+    <span class="pl-c">// Throw an error</span>
+  }
+  <span class="pl-k">else</span> <span class="pl-k">if</span> (bytesRead == <span class="pl-c1">0</span>) {
+    [decryptor <span class="pl-c1">finish</span>];
+  }
+  <span class="pl-k">else</span> {
+    [data <span class="pl-c1">setLength:</span>bytesRead];
+    [decryptor <span class="pl-c1">addData:</span>data];
+    <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Sent <span class="pl-c1">%ld</span> bytes to decryptor<span class="pl-pds">"</span></span>, (<span class="pl-k">unsigned</span> <span class="pl-k">long</span>)bytesRead);
+  }
+};
+
+decryptor = [[RNEncryptor <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithSettings:</span><span class="pl-c1">kRNCryptorAES256Settings</span>
+                                         <span class="pl-c1">password:</span><span class="pl-s"><span class="pl-pds">@"</span>blah<span class="pl-pds">"</span></span>
+                                          <span class="pl-c1">handler:</span>^(RNCryptor *cryptor, <span class="pl-c1">NSData</span> *data) {
+                                            <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Decryptor recevied <span class="pl-c1">%ld</span> bytes<span class="pl-pds">"</span></span>, (<span class="pl-k">unsigned</span> <span class="pl-k">long</span>)data.<span class="pl-smi">length</span>);
+                                            [decryptedStream <span class="pl-c1">write</span>:data.bytes <span class="pl-c1">maxLength:</span>data.length];
+                                            <span class="pl-k">if</span> (cryptor.<span class="pl-smi">isFinished</span>) {
+                                              [decryptedStream <span class="pl-c1">close</span>];
+                                              <span class="pl-c">// call my delegate that I'm finished with decrypting</span>
+                                            }
+                                            <span class="pl-k">else</span> {
+                                              <span class="pl-c">// Might want to put this in a dispatch_async(), but I don't think you need it.</span>
+                                              <span class="pl-c1">readStreamBlock</span>();
+                                            }
+                                          }];
+
+<span class="pl-c">// Read the first block to kick things off    </span>
+<span class="pl-en">readStreamBlock</span>();</pre></div>
+
+<p>I'll eventually get this into the API to simplify things. See <a href="http://stackoverflow.com/a/14586231/97337">Cyrille's SO
+question</a> for more discussion. Pull
+requests welcome.</p>
+
+<h2><a id="user-content-building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h2>
+
+<p>Comes packaged as a static library, but the source files can be dropped into any
+project. The OpenSSL files are not required.</p>
+
+<p>Requires <code>Security.framework</code>.</p>
+
+<p>Supports 10.6+ and iOS 4+.</p>
+
+<p>The current file format is v3. To read v1 files (see Issue #44), you need to set the compile-time macro <code>RNCRYPTOR_ALLOW_V1_BAD_HMAC</code>. It is not possible to write v1 files anymore.</p>
+
+<h2><a id="user-content-design-considerations" class="anchor" href="#design-considerations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design considerations</h2>
+
+<p><code>RNCryptor</code> has several design goals, in order of importance:</p>
+
+<h3><a id="user-content-easy-to-use-correctly-for-most-common-use-cases" class="anchor" href="#easy-to-use-correctly-for-most-common-use-cases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Easy to use correctly for most common use cases</h3>
+
+<p>The most critical concern is that it be easy for non-experts to use <code>RNCryptor</code> correctly. A framework that is more secure, but requires a steep learning curve on the developer will either be not used, or used incorrectly. Whenever possible, a single line of code should "do the right thing" for the most common cases.</p>
+
+<p>This also requires that it fail correctly and provide good errors.</p>
+
+<h3><a id="user-content-reliance-on-commoncryptor-functionality" class="anchor" href="#reliance-on-commoncryptor-functionality" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reliance on CommonCryptor functionality</h3>
+
+<p><code>RNCryptor</code> has very little "security" code. It relies as much as possible on the OS-provided CommonCryptor. If a feature does not exist in CommonCryptor, then it generally will not be provided in <code>RNCryptor</code>.</p>
+
+<h3><a id="user-content-best-practice-security" class="anchor" href="#best-practice-security" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best practice security</h3>
+
+<p>Wherever possible within the above constraints, the best available algorithms
+are applied. This means AES-256, HMAC+SHA1, and PBKDF2:</p>
+
+<ul>
+<li><p>AES-256. While Bruce Schneier has made some interesting recommendations
+regarding moving to AES-128 due to certain attacks on AES-256, my current
+thinking is in line with <a href="http://www.daemonology.net/blog/2009-07-31-thoughts-on-AES.html">Colin
+Percival</a>.
+PBKDF2 output is effectively random, which should negate related-keys attacks
+against the kinds of use cases we're interested in.</p></li>
+<li><p>AES-CBC mode. This was a somewhat complex decision, but the ubiquity of CBC
+outweighs other considerations here. There are no major problems with CBC mode,
+and nonce-based modes like CTR have other trade-offs. See <a href="http://robnapier.net/blog/mode-rncryptor">"Mode changes for
+RNCryptor"</a> for more details on this
+decision.</p></li>
+<li><p>Encrypt-then-MAC. If there were a good authenticated AES mode on iOS (GCM for
+instance), I would probably use that for its simplicity. Colin Percival makes
+<a href="http://www.daemonology.net/blog/2009-06-24-encrypt-then-mac.html">good arguments for hand-coding an encrypt-than-
+MAC</a> rather
+than using an authenticated AES mode, but in RNCryptor mananging the HMAC
+actually adds quite a bit of complexity. I'd rather the complexity at a more
+broadly peer-reviewed layer like CommonCryptor than at the RNCryptor layer. But
+this isn't an option, so I fall back to my own Encrypt-than-MAC.</p></li>
+<li><p>HMAC+SHA256. No surprises here.</p></li>
+<li><p>PBKDF2. While bcrypt and scrypt may be more secure than PBKDF2, CommonCryptor
+only supports PBKDF2. <a href="http://security.stackexchange.com/questions/4781/do-any-security-experts-recommend-bcrypt-for-password-storage">NIST also continues to recommend
+PBKDF2</a>. We use 10k rounds of PBKDF2
+which represents about 80ms on an iPhone 4.</p></li>
+</ul>
+
+<h3><a id="user-content-code-simplicity" class="anchor" href="#code-simplicity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code simplicity</h3>
+
+<p><code>RNCryptor endeavors to be implemented as simply as possible, avoiding tricky
+</code>code. It is designed to be easy to read and code review.</p>
+
+<h3><a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Performance</h3>
+
+<p>Performance is a goal, but not the most important goal. The code must be secure
+and easy to use. Within that, it is as fast and memory-efficient as possible.</p>
+
+<h3><a id="user-content-portability" class="anchor" href="#portability" aria-hidden="true"><span class="octicon octicon-link"></span></a>Portability</h3>
+
+<p>Without sacrificing other goals, it is preferable to read the output format of
+<code>RNCryptor</code> on other platforms.</p>
+
+<h2><a id="user-content-version-history" class="anchor" href="#version-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version History</h2>
+
+<ul>
+<li>v2.2 Switches to file format v3 to deal with Issue #77.</li>
+<li>v2.1 Switches to file format v2 to deal with Issue #44.</li>
+<li>v2.0 adds asynchronous modes.</li>
+<li>v2.1 backports <code>RNCryptor</code> to older versions of Mac OS X (and possibly iOS).</li>
+</ul>
+
+</article>
+</body>
+</html>

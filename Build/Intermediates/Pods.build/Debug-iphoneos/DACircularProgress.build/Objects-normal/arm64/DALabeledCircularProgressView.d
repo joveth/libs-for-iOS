@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/shuwei/works/teme/ILibs/Pods/DACircularProgress/DACircularProgress/DALabeledCircularProgressView.m \
+  /Users/shuwei/works/teme/ILibs/Pods/Target\ Support\ Files/DACircularProgress/DACircularProgress-prefix.pch \
+  /Users/shuwei/works/teme/ILibs/Pods/DACircularProgress/DACircularProgress/DALabeledCircularProgressView.h \
+  /Users/shuwei/works/teme/ILibs/Pods/DACircularProgress/DACircularProgress/DACircularProgressView.h

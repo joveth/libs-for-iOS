@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-tapromotee" class="anchor" href="#tapromotee" aria-hidden="true"><span class="octicon octicon-link"></span></a>TAPromotee</h1>
+
+<p>TAPromotee is a pod that allows you to show a cross promotion to a iOS app just by supplying its App Store id. It automatically fetches the info about the app using the iTunes API:</p>
+
+<ul>
+<li>App name</li>
+<li>App icon</li>
+<li>App price</li>
+<li>Screenshot </li>
+</ul>
+
+<p>When the user taps the install button, the <code>SKStoreProductViewController</code> is presented.More information,please visit JanC/TAPromotee on GitHub.</p>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>iOS 7.0+</li>
+<li>iPhone</li>
+<li>Portrait orientation</li>
+</ul>
+
+<h2><a id="user-content-install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>TAPromotee is available through <a href="http://cocoapods.org">CocoaPods</a>, to install
+it simply add the following line to your Podfile:</p>
+
+<div class="highlight highlight-source-ruby"><pre>pod <span class="pl-s"><span class="pl-pds">'</span>TAPromotee<span class="pl-pds">'</span></span></pre></div>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To run the example project run <code>pod try TAPromotee</code> or clone the repo.</p>
+
+<p>Here's an example of how you should use TAPromotee. </p>
+
+<div class="highlight highlight-source-objc"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>TAPromotee.h<span class="pl-pds">"</span></span></pre></div>
+
+<div class="highlight highlight-source-objc"><pre>[TAPromotee <span class="pl-c1">showFromViewController:</span><span class="pl-v">self</span> 
+                             <span class="pl-c1">appId:</span><span class="pl-c1">822702909</span> 
+                           <span class="pl-c1">caption:</span><span class="pl-s"><span class="pl-pds">@"</span>Sun clock in your pocket<span class="pl-pds">"</span></span> 
+                        <span class="pl-c1">completion:</span>^(TAPromoteeUserAction userAction) {
+    <span class="pl-k">switch</span> (userAction) {
+        <span class="pl-k">case</span> TAPromoteeUserActionDidClose:
+            <span class="pl-c">// The user just closed the add</span>
+            <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>User did click close<span class="pl-pds">"</span></span>);
+            <span class="pl-k">break</span>;
+        <span class="pl-k">case</span> TAPromoteeUserActionDidInstall:
+            <span class="pl-c">// The user did click on the Install button so here you can for example disable the ad for the future</span>
+            <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>User did click install<span class="pl-pds">"</span></span>);
+            <span class="pl-k">break</span>;
+    }
+}];
+</pre></div>
+
+<p>If you don't want to use the App Store screenshot as background, you can supply a custom background image</p>
+
+<div class="highlight highlight-source-objc"><pre>[TAPromotee <span class="pl-c1">showFromViewController:</span><span class="pl-v">self</span>
+                             <span class="pl-c1">appId:</span><span class="pl-c1">937151343</span>
+                           <span class="pl-c1">caption:</span><span class="pl-s"><span class="pl-pds">@"</span>Your Battlefield soldier's companion<span class="pl-pds">"</span></span>
+                   <span class="pl-c1">backgroundImage:</span>[UIImage <span class="pl-c1">imageNamed:</span><span class="pl-s"><span class="pl-pds">@"</span>sample-app-background<span class="pl-pds">"</span></span>]
+                        <span class="pl-c1">completion:</span>^(TAPromoteeUserAction userAction) {
+    <span class="pl-k">switch</span> (userAction) {
+        <span class="pl-k">case</span> TAPromoteeUserActionDidClose:
+            <span class="pl-c">// The user just closed the add</span>
+            <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>User did click close<span class="pl-pds">"</span></span>);
+            <span class="pl-k">break</span>;
+        <span class="pl-k">case</span> TAPromoteeUserActionDidInstall:
+            <span class="pl-c">// The user did click on the Install button so here you can for example disable the ad for the future</span>
+            <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>User did click install<span class="pl-pds">"</span></span>);
+            <span class="pl-k">break</span>;
+    }
+}];</pre></div>
+
+<h2><a id="user-content-screens" class="anchor" href="#screens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screens</h2>
+
+<p>Here is how it looks like</p>
+
+<p><img src="https://raw.githubusercontent.com/JanC/TAPromotee/master/Example/Screens/Screen1.png" alt="" style="max-width:100%;"></p>
+
+<p><img src="https://raw.githubusercontent.com/JanC/TAPromotee/master/Example/Screens/Screen2.png" alt="" style="max-width:100%;"></p>
+
+</article>
+
+</body>
+
+</html>

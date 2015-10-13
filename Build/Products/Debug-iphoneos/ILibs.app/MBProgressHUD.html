@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>MBProgressHUD</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-mbprogresshud-" class="anchor" href="#mbprogresshud-" aria-hidden="true"><span class="octicon octicon-link"></span></a>MBProgressHUD </h1>
+
+<p>MBProgressHUD is an iOS drop-in class that displays a translucent HUD with an indicator and/or labels while work is being done in a background thread. The HUD is meant as a replacement for the undocumented, private UIKit UIProgressHUD with some additional features. </p>
+
+<p><a href="http://dl.dropbox.com/u/378729/MBProgressHUD/1.png"><img src="https://camo.githubusercontent.com/8211f8a4fa848499e174fa3d6125adb2044c182e/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f312d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/1-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/2.png"><img src="https://camo.githubusercontent.com/ee8ac43c6a7cd5145363dd76967a19953898878d/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f322d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/2-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/3.png"><img src="https://camo.githubusercontent.com/2219cca6d829b84737d78fd22b64c805ff3f5c85/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f332d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/3-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/4.png"><img src="https://camo.githubusercontent.com/c2eb7c2b4c6bfb80d23a2956ea74022f08103647/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f342d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/4-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/5.png"><img src="https://camo.githubusercontent.com/54d8f017283efe4c46b4afef173dfb259aab5c9a/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f352d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/5-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/6.png"><img src="https://camo.githubusercontent.com/4c18796efc4cc5d49d8e2ac7e51b530b40e24ab9/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f362d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/6-thumb.png" style="max-width:100%;"></a>
+<a href="http://dl.dropbox.com/u/378729/MBProgressHUD/7.png"><img src="https://camo.githubusercontent.com/1658f226897943d7229cd38bc858cc3fa048e572/687474703a2f2f646c2e64726f70626f782e636f6d2f752f3337383732392f4d4250726f67726573734855442f372d7468756d622e706e67" alt="" data-canonical-src="http://dl.dropbox.com/u/378729/MBProgressHUD/7-thumb.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>MBProgressHUD works on any iOS version and is compatible with both ARC and non-ARC projects. </p>
+
+<p>You will need the latest developer tools in order to build MBProgressHUD. Old Xcode versions might work, but compatibility will not be explicitly maintained.</p>
+
+<h2><a id="user-content-adding-mbprogresshud-to-your-project" class="anchor" href="#adding-mbprogresshud-to-your-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>Cocoapods</h3>
+
+<p>CocoaPods is the recommended way to add MBProgressHUD to your project.</p>
+
+<ol>
+<li>Add a pod entry for MBProgressHUD to your Podfile <code>pod 'MBProgressHUD', '~&gt; 0.9.1'</code></li>
+<li>Install the pod(s) by running <code>pod install,or running pod update</code>.</li>
+<li>Include MBProgressHUD wherever you need it with <code>#import "MBProgressHUD.h"</code>.</li>
+</ol>
+
+<h4><a id="user-content-source-files" class="anchor" href="#source-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other information,please view jdg/MBProgressHUD on GitHub. </h4>
+
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>The main guideline you need to follow when dealing with MBProgressHUD while running long-running tasks is keeping the main thread work-free, so the UI can be updated promptly. The recommended way of using MBProgressHUD is therefore to set it up on the main thread and then spinning the task, that you want to perform, off onto a new thread. </p>
+
+<div class="highlight highlight-objective-c"><pre>[MBProgressHUD <span class="pl-c1">showHUDAddedTo:</span><span class="pl-v">self</span>.view <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+<span class="pl-en">dispatch_async</span>(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, <span class="pl-c1">0</span>), ^{
+    <span class="pl-c">// Do something...</span>
+    <span class="pl-c1">dispatch_async</span>(<span class="pl-c1">dispatch_get_main_queue</span>(), ^{
+        [MBProgressHUD <span class="pl-c1">hideHUDForView:</span><span class="pl-v">self</span>.view <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+    });
+});</pre></div>
+
+<p>If you need to configure the HUD you can do this by using the MBProgressHUD reference that showHUDAddedTo:animated: returns. </p>
+
+<div class="highlight highlight-objective-c"><pre>MBProgressHUD *hud = [MBProgressHUD <span class="pl-c1">showHUDAddedTo:</span><span class="pl-v">self</span>.view <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+hud.mode = MBProgressHUDModeAnnularDeterminate;
+hud.labelText = <span class="pl-s"><span class="pl-pds">@"</span>Loading<span class="pl-pds">"</span></span>;
+[<span class="pl-v">self</span> <span class="pl-c1">doSomethingInBackgroundWithProgressCallback:</span>^(<span class="pl-k">float</span> progress) {
+    hud.<span class="pl-smi">progress</span> = progress;
+} <span class="pl-c1">completionCallback:</span>^{
+    [hud <span class="pl-c1">hide:</span><span class="pl-c1">YES</span>];
+}];</pre></div>
+
+<p>UI updates should always be done on the main thread. Some MBProgressHUD setters are however considered "thread safe" and can be called from background threads. Those also include <code>setMode:</code>, <code>setCustomView:</code>, <code>setLabelText:</code>, <code>setLabelFont:</code>, <code>setDetailsLabelText:</code>, <code>setDetailsLabelFont:</code> and <code>setProgress:</code>.</p>
+
+<p>If you need to run your long-running task in the main thread, you should perform it with a slight delay, so UIKit will have enough time to update the UI (i.e., draw the HUD) before you block the main thread with your task.</p>
+
+<div class="highlight highlight-objective-c"><pre>[MBProgressHUD <span class="pl-c1">showHUDAddedTo:</span><span class="pl-v">self</span>.view <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+<span class="pl-c1">dispatch_time_t</span> popTime = dispatch_time(DISPATCH_TIME_NOW, <span class="pl-c1">0.01</span> * NSEC_PER_SEC);
+<span class="pl-en">dispatch_after</span>(popTime, dispatch_get_main_queue(), ^(<span class="pl-k">void</span>){
+    <span class="pl-c">// Do something...</span>
+    [MBProgressHUD <span class="pl-c1">hideHUDForView:</span><span class="pl-v">self</span>.view <span class="pl-c1">animated:</span><span class="pl-c1">YES</span>];
+});</pre></div>
+
+<p>You should be aware that any HUD updates issued inside the above block won't be displayed until the block completes.</p>
+
+<p>For more examples, including how to use MBProgressHUD with asynchronous operations such as NSURLConnection, take a look at the bundled demo project. Extensive API documentation is provided in the header file (MBProgressHUD.h).</p>
+</article>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-fmdb-v25" class="anchor" href="#fmdb-v25" aria-hidden="true"><span class="octicon octicon-link"></span></a>FMDB v2.5</h1>
+
+<p>This is an Objective-C wrapper around SQLite.More information,please view ccgus/fmdb on GitHub.</p>
+
+<h2><a id="user-content-cocoapods" class="anchor" href="#cocoapods" aria-hidden="true"><span class="octicon octicon-link"></span></a>CocoaPods</h2>
+
+<p>FMDB can be installed using CocoaPods.</p>
+
+<pre><code>pod 'FMDB'
+# pod 'FMDB/FTS'   # FMDB with FTS
+# pod 'FMDB/standalone'   # FMDB with latest SQLite amalgamation source
+# pod 'FMDB/standalone/FTS'   # FMDB with latest SQLite amalgamation source and FTS
+# pod 'FMDB/SQLCipher'   # FMDB with SQLCipher
+</code></pre>
+
+<p><strong>If using FMDB with SQLCipher you must use the FMDB/SQLCipher subspec. The FMDB/SQLCipher subspec declares SQLCipher as a dependency, allowing FMDB to be compiled with the <code>-DSQLITE_HAS_CODEC</code> flag.</strong></p>
+
+<h2><a id="user-content-automatic-reference-counting-arc-or-manual-memory-management" class="anchor" href="#automatic-reference-counting-arc-or-manual-memory-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic Reference Counting (ARC) or Manual Memory Management?</h2>
+
+<p>You can use either style in your Cocoa project.  FMDB Will figure out which you are using at compile time and do the right thing.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>There are three main classes in FMDB:</p>
+
+<ol>
+<li><code>FMDatabase</code> - Represents a single SQLite database.  Used for executing SQL statements.</li>
+<li><code>FMResultSet</code> - Represents the results of executing a query on an <code>FMDatabase</code>.</li>
+<li><code>FMDatabaseQueue</code> - If you're wanting to perform queries and updates on multiple threads, you'll want to use this class.  It's described in the "Thread Safety" section below.</li>
+</ol>
+
+<h3><a id="user-content-database-creation" class="anchor" href="#database-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Creation</h3>
+
+<p>An <code>FMDatabase</code> is created with a path to a SQLite database file.  This path can be one of these three:</p>
+
+<ol>
+<li>A file system path.  The file does not have to exist on disk.  If it does not exist, it is created for you.</li>
+<li>An empty string (<code>@""</code>).  An empty database is created at a temporary location.  This database is deleted with the <code>FMDatabase</code> connection is closed.</li>
+<li><code>NULL</code>.  An in-memory database is created.  This database will be destroyed with the <code>FMDatabase</code> connection is closed.</li>
+</ol>
+
+
+<div class="highlight highlight-objc"><pre>FMDatabase *db = [FMDatabase <span class="pl-c1">databaseWithPath:</span><span class="pl-s"><span class="pl-pds">@"</span>/tmp/tmp.db<span class="pl-pds">"</span></span>];</pre></div>
+
+<h3><a id="user-content-opening" class="anchor" href="#opening" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opening</h3>
+
+<p>Before you can interact with the database, it must be opened.  Opening fails if there are insufficient resources or permissions to open and/or create the database.</p>
+
+<div class="highlight highlight-objc"><pre><span class="pl-k">if</span> (![db <span class="pl-c1">open</span>]) {
+    [db <span class="pl-c1">release</span>];
+    <span class="pl-k">return</span>;
+}</pre></div>
+
+<h3><a id="user-content-executing-updates" class="anchor" href="#executing-updates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executing Updates</h3>
+
+<p>Any sort of SQL statement which is not a <code>SELECT</code> statement qualifies as an update.  This includes <code>CREATE</code>, <code>UPDATE</code>, <code>INSERT</code>, <code>ALTER</code>, <code>COMMIT</code>, <code>BEGIN</code>, <code>DETACH</code>, <code>DELETE</code>, <code>DROP</code>, <code>END</code>, <code>EXPLAIN</code>, <code>VACUUM</code>, and <code>REPLACE</code> statements (plus many more).  Basically, if your SQL statement does not begin with <code>SELECT</code>, it is an update statement.</p>
+
+<p>Executing updates returns a single value, a <code>BOOL</code>.  A return value of <code>YES</code> means the update was successfully executed, and a return value of <code>NO</code> means that some error was encountered.  You may invoke the <code>-lastErrorMessage</code> and <code>-lastErrorCode</code> methods to retrieve more information.</p>
+
+<h3><a id="user-content-executing-queries" class="anchor" href="#executing-queries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Executing Queries</h3>
+
+<p>A <code>SELECT</code> statement is a query and is executed via one of the <code>-executeQuery...</code> methods.</p>
+
+<p>Executing queries returns an <code>FMResultSet</code> object if successful, and <code>nil</code> upon failure.  You should use the <code>-lastErrorMessage</code> and <code>-lastErrorCode</code> methods to determine why a query failed.</p>
+
+<p>In order to iterate through the results of your query, you use a <code>while()</code> loop.  You also need to "step" from one record to the other.  With FMDB, the easiest way to do that is like this:</p>
+
+<div class="highlight highlight-objc"><pre>FMResultSet *s = [db <span class="pl-c1">executeQuery:</span><span class="pl-s"><span class="pl-pds">@"</span>SELECT * FROM myTable<span class="pl-pds">"</span></span>];
+<span class="pl-k">while</span> ([s <span class="pl-c1">next</span>]) {
+    <span class="pl-c">//retrieve values for each record</span>
+}</pre></div>
+
+<p>You must always invoke <code>-[FMResultSet next]</code> before attempting to access the values returned in a query, even if you're only expecting one:</p>
+
+<div class="highlight highlight-objc"><pre>FMResultSet *s = [db <span class="pl-c1">executeQuery:</span><span class="pl-s"><span class="pl-pds">@"</span>SELECT COUNT(*) FROM myTable<span class="pl-pds">"</span></span>];
+<span class="pl-k">if</span> ([s <span class="pl-c1">next</span>]) {
+    <span class="pl-k">int</span> totalCount = [s <span class="pl-c1">intForColumnIndex:</span><span class="pl-c1">0</span>];
+}</pre></div>
+
+<p><code>FMResultSet</code> has many methods to retrieve data in an appropriate format:</p>
+
+<ul>
+<li><code>intForColumn:</code></li>
+<li><code>longForColumn:</code></li>
+<li><code>longLongIntForColumn:</code></li>
+<li><code>boolForColumn:</code></li>
+<li><code>doubleForColumn:</code></li>
+<li><code>stringForColumn:</code></li>
+<li><code>dateForColumn:</code></li>
+<li><code>dataForColumn:</code></li>
+<li><code>dataNoCopyForColumn:</code></li>
+<li><code>UTF8StringForColumnName:</code></li>
+<li><code>objectForColumnName:</code></li>
+</ul>
+
+<p>Each of these methods also has a <code>{type}ForColumnIndex:</code> variant that is used to retrieve the data based on the position of the column in the results, as opposed to the column's name.</p>
+
+<p>Typically, there's no need to <code>-close</code> an <code>FMResultSet</code> yourself, since that happens when either the result set is deallocated, or the parent database is closed.</p>
+
+<h3><a id="user-content-closing" class="anchor" href="#closing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Closing</h3>
+
+<p>When you have finished executing queries and updates on the database, you should <code>-close</code> the <code>FMDatabase</code> connection so that SQLite will relinquish any resources it has acquired during the course of its operation.</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">close</span>];</pre></div>
+
+<h3><a id="user-content-transactions" class="anchor" href="#transactions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Transactions</h3>
+
+<p><code>FMDatabase</code> can begin and commit a transaction by invoking one of the appropriate methods or executing a begin/end transaction statement.</p>
+
+<h3><a id="user-content-multiple-statements-and-batch-stuff" class="anchor" href="#multiple-statements-and-batch-stuff" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Statements and Batch Stuff</h3>
+
+<p>You can use <code>FMDatabase</code>'s executeStatements:withResultBlock: to do multiple statements in a string:</p>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c1">NSString</span> *sql = <span class="pl-s"><span class="pl-pds">@"</span>create table bulktest1 (id integer primary key autoincrement, x text);<span class="pl-pds">"</span></span>
+                 <span class="pl-s"><span class="pl-pds">"</span>create table bulktest2 (id integer primary key autoincrement, y text);<span class="pl-pds">"</span></span>
+                 <span class="pl-s"><span class="pl-pds">"</span>create table bulktest3 (id integer primary key autoincrement, z text);<span class="pl-pds">"</span></span>
+                 <span class="pl-s"><span class="pl-pds">"</span>insert into bulktest1 (x) values ('XXX');<span class="pl-pds">"</span></span>
+                 <span class="pl-s"><span class="pl-pds">"</span>insert into bulktest2 (y) values ('YYY');<span class="pl-pds">"</span></span>
+                 <span class="pl-s"><span class="pl-pds">"</span>insert into bulktest3 (z) values ('ZZZ');<span class="pl-pds">"</span></span>;
+
+success = [db <span class="pl-c1">executeStatements:</span>sql];
+
+sql = <span class="pl-s"><span class="pl-pds">@"</span>select count(*) as count from bulktest1;<span class="pl-pds">"</span></span>
+       <span class="pl-s"><span class="pl-pds">"</span>select count(*) as count from bulktest2;<span class="pl-pds">"</span></span>
+       <span class="pl-s"><span class="pl-pds">"</span>select count(*) as count from bulktest3;<span class="pl-pds">"</span></span>;
+
+success = [<span class="pl-v">self</span>.db <span class="pl-c1">executeStatements:</span>sql <span class="pl-c1">withResultBlock:</span>^<span class="pl-c1">int</span>(<span class="pl-c1">NSDictionary</span> *dictionary) {
+    <span class="pl-k">NSInteger</span> count = [dictionary[<span class="pl-s"><span class="pl-pds">@"</span>count<span class="pl-pds">"</span></span>] <span class="pl-c1">integerValue</span>];
+    <span class="pl-c1">XCTAssertEqual</span>(count, <span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">@"</span>expected one record for dictionary <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>, dictionary);
+    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}];</pre></div>
+
+<h3><a id="user-content-data-sanitization" class="anchor" href="#data-sanitization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Sanitization</h3>
+
+<p>When providing a SQL statement to FMDB, you should not attempt to "sanitize" any values before insertion.  Instead, you should use the standard SQLite binding syntax:</p>
+
+<div class="highlight highlight-sql"><pre><span class="pl-k">INSERT INTO</span> myTable <span class="pl-k">VALUES</span> (?, ?, ?)</pre></div>
+
+<p>The <code>?</code> character is recognized by SQLite as a placeholder for a value to be inserted.  The execution methods all accept a variable number of arguments (or a representation of those arguments, such as an <code>NSArray</code>, <code>NSDictionary</code>, or a <code>va_list</code>), which are properly escaped for you.</p>
+
+<p>Alternatively, you may use named parameters syntax:</p>
+
+<div class="highlight highlight-sql"><pre><span class="pl-k">INSERT INTO</span> myTable <span class="pl-k">VALUES</span> (:id, :name, :value)</pre></div>
+
+<p>The parameters <em>must</em> start with a colon. SQLite itself supports other characters, but internally the Dictionary keys are prefixed with a colon, do <strong>not</strong> include the colon in your dictionary keys.</p>
+
+<div class="highlight highlight-objc"><pre><span class="pl-c1">NSDictionary</span> *argsDict = [<span class="pl-c1">NSDictionary</span> <span class="pl-c1">dictionaryWithObjectsAndKeys:</span><span class="pl-s"><span class="pl-pds">@"</span>My Name<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>name<span class="pl-pds">"</span></span>, <span class="pl-c1">nil</span>];
+[db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable (name) VALUES (:name)<span class="pl-pds">"</span></span> <span class="pl-c1">withParameterDictionary:</span>argsDict];</pre></div>
+
+<p>Thus, you SHOULD NOT do this (or anything like this):</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">executeUpdate:</span>[<span class="pl-c1">NSString</span> <span class="pl-c1">stringWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (<span class="pl-c1">%@</span>)<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>this has <span class="pl-cce">\"</span> lots of ' bizarre <span class="pl-cce">\"</span> quotes '<span class="pl-pds">"</span></span>]];</pre></div>
+
+<p>Instead, you SHOULD do:</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">@"</span>this has <span class="pl-cce">\"</span> lots of ' bizarre <span class="pl-cce">\"</span> quotes '<span class="pl-pds">"</span></span>];</pre></div>
+
+<p>All arguments provided to the <code>-executeUpdate:</code> method (or any of the variants that accept a <code>va_list</code> as a parameter) must be objects.  The following will not work (and will result in a crash):</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, <span class="pl-c1">42</span>];</pre></div>
+
+<p>The proper way to insert a number is to box it in an <code>NSNumber</code> object:</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">42</span>]];</pre></div>
+
+<p>Alternatively, you can use the <code>-execute*WithFormat:</code> variant to use <code>NSString</code>-style substitution:</p>
+
+<div class="highlight highlight-objc"><pre>[db <span class="pl-c1">executeUpdateWithFormat:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (<span class="pl-c1">%d</span>)<span class="pl-pds">"</span></span>, <span class="pl-c1">42</span>];</pre></div>
+
+<p>Internally, the <code>-execute*WithFormat:</code> methods are properly boxing things for you.  The following percent modifiers are recognized:  <code>%@</code>, <code>%c</code>, <code>%s</code>, <code>%d</code>, <code>%D</code>, <code>%i</code>, <code>%u</code>, <code>%U</code>, <code>%hi</code>, <code>%hu</code>, <code>%qi</code>, <code>%qu</code>, <code>%f</code>, <code>%g</code>, <code>%ld</code>, <code>%lu</code>, <code>%lld</code>, and <code>%llu</code>.  Using a modifier other than those will have unpredictable results.  If, for some reason, you need the <code>%</code> character to appear in your SQL statement, you should use <code>%%</code>.</p>
+
+<h2 id="user-content-threads"><a id="user-content-using-fmdatabasequeue-and-thread-safety" class="anchor" href="#using-fmdatabasequeue-and-thread-safety" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using FMDatabaseQueue and Thread Safety.</h2>
+
+<p>Using a single instance of FMDatabase from multiple threads at once is a bad idea.  It has always been OK to make a FMDatabase object <em>per thread</em>.  Just don't share a single instance across threads, and definitely not across multiple threads at the same time.  Bad things will eventually happen and you'll eventually get something to crash, or maybe get an exception, or maybe meteorites will fall out of the sky and hit your Mac Pro.  <em>This would suck</em>.</p>
+
+<p><strong>So don't instantiate a single FMDatabase object and use it across multiple threads.</strong></p>
+
+<p>Instead, use FMDatabaseQueue.  It's your friend and it's here to help.  Here's how to use it:</p>
+
+<p>First, make your queue.</p>
+
+<div class="highlight highlight-objc"><pre>FMDatabaseQueue *queue = [FMDatabaseQueue <span class="pl-c1">databaseQueueWithPath:</span>aPath];</pre></div>
+
+<p>Then use it like so:</p>
+
+<div class="highlight highlight-objc"><pre>[queue <span class="pl-c1">inDatabase:</span>^(FMDatabase *db) {
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">1</span>]];
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">2</span>]];
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">3</span>]];
+
+    FMResultSet *rs = [db <span class="pl-c1">executeQuery:</span><span class="pl-s"><span class="pl-pds">@"</span>select * from foo<span class="pl-pds">"</span></span>];
+    <span class="pl-k">while</span> ([rs <span class="pl-c1">next</span>]) {
+        …
+    }
+}];</pre></div>
+
+<p>An easy way to wrap things up in a transaction can be done like this:</p>
+
+<div class="highlight highlight-objc"><pre>[queue <span class="pl-c1">inTransaction:</span>^(FMDatabase *db, <span class="pl-k">BOOL</span> *rollback) {
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">1</span>]];
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">2</span>]];
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">3</span>]];
+
+    <span class="pl-k">if</span> (whoopsSomethingWrongHappened) {
+        *rollback = <span class="pl-c1">YES</span>;
+        <span class="pl-k">return</span>;
+    }
+    <span class="pl-c">// etc…</span>
+    [db <span class="pl-c1">executeUpdate:</span><span class="pl-s"><span class="pl-pds">@"</span>INSERT INTO myTable VALUES (?)<span class="pl-pds">"</span></span>, [<span class="pl-c1">NSNumber</span> <span class="pl-c1">numberWithInt:</span><span class="pl-c1">4</span>]];
+}];</pre></div>
+
+<p>FMDatabaseQueue will run the blocks on a serialized queue (hence the name of the class).  So if you call FMDatabaseQueue's methods from multiple threads at the same time, they will be executed in the order they are received.  This way queries and updates won't step on each other's toes, and every one is happy.</p>
+
+<p><strong>Note:</strong> The calls to FMDatabaseQueue's methods are blocking.  So even though you are passing along blocks, they will <strong>not</strong> be run on another thread.</p>
+
+<h2><a id="user-content-making-custom-sqlite-functions-based-on-blocks" class="anchor" href="#making-custom-sqlite-functions-based-on-blocks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making custom sqlite functions, based on blocks.</h2>
+
+<p>You can do this!  For an example, look for "makeFunctionNamed:" in main.m</p>
+
+<h2><a id="user-content-swift" class="anchor" href="#swift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swift</h2>
+
+<p>You can use FMDB in Swift projects too.</p>
+
+<p>To do this, you must:</p>
+
+<ol>
+<li><p>Copy the FMDB <code>.m</code> and <code>.h</code> files into your project.</p></li>
+<li><p>If prompted to create a "bridging header", you should do so. If not prompted and if you don't already have a bridging header, add one.</p></li>
+<li><p>In your bridging header, add a line that says:</p>
+
+<div class="highlight highlight-swift"><pre>#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span>FMDB.h<span class="pl-pds">"</span></span></pre></div></li>
+<li><p>Optionally, copy the <code>FMDatabaseVariadic.swift</code> from the "src/extra/Swift Extensions" folder into your project. This allows you to use <code>executeUpdate</code> and <code>executeQuery</code> with variadic parameters, rather than the <code>withArgumentsInArray</code> rendition.</p></li>
+</ol>
+
+<p>If you do the above, you can then write Swift code that uses FMDatabase. For example:</p>
+
+<div class="highlight highlight-swift"><pre><span class="pl-k">let</span> documentsFolder <span class="pl-k">=</span> NSSearchPathForDirectoriesInDomains(<span class="pl-k">.</span>DocumentDirectory, <span class="pl-k">.</span>UserDomainMask, <span class="pl-c1">true</span>)[<span class="pl-c1">0</span>] <span class="pl-k">as</span> <span class="pl-c1">String</span>
+<span class="pl-k">let</span> path <span class="pl-k">=</span> documentsFolder<span class="pl-k">.</span>stringByAppendingPathComponent(<span class="pl-s"><span class="pl-pds">"</span>test.sqlite<span class="pl-pds">"</span></span>)
+
+<span class="pl-k">let</span> database <span class="pl-k">=</span> FMDatabase(path: path)
+
+<span class="pl-k">if</span> <span class="pl-k">!</span>database<span class="pl-k">.</span>open() {
+    println(<span class="pl-s"><span class="pl-pds">"</span>Unable to open database<span class="pl-pds">"</span></span>)
+    <span class="pl-k">return</span>
+}
+
+<span class="pl-k">if</span> <span class="pl-k">!</span>database<span class="pl-k">.</span>executeUpdate(<span class="pl-s"><span class="pl-pds">"</span>create table test(x text, y text, z text)<span class="pl-pds">"</span></span>, withArgumentsInArray: <span class="pl-c1">nil</span>) {
+    println(<span class="pl-s"><span class="pl-pds">"</span>create table failed: <span class="pl-pse">\(</span><span class="pl-s1">database<span class="pl-k">.</span>lastErrorMessage()</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+}
+
+<span class="pl-k">if</span> <span class="pl-k">!</span>database<span class="pl-k">.</span>executeUpdate(<span class="pl-s"><span class="pl-pds">"</span>insert into test (x, y, z) values (?, ?, ?)<span class="pl-pds">"</span></span>, withArgumentsInArray: [<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>]) {
+    println(<span class="pl-s"><span class="pl-pds">"</span>insert 1 table failed: <span class="pl-pse">\(</span><span class="pl-s1">database<span class="pl-k">.</span>lastErrorMessage()</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+}
+
+<span class="pl-k">if</span> <span class="pl-k">!</span>database<span class="pl-k">.</span>executeUpdate(<span class="pl-s"><span class="pl-pds">"</span>insert into test (x, y, z) values (?, ?, ?)<span class="pl-pds">"</span></span>, withArgumentsInArray: [<span class="pl-s"><span class="pl-pds">"</span>e<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>f<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>g<span class="pl-pds">"</span></span>]) {
+    println(<span class="pl-s"><span class="pl-pds">"</span>insert 2 table failed: <span class="pl-pse">\(</span><span class="pl-s1">database<span class="pl-k">.</span>lastErrorMessage()</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+}
+
+<span class="pl-k">if</span> <span class="pl-k">let</span> rs <span class="pl-k">=</span> database<span class="pl-k">.</span>executeQuery(<span class="pl-s"><span class="pl-pds">"</span>select x, y, z from test<span class="pl-pds">"</span></span>, withArgumentsInArray: <span class="pl-c1">nil</span>) {
+    <span class="pl-k">while</span> rs<span class="pl-k">.</span><span class="pl-c1">next</span>() {
+        <span class="pl-k">let</span> x <span class="pl-k">=</span> rs<span class="pl-k">.</span>stringForColumn(<span class="pl-s"><span class="pl-pds">"</span>x<span class="pl-pds">"</span></span>)
+        <span class="pl-k">let</span> y <span class="pl-k">=</span> rs<span class="pl-k">.</span>stringForColumn(<span class="pl-s"><span class="pl-pds">"</span>y<span class="pl-pds">"</span></span>)
+        <span class="pl-k">let</span> z <span class="pl-k">=</span> rs<span class="pl-k">.</span>stringForColumn(<span class="pl-s"><span class="pl-pds">"</span>z<span class="pl-pds">"</span></span>)
+        println(<span class="pl-s"><span class="pl-pds">"</span>x = <span class="pl-pse">\(</span><span class="pl-s1">x</span><span class="pl-pse">)</span>; y = <span class="pl-pse">\(</span><span class="pl-s1">y</span><span class="pl-pse">)</span>; z = <span class="pl-pse">\(</span><span class="pl-s1">z</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+    }
+} <span class="pl-k">else</span> {
+    println(<span class="pl-s"><span class="pl-pds">"</span>select failed: <span class="pl-pse">\(</span><span class="pl-s1">database<span class="pl-k">.</span>lastErrorMessage()</span><span class="pl-pse">)</span><span class="pl-pds">"</span></span>)
+}
+
+database<span class="pl-k">.</span>close()</pre></div>
+
+</article>
+</body>
+</html>

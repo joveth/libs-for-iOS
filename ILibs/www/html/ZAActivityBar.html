@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>MJRefresh</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:0 10px 0 10px;">
+	<article class="markdown-body entry-content" itemprop="mainContentOfPage"><p><em><strong>If your project doesn't use ARC</strong>: you must add the <code>-fobjc-arc</code> compiler flag to <code>ZAActivityBar.m</code> in Target Settings &gt; Build Phases &gt; Compile Sources.</em></p>
+
+<h1><a id="user-content-zaactivitybar" class="anchor" href="#zaactivitybar" aria-hidden="true"><span class="octicon octicon-link"></span></a>ZAActivityBar</h1>
+
+<p>ZAActivityBar is an easy-to-use queueable activity bar that's meant to non-intrusively display the progress of a task.More information,please view zacaltman/ZAActivityBar on GitHub.</p>
+
+<p><a href="https://camo.githubusercontent.com/47d3992cd5da2f6f35c01cdc0126ae10cf63da1d/68747470733a2f2f7261772e6769746875622e636f6d2f7a6163616c746d616e2f5a4141637469766974794261722f6d61737465722f73637265656e73686f742e706e67" target="_blank"><img src="https://camo.githubusercontent.com/47d3992cd5da2f6f35c01cdc0126ae10cf63da1d/68747470733a2f2f7261772e6769746875622e636f6d2f7a6163616c746d616e2f5a4141637469766974794261722f6d61737465722f73637265656e73686f742e706e67" alt="ScreenShot" data-canonical-src="https://raw.github.com/zacaltman/ZAActivityBar/master/screenshot.png" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ul>
+<li>Drag the <code>ZAActivityBar</code> folder into your project.</li>
+<li>Drag <code>SKBounceAnimation.h</code> and <code>SKBounceAnimation.m</code> files into your project (found in <code>External/SKBounceAnimation/SKBounceAnimation</code>)</li>
+<li>Add the <strong>QuartzCore</strong> framework to your project.</li>
+</ul>
+
+<h2><a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes</h2>
+
+<ul>
+<li>ZAActivityBar is completely thread safe.</li>
+<li>ZAActivityBar has been tested on iOS5 and iOS6.</li>
+<li>When using 'showWithStatus:' you will need to dismiss the bar either by calling 'dismiss' or showing an error or success message.</li>
+<li>ZAActivityBar is screen independent. That is, if you switch screens via any means the bar will remain on screen.</li>
+</ul>
+
+<h2><a id="user-content-basic-use" class="anchor" href="#basic-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Use</h2>
+
+<p><em>It's quite easy</em></p>
+
+<p>Show loading indicator</p>
+
+<pre><code>[ZAActivityBar showWithStatus:@"Loading..."];
+</code></pre>
+
+<p>Show success or error messages (this will dismiss the indicator automatically)</p>
+
+<pre><code>[ZAActivityBar showSuccessWithStatus:@"Success!"];
+[ZAActivityBar showErrorWithStatus:@"Success!"];
+</code></pre>
+
+<p>Dismiss the indicator</p>
+
+<pre><code>[ZAActivityBar dismiss];
+</code></pre>
+
+<h2><a id="user-content-advanced-use-queuing" class="anchor" href="#advanced-use-queuing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced Use (Queuing)</h2>
+
+<p>You can add actions to a display queue. This means that you could have several async actions going on and independently set the actions for each and <code>ZAActivityBar</code> will handle what the user sees for you. No more disappearing bars or annoying dependencies!</p>
+
+<p>Here's the absolute basics for you:</p>
+
+<pre><code>#define DATA_ACTION @"DataAction"
+#define IMAGE_ACTION @"ImageAction"
+
+- (void) loadEverything {
+    [self loadDataAsync];
+    [self loadImagesAsync];
+}
+
+- (void) loadDataAsync {
+
+    // Dispatch into a thread here
+
+    [ZAActivityBar showWithStatus:@"Loading Data" forAction:DATA_ACTION];
+
+    // Load here
+
+    [ZAActivityBar showSuccessWithStatus:@"Data Loaded!" forAction:DATA_ACTION];
+}
+
+- (void) loadImagesAsync {
+
+    // Dispatch into a thread here
+
+    [ZAActivityBar showWithStatus:@"Loading Images" forAction:IMAGE_ACTION];
+
+    // Load here
+
+    [ZAActivityBar dismissForAction:DATA_ACTION];
+}
+</code></pre>
+
+<p>In this example, the <code>Loading Data</code> message will be shown until the data is loaded, then the <code>Data Loaded!</code> success message will be shown. Then...</p>
+
+<ul>
+<li>If the images have loaded, the bar will be removed.</li>
+<li>If the images are still loading, the <code>Loading Images</code> message will be shown, and when they have loaded, the bar will disappear from the screen.</li>
+</ul>
+
+<h3><a id="user-content-how-do-i-dismiss-all-actions" class="anchor" href="#how-do-i-dismiss-all-actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I dismiss all actions?</h3>
+
+<p>This is the catch all method:</p>
+
+<pre><code>[ZAActivityBar dismiss];
+</code></pre>
+
+<h3><a id="user-content-how-does-it-determine-what-to-show" class="anchor" href="#how-does-it-determine-what-to-show" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it determine what to show?</h3>
+
+<p>Pretty simple, first action in is the primary action. Everything else is queued up and ignored until the primary action is dismissed. Once the primary action is dismissed, the next item in the queue becomes the primary action.</p>
+
+<h3><a id="user-content-can-i-change-the-order-or-set-items-have-a-higher-priority" class="anchor" href="#can-i-change-the-order-or-set-items-have-a-higher-priority" aria-hidden="true"><span class="octicon octicon-link"></span></a>Can I change the order or set items have a higher priority?</h3>
+
+<p><em>No</em></p>
+</article>
+</body>
+</html>
