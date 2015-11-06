@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-samloadingview" class="anchor" href="#samloadingview" aria-hidden="true"><span class="octicon octicon-link"></span></a>SAMLoadingView</h1>
+
+<p>Simple loading view for UIKit.</p>
+
+<p>SAMLoadingView is tested on iOS 6 &amp; 7 and requires ARC. Released under the <a href="/soffes/SAMLoadingView/blob/master/LICENSE">MIT license</a>.</p>
+
+<h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p><a href="https://camo.githubusercontent.com/9febba75e097d6a332ab7edfb9afa3faeb3d6a8f/687474703a2f2f736f66662e6d652f51564c792f694f5325323053696d756c61746f7225323053637265656e25323073686f742532304a756c25323032352c253230323031332c25323031312e32302e3338253230504d2e706e67" target="_blank"><img src="https://camo.githubusercontent.com/9febba75e097d6a332ab7edfb9afa3faeb3d6a8f/687474703a2f2f736f66662e6d652f51564c792f694f5325323053696d756c61746f7225323053637265656e25323073686f742532304a756c25323032352c253230323031332c25323031312e32302e3338253230504d2e706e67" alt="Loading View" data-canonical-src="http://soff.me/QVLy/iOS%20Simulator%20Screen%20shot%20Jul%2025,%202013,%2011.20.38%20PM.png" style="max-width:100%;"></a></p>
+
+<p>Open up the included Xcode project for an example app.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-source-objc"><pre>SAMLoadingView *loadingView = [[SAMLoadingView <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithFrame:</span><span class="pl-v">self</span>.view.bounds];
+loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+[<span class="pl-v">self</span>.view <span class="pl-c1">addSubview:</span>loadingView];</pre></div>
+
+<p>See the <a href="/soffes/SAMLoadingView/blob/master/SAMLoadingView/SAMLoadingView.h">header</a> for full documentation.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Simply add the files in the <code>SAMLoadingView.h</code> and <code>SAMLoadingView.m</code> to your project or add <code>SAMLoadingView</code> to your Podfile if you're using CocoaPods.</p>
+</article>
+</body>
+</html>

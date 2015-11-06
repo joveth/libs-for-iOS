@@ -19,3 +19,6 @@ pod 'IQDropDownTextField'
 pod 'IQKeyboardManager'
 pod 'SDWebImage', '~>3.7'
 pod "MWPhotoBrowser"
+pod "SSToolkit"
+pod "ICViewPager"
+pod 'IAPHelper'

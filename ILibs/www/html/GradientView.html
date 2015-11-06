@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-gradient-view" class="anchor" href="#gradient-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradient View</h1>
+
+<p>Easily use gradients in UIKit. Gradient View is a simple UIView wrapper around CGGradient.For more information please visit soffes/GradientView on github.</p>
+
+<p>Gradient View is tested on iOS 8.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-c">// Initialize a gradient view</span>
+<span class="pl-k">let</span> gradientView <span class="pl-k">=</span> GradientView(frame: CGRectMake(x: <span class="pl-c1">20</span>, y: <span class="pl-c1">20</span>, width: <span class="pl-c1">280</span>, height: <span class="pl-c1">280</span>))
+
+<span class="pl-c">// Set the gradient colors</span>
+gradientView<span class="pl-k">.</span>colors <span class="pl-k">=</span> [UIColor<span class="pl-k">.</span>greenColor(), UIColor<span class="pl-k">.</span>yellowColor()]
+
+<span class="pl-c">// Optionally set some locations</span>
+gradientView<span class="pl-k">.</span>locations <span class="pl-k">=</span> [<span class="pl-c1">0</span><span class="pl-k">.</span><span class="pl-c1">8</span>, <span class="pl-c1">1</span><span class="pl-k">.</span><span class="pl-c1">0</span>]
+
+<span class="pl-c">// Optionally change the direction. The default is vertical.</span>
+gradientView<span class="pl-k">.</span>direction <span class="pl-k">=</span> <span class="pl-k">.</span>Horizontal
+
+<span class="pl-c">// Add some borders too if you want</span>
+gradientView<span class="pl-k">.</span>topBorderColor <span class="pl-k">=</span> UIColor<span class="pl-k">.</span>redColor()
+gradientView<span class="pl-k">.</span>bottomBorderColor <span class="pl-k">=</span> UIColor<span class="pl-k">.</span>blueColor()
+
+<span class="pl-c">// Add it as a subview in all of its awesome</span>
+view<span class="pl-k">.</span>addSubview(gradientView)</pre></div>
+
+<p>See the <a href="/soffes/GradientView/blob/master/GradientView.swift">source</a> for full documentation.</p>
+
+<h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p><a href="https://camo.githubusercontent.com/47cdce2aa3645c2a7589cc7358431ec94b6b2469/687474703a2f2f736f66662e6d652f576574422f53637265656e73686f742e706e67" target="_blank"><img src="https://camo.githubusercontent.com/47cdce2aa3645c2a7589cc7358431ec94b6b2469/687474703a2f2f736f66662e6d652f576574422f53637265656e73686f742e706e67" alt="Screenshot" data-canonical-src="http://soff.me/WetB/Screenshot.png" style="max-width:100%;"></a> <a href="https://camo.githubusercontent.com/d7e2444225dce709af19a003effc799f1694ad3a/687474703a2f2f736f66662e6d652f576737472f53637265656e73686f74322e706e67" target="_blank"><img src="https://camo.githubusercontent.com/d7e2444225dce709af19a003effc799f1694ad3a/687474703a2f2f736f66662e6d652f576737472f53637265656e73686f74322e706e67" alt="Screenshot" data-canonical-src="http://soff.me/Wg7G/Screenshot2.png" style="max-width:100%;"></a></p>
+
+<p>Open up the included Xcode project for an example app.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Simply add the files in the  to your project. Gradient View also supports installation with <a href="https://github.com/Carthage/Carthage">Carthage</a> and <a href="https://cocoapods.org/pods/GradientView">CocoaPods</a>.</p>
+</article>
+</body>
+</html>

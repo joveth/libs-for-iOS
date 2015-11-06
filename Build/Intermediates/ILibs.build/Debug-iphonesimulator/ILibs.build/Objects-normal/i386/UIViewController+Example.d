@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/UIViewController+Example.m \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/UIViewController+Example.h
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/UIViewController+Example.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/UIViewController+Example.h

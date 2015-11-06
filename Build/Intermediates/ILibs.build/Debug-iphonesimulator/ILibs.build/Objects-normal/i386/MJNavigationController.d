@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJNavigationController.m \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJNavigationController.h
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJNavigationController.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJNavigationController.h

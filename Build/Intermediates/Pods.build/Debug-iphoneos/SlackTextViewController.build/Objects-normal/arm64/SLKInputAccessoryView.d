@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/Classes/SLKInputAccessoryView.m \
+  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/SLKInputAccessoryView.m \
   /Users/shuwei/works/teme/ILibs/Pods/Target\ Support\ Files/SlackTextViewController/SlackTextViewController-prefix.pch \
-  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/Classes/SLKInputAccessoryView.h \
-  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/Additions/SLKUIConstants.h
+  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/SLKInputAccessoryView.h \
+  /Users/shuwei/works/teme/ILibs/Pods/SlackTextViewController/Source/SLKUIConstants.h

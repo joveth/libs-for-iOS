@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/ZAActivityBar/SKBounceAnimation.m \
-  /Users/shuwei/works/ILibs/ILibs/ZAActivityBar/SKBounceAnimation.h
+  /Users/shuwei/works/teme/ILibs/ILibs/ZAActivityBar/SKBounceAnimation.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/ZAActivityBar/SKBounceAnimation.h

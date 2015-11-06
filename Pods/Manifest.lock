@@ -1,7 +1,7 @@
 PODS:
-  - ChameleonFramework (2.0.2.2):
-    - ChameleonFramework/Default (= 2.0.2.2)
-  - ChameleonFramework/Default (2.0.2.2)
+  - ChameleonFramework (2.0.4):
+    - ChameleonFramework/Default (= 2.0.4)
+  - ChameleonFramework/Default (2.0.4)
   - CMPopTipView (2.2.0)
   - DACircularProgress (2.3.1)
   - DZNEmptyDataSet (1.7.2)
@@ -12,23 +12,50 @@ PODS:
     - FMDB/common
   - FXBlurView (1.6.4)
   - GPUImage (0.1.7)
-  - IQDropDownTextField (1.0.6)
-  - IQKeyboardManager (3.3.2)
+  - IAPHelper (1.0.7)
+  - ICViewPager (1.5.1)
+  - IQDropDownTextField (1.0.7)
+  - IQKeyboardManager (3.3.3.1)
   - LoremIpsum (1.0.0)
   - MBProgressHUD (0.9.1)
   - MGSwipeTableCell (1.5.1)
-  - MJRefresh (2.4.11)
+  - MJRefresh (2.4.12)
   - MWPhotoBrowser (2.1.1):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - SDWebImage (!= 3.7.2, ~> 3.7)
   - PDTSimpleCalendar (0.9.1)
   - PKRevealController (2.0.6)
+  - SAMAddressBar (0.1.0)
+  - SAMBadgeView (0.1.1)
+  - SAMCategories (0.5.2)
+  - SAMCircleProgressView (0.1.1)
+  - SAMGradientView (0.2.1)
+  - SAMHUDView (0.1.3)
+  - SAMLabel (0.1.0)
+  - SAMLoadingView (0.1.0)
+  - SAMRateLimit (0.2.1)
+  - SAMTextField (0.1.2)
+  - SAMTextView (0.2.2)
+  - SAMWebView (0.2.1)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
   - skpsmtpmessage (0.0.1)
-  - SlackTextViewController (1.7)
+  - SlackTextViewController (1.7.1)
+  - SSToolkit (2.0.0):
+    - SAMAddressBar
+    - SAMBadgeView
+    - SAMCategories
+    - SAMCircleProgressView
+    - SAMGradientView
+    - SAMHUDView
+    - SAMLabel
+    - SAMLoadingView
+    - SAMRateLimit
+    - SAMTextField
+    - SAMTextView
+    - SAMWebView
   - SVProgressHUD (HEAD based on 1.1.3)
   - SVPullToRefresh (0.4.1)
   - TAPromotee (0.4.1):
@@ -40,6 +67,8 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - FMDB
   - GPUImage
+  - IAPHelper
+  - ICViewPager
   - IQDropDownTextField
   - IQKeyboardManager
   - LoremIpsum (~> 1.0)
@@ -52,30 +81,46 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7)
   - skpsmtpmessage
   - SlackTextViewController
+  - SSToolkit
   - SVProgressHUD (HEAD)
   - SVPullToRefresh
   - TAPromotee
 
 SPEC CHECKSUMS:
-  ChameleonFramework: 752e613b4352a7fd37f9cbd9aafbe0e0c4029b90
+  ChameleonFramework: 5abe69b1f2a6cc79c3c435fcd9d3d855748225ee
   CMPopTipView: a0a88404b9f46a5cfc16ce54bdb1b9bf9acb9aff
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  IQDropDownTextField: 361e4a4ea879c4ed0c15cbd89aceb5e60aa19d33
-  IQKeyboardManager: d863eb0bca424d1f6dad6bdd1f856af52664add8
+  IAPHelper: 60a2d5b6ef2d121ce041cf942cd6fc87dc3ab3a3
+  ICViewPager: 032dc71a50fe898e185fae6112ded4bed0e0523c
+  IQDropDownTextField: a16c12513f1b28a30aa76c00b2f37b00ecc31b0a
+  IQKeyboardManager: acacb9f4a7646841e2472cae42d3d90687c95940
   LoremIpsum: 9029c55d36501b2ee0b05cc9ecda11d3a0479160
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MGSwipeTableCell: a51fa670c01f0aa048f12af040acebf315223137
-  MJRefresh: b327947f35ab3eb16ca42646b26f7347e6aa7186
+  MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   MWPhotoBrowser: ba0d0c09ffda3a7ea10093518738c502c1c7141c
   PDTSimpleCalendar: d1c03387678422715dc021aa1a85d70f4d1014f2
   PKRevealController: ffb45a16f5a5032ad90a3d16e5cbb0d8e035bd58
+  SAMAddressBar: ca4278987cca36a65fd8d29fae3fc5f3fa732469
+  SAMBadgeView: f27d499b7f233e29277325f318a9dcdd2a8fc9e9
+  SAMCategories: bf8287f7961a0b343168d1fee16338dc1626ea39
+  SAMCircleProgressView: 8bfac68a15d1dd1e3d0c1ec411895898efed9dda
+  SAMGradientView: dd5edfe971cea0f1f3369b49f5fb255c0ff3921a
+  SAMHUDView: 374d9b53c2d52bf2e7b49e943ae66ee7ed5538b2
+  SAMLabel: 3792d68d0a04da5600420843d44ec50631695c15
+  SAMLoadingView: 7ffc4f0efe85f9717d6e367b6b93e32befe4407c
+  SAMRateLimit: 5514d7c95a4b98ff9616f965c132252fbff0c5b7
+  SAMTextField: a0f4eb5b48b45aef56453c265262b45154bc3e2a
+  SAMTextView: 979c43bb1fa5859ddfbfeb35e9c296a2b0ec55fd
+  SAMWebView: d141ed60d23f82a0cbfeeb952e93a690f55bc89f
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   skpsmtpmessage: f6e913380c784dd8d4a9f83c8790a302445a5e05
-  SlackTextViewController: 57e28248dd38b9753277733544449519842f1ea5
+  SlackTextViewController: 139ffc5b09276ff5ac1609ac78eafab702fc974e
+  SSToolkit: 6aa7a0966ee45788d0ec3748be7d753a2fef9629
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TAPromotee: 7b0ae71f3350653fe9f224a5bb208aa23d484047

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJTestViewController.m \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJTestViewController.h
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJTestViewController.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJTestViewController.h

@@ -1,2 +1,2 @@
-dependencies: /Users/shuwei/works/ILibs/ILibs/db/LibBean.m \
-  /Users/shuwei/works/ILibs/ILibs/db/LibBean.h
+dependencies: /Users/shuwei/works/teme/ILibs/ILibs/db/LibBean.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/db/LibBean.h

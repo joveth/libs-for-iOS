@@ -19,12 +19,13 @@
 @implementation ShowController{
     ADBannerView *bannerView;
     MBProgressHUD *hud;
+    NSString *html;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
     self.title=[ShareData shareInstance].libBean.name;
+    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
     NSString *path = [[NSBundle mainBundle] pathForResource:[ShareData shareInstance].libBean.content ofType:@"html"];
     if([ShareData shareInstance].flag){
         self.title=@"Information of this App";
@@ -36,8 +37,7 @@
     hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:hud];
     [hud show:YES];
-    NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    [_webview loadHTMLString:html baseURL:baseURL];
+    html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     _webview.delegate=self;
     bannerView = [[ADBannerView alloc]initWithFrame:
                   CGRectMake(0, self.view.frame.size.height-50, self.view.frame.size.width, 50)];
@@ -46,7 +46,10 @@
     [bannerView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview: bannerView];
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [_webview loadHTMLString:html baseURL:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

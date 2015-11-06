@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>IAPHelper</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><p>IAP helper for Apple in app purchases. It uses ARC and blocks for ease of use. Ready to use with newsstand subscriptions.For more information please visit saturngod/IAPHelper on Github.</p>
+
+<h2><a id="user-content-require" class="anchor" href="#require" aria-hidden="true"><span class="octicon octicon-link"></span></a>Require</h2>
+
+<ul>
+<li>StoreKit</li>
+<li>iOS 5 or later</li>
+<li>ARC</li>
+</ul>
+
+<h2><a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<ul>
+<li>Add <strong>IAPHelper</strong> folder to your project.</li>
+<li>Add <strong>Storekit framework</strong></li>
+</ul>
+
+<h3><a id="user-content-cocoapod" class="anchor" href="#cocoapod" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cocoapod</h3>
+
+<pre><code>pod 'IAPHelper'
+</code></pre>
+
+<h3><a id="user-content-initialize" class="anchor" href="#initialize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initialize</h3>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">if</span>(![IAPShare <span class="pl-c1">sharedHelper</span>].iap) {
+
+    <span class="pl-c1">NSSet</span>* dataSet = [[<span class="pl-c1">NSSet</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithObjects:</span><span class="pl-s"><span class="pl-pds">@"</span>com.comquas.iap.test<span class="pl-pds">"</span></span>, <span class="pl-c1">nil</span>];
+
+    [IAPShare <span class="pl-c1">sharedHelper</span>].<span class="pl-smi">iap</span> = [[IAPHelper <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithProductIdentifiers:</span>dataSet];
+
+}</pre></div>
+
+<h3><a id="user-content-production-mode-onoff" class="anchor" href="#production-mode-onoff" aria-hidden="true"><span class="octicon octicon-link"></span></a>Production Mode On/Off</h3>
+
+<div class="highlight highlight-source-objc"><pre>[IAPShare <span class="pl-c1">sharedHelper</span>].iap.production = <span class="pl-c1">NO</span>;</pre></div>
+
+<h3><a id="user-content-request-products" class="anchor" href="#request-products" aria-hidden="true"><span class="octicon octicon-link"></span></a>Request Products</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">requestProductsWithCompletion:</span>^(SKProductsRequest* request,SKProductsResponse* response)
+     {
+
+     }];</pre></div>
+
+<h3><a id="user-content-purchase" class="anchor" href="#purchase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Purchase</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">buyProduct:</span>product
+                                    <span class="pl-c1">onCompletion:</span>^(SKPaymentTransaction* trans){
+}];</pre></div>
+
+<h3><a id="user-content-check-receipt-with-shared-secret" class="anchor" href="#check-receipt-with-shared-secret" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Receipt with shared secret</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">checkReceipt:</span>trans.transactionReceipt <span class="pl-c1">AndSharedSecret:</span><span class="pl-s"><span class="pl-pds">@"</span>your sharesecret<span class="pl-pds">"</span></span> <span class="pl-c1">onCompletion:</span>^(<span class="pl-c1">NSString</span> *response, <span class="pl-c1">NSError</span> *error) {
+
+}];</pre></div>
+
+<h3><a id="user-content-check-receipt-without-shared-secret" class="anchor" href="#check-receipt-without-shared-secret" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check Receipt without shared secret</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">checkReceipt:</span>trans.transactionReceipt <span class="pl-c1">onCompletion:</span>^(<span class="pl-c1">NSString</span> *response, <span class="pl-c1">NSError</span> *error) {
+
+}];</pre></div>
+
+<h3><a id="user-content-saving-product-identifier" class="anchor" href="#saving-product-identifier" aria-hidden="true"><span class="octicon octicon-link"></span></a>Saving Product Identifier</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">provideContent:</span>productIdentifier];</pre></div>
+
+<h3><a id="user-content-check-for-previous-purchase" class="anchor" href="#check-for-previous-purchase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check for Previous Purchase</h3>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">if</span>([[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">isPurchasedProductsIdentifier:</span><span class="pl-s"><span class="pl-pds">@"</span>com.comquas.iap.test<span class="pl-pds">"</span></span>]
+    {
+        <span class="pl-c">// require saving product identifier first</span>
+    }</pre></div>
+
+<h3><a id="user-content-purchased-products" class="anchor" href="#purchased-products" aria-hidden="true"><span class="octicon octicon-link"></span></a>Purchased Products</h3>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span><span class="pl-c1">%@</span><span class="pl-pds">"</span></span>,[IAPShare <span class="pl-c1">sharedHelper</span>].iap.purchasedProducts);</pre></div>
+
+<h3><a id="user-content-clear-purchases" class="anchor" href="#clear-purchases" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clear Purchases</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">clearSavedPurchasedProducts</span>];
+[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">clearSavedPurchasedProductByID:</span><span class="pl-s"><span class="pl-pds">@"</span>com.myproduct.id<span class="pl-pds">"</span></span>];</pre></div>
+
+<h3><a id="user-content-restore-purchase" class="anchor" href="#restore-purchase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Restore Purchase</h3>
+
+<div class="highlight highlight-source-objc"><pre>[[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">restoreProductsWithCompletion:</span>^(SKPaymentQueue *payment, <span class="pl-c1">NSError</span> *error) {
+
+        <span class="pl-c">//check with SKPaymentQueue</span>
+
+        <span class="pl-c">// number of restore count</span>
+        <span class="pl-k">int</span> numberOfTransactions = payment.<span class="pl-smi">transactions</span>.<span class="pl-smi">count</span>;
+
+        <span class="pl-k">for</span> (SKPaymentTransaction *transaction in payment.<span class="pl-smi">transactions</span>)
+        {
+            <span class="pl-c1">NSString</span> *purchased = transaction.<span class="pl-smi">payment</span>.<span class="pl-smi">productIdentifier</span>;
+            <span class="pl-k">if</span>([purchased <span class="pl-c1">isEqualToString:</span><span class="pl-s"><span class="pl-pds">@"</span>com.myproductType.product<span class="pl-pds">"</span></span>])
+            {
+                <span class="pl-c">//enable the prodcut here</span>
+            }
+        }
+
+}];</pre></div>
+
+<h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-k">if</span>(![IAPShare <span class="pl-c1">sharedHelper</span>].iap) {
+      <span class="pl-c1">NSSet</span>* dataSet = [[<span class="pl-c1">NSSet</span> <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithObjects:</span><span class="pl-s"><span class="pl-pds">@"</span>com.comquas.iap.test<span class="pl-pds">"</span></span>, <span class="pl-c1">nil</span>];
+
+      [IAPShare <span class="pl-c1">sharedHelper</span>].<span class="pl-smi">iap</span> = [[IAPHelper <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithProductIdentifiers:</span>dataSet];
+  }
+
+[IAPShare <span class="pl-c1">sharedHelper</span>].iap.production = <span class="pl-c1">NO</span>;
+
+  [[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">requestProductsWithCompletion:</span>^(SKProductsRequest* request,SKProductsResponse* response)
+   {
+       <span class="pl-k">if</span>(response &gt; <span class="pl-c1">0</span> ) {
+       SKProduct* product =[[IAPShare <span class="pl-c1">sharedHelper</span>].iap.products <span class="pl-c1">objectAtIndex:</span><span class="pl-c1">0</span>];
+
+       [[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">buyProduct:</span>product
+                                  <span class="pl-c1">onCompletion:</span>^(SKPaymentTransaction* trans){
+
+              <span class="pl-k">if</span>(trans.<span class="pl-smi">error</span>)
+              {
+                  <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Fail <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>,[trans.error <span class="pl-c1">localizedDescription</span>]);
+              }
+              <span class="pl-k">else</span> <span class="pl-k">if</span>(trans.<span class="pl-smi">transactionState</span> == SKPaymentTransactionStatePurchased) {
+
+                  [[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">checkReceipt:</span>trans.transactionReceipt <span class="pl-c1">AndSharedSecret:</span><span class="pl-s"><span class="pl-pds">@"</span>your sharesecret<span class="pl-pds">"</span></span> <span class="pl-c1">onCompletion:</span>^(<span class="pl-c1">NSString</span> *response, <span class="pl-c1">NSError</span> *error) {
+
+                      <span class="pl-c">//Convert JSON String to NSDictionary</span>
+                      <span class="pl-c1">NSDictionary</span>* rec = [IAPShare <span class="pl-c1">toJSON:</span>response];
+
+                      <span class="pl-k">if</span>([rec[<span class="pl-s"><span class="pl-pds">@"</span>status<span class="pl-pds">"</span></span>] <span class="pl-c1">integerValue</span>]==<span class="pl-c1">0</span>)
+                      {
+                      <span class="pl-c1">NSString</span> *productIdentifier = trans.<span class="pl-smi">payment</span>.<span class="pl-smi">productIdentifier</span>;
+                        [[IAPShare <span class="pl-c1">sharedHelper</span>].iap <span class="pl-c1">provideContent:</span>productIdentifier];
+                          <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>SUCCESS <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>,response);
+                          <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Pruchases <span class="pl-c1">%@</span><span class="pl-pds">"</span></span>,[IAPShare <span class="pl-c1">sharedHelper</span>].<span class="pl-smi">iap</span>.<span class="pl-smi">purchasedProducts</span>);
+                      }
+                      <span class="pl-k">else</span> {
+                          <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Fail<span class="pl-pds">"</span></span>);
+                      }
+                  }];
+              }
+              <span class="pl-k">else</span> <span class="pl-k">if</span>(trans.<span class="pl-smi">transactionState</span> == SKPaymentTransactionStateFailed) {
+                   <span class="pl-c1">NSLog</span>(<span class="pl-s"><span class="pl-pds">@"</span>Fail<span class="pl-pds">"</span></span>);
+              }
+                                  }];<span class="pl-c">//end of buy product</span>
+       }
+}];</pre></div>
+</article>
+</body>
+</html>

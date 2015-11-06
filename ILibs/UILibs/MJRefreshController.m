@@ -43,7 +43,7 @@ static NSString *const MJExample30 = @"UIWebView";
     // Optional to set background color to clear color
     
     [bannerView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview: bannerView];
+    //[self.view addSubview: bannerView];
     // 下拉刷新
     tableview.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）

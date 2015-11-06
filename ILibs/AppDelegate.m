@@ -19,7 +19,7 @@
     DBHelper *db = [[DBHelper alloc] init];
     if([db openDB]){
         NSInteger cnt = [db getCnt];
-        if(cnt<26){//15
+        if(cnt<34){
             [db deleteData];
             [db initData];
         }

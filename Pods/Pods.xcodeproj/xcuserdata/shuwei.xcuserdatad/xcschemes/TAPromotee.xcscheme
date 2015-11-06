@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BE23A449C8832D14F678E25"
+               BlueprintIdentifier = "E22AC9A75A1DC210A5A4434D"
                BuildableName = "libTAPromotee.a"
                BlueprintName = "TAPromotee"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>ICViewPager</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-icviewpager" class="anchor" href="#icviewpager" aria-hidden="true"><span class="octicon octicon-link"></span></a>ICViewPager</h1>
+
+<p>You can create sliding tabs with ViewPager.</p>
+
+<p>Slide through the contents or select from tabs or slide through tabs and select!For more information please visit iltercengiz/ICViewPager on Github.</p>
+
+<p><a href="https://raw.githubusercontent.com/iltercengiz/ICViewPager/master/Resources/Screenshot.jpg" target="_blank"><img src="https://raw.githubusercontent.com/iltercengiz/ICViewPager/master/Resources/Screenshot.jpg" alt="ICViewPager" title="ICViewPager" style="max-width:100%;"></a></p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Just copy ViewPagerController.m and ViewPagerController.h files to your project.</p>
+
+<p>Or you can use CocoaPods (as this is the recommended way).</p>
+
+<p><code>pod 'ICViewPager'</code></p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Subclass ViewPagerController (as it's a <code>UIViewController</code> subclass) and implement dataSource and delegate methods in the subclass.</p>
+
+<p>In the subclass assign self as dataSource and delegate,</p>
+
+<pre><code>- (void)viewDidLoad {
+
+    [super viewDidLoad];
+
+    self.dataSource = self;
+    self.delegate = self;
+}
+</code></pre>
+
+<h3><a id="user-content-methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h3>
+
+<p>Then implement dataSource and delegate methods.</p>
+
+<pre><code>#pragma mark - ViewPagerDataSource
+- (NSUInteger)numberOfTabsForViewPager:(ViewPagerController *)viewPager {
+    return 10;
+}
+</code></pre>
+
+<p>Returns the number of tabs that will be present in ViewPager.</p>
+
+<pre><code>#pragma mark - ViewPagerDataSource
+- (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
+
+    UILabel *label = [UILabel new];
+    label.text = [NSString stringWithFormat:@"Tab #%i", index];
+    [label sizeToFit];
+
+    return label;
+}
+</code></pre>
+
+<p>Returns the view that will be shown as tab. Create a <code>UIView</code> object (or any <code>UIView</code> subclass object) and give it to ViewPager and it will use it as tab view.</p>
+
+<pre><code>#pragma mark - ViewPagerDataSource
+- (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
+
+    ContentViewController *cvc = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+
+    return cvc;
+}
+</code></pre>
+
+<p>Returns the view controller that will be shown as content. Create a <code>UIViewController</code> object (or any <code>UIViewController</code> subclass object) and give it to ViewPager and it will use the <code>view</code> property of the view controller as content view.</p>
+
+<p>Alternatively, you can implement <code>- viewPager:contentViewForTabAtIndex:</code> method and return a <code>UIView</code> object (or any <code>UIView</code> subclass object) and ViewPager will use it as content view.</p>
+
+<p>The <code>- viewPager:contentViewControllerForTabAtIndex:</code> and <code>- viewPager:contentViewForTabAtIndex:</code> dataSource methods are both defined optional. But, you should implement at least one of them! They are defined as optional to provide you an option.</p>
+
+<p>All delegate methods are optional.</p>
+
+<pre><code>#pragma mark - ViewPagerDelegate
+- (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index {
+
+    // Do something useful
+}
+</code></pre>
+
+<p>ViewPager will alert your delegate object via <code>- viewPager:didChangeTabToIndex:</code> method, so that you can do something useful.</p>
+
+<pre><code>#pragma mark - ViewPagerDelegate
+- (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
+
+    switch (option) {
+        case ViewPagerOptionStartFromSecondTab:
+            return 0.0;
+        case ViewPagerOptionCenterCurrentTab:
+            return 0.0;
+        case ViewPagerOptionTabLocation:
+            return 0.0;
+        default:
+            return value;
+    }
+}
+</code></pre>
+
+<p>You can change ViewPager's options via <code>viewPager:valueForOption:withDefault:</code> delegate method. Just return the desired value for the given option. You don't have to return a value for every option. Only return values for the interested options and ViewPager will use the default values for the rest. Available options are defined in the <code>ViewPagerController.h</code> file and described below.</p>
+
+<pre><code>#pragma mark - ViewPagerDelegate
+- (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color {
+
+    switch (component) {
+        case ViewPagerIndicator:
+            return [[UIColor redColor] colorWithAlphaComponent:0.64];
+        default:
+            return color;
+    }
+}
+</code></pre>
+
+<p>You can change some colors too. Just like options, return the interested component's color, and leave out all the rest! </p>
+
+<h3><a id="user-content-options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<p>Every option has a default value. So </p>
+
+<ul>
+<li><code>ViewPagerOptionTabHeight</code>: Tab bar's height, defaults to 44.0</li>
+<li><code>ViewPagerOptionTabOffset</code>: Tab bar's offset from left, defaults to 56.0</li>
+<li><code>ViewPagerOptionTabWidth</code>: Any tab item's width, defaults to 128.0</li>
+<li><code>ViewPagerOptionTabLocation</code>: 1.0: Top, 0.0: Bottom, Defaults to Top</li>
+<li><code>ViewPagerOptionStartFromSecondTab</code>: 1.0: <code>YES</code>, 0.0: <code>NO</code>, defines if view should appear with the 1st or 2nd tab. Defaults to <code>NO</code></li>
+<li><code>ViewPagerOptionCenterCurrentTab</code>: 1.0: <code>YES</code>, 0.0: <code>NO</code>, defines if tabs should be centered, with the given tabWidth. Defaults to <code>NO</code></li>
+<li><code>ViewPagerOptionFixFormerTabsPositions</code>: 1.0: <code>YES</code>, 0.0: <code>NO</code>, defines if the active tab should be placed margined by the offset amount to the left. Effects only the former tabs. If set 1.0 (<code>YES</code>), first tab will be placed at the same position with the second one, leaving space before itself. Defaults to <code>NO</code></li>
+<li><code>ViewPagerOptionFixLatterTabsPositions</code>: 1.0: <code>YES</code>, 0.0: <code>NO</code>, like <code>ViewPagerOptionFixFormerTabsPositions</code>, but effects the latter tabs, making them leave space after themselves. Defaults to <code>NO</code></li>
+</ul>
+
+<h3><a id="user-content-components" class="anchor" href="#components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Components</h3>
+
+<p>Main parts of the ViewPagerController</p>
+
+<ul>
+<li><code>ViewPagerIndicator</code>: The colored line in the view of the active tab.</li>
+<li><code>ViewPagerTabsView</code>: The tabs view itself. When used in <code>- viewPager:colorForComponent:withDefault:</code> method, the returned color will be used as background color for the tab view.</li>
+<li><code>ViewPagerContent</code>: Provided views goes here as content. When used in <code>- viewPager:colorForComponent:withDefault:</code> method, the returned color will be used as background color for the content view.</li>
+</ul>
+
+<h2><a id="user-content-requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>ViewPager supports minimum iOS 6 and uses ARC.</p>
+
+<p>Supports both iPhone and iPad.</p>
+
+<h2><a id="user-content-contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h2>
+
+<p><a href="https://twitter.com/iltercengiz">@iltercengiz</a></p>
+
+<p><a href="mailto:me@iltercengiz.info">Ilter Cengiz</a></p>
+
+<p>Note (to everyone who is interested in <code>ViewPager</code>): I cannot have much time to improve <code>ViewPager</code> for a long time, but I have some cool plans for it. So if you encounter any problems, bugs or etc. please forgive me, and send some pull requests. Thank you for your interest and support.</p>
+</article>
+</body>
+</html>

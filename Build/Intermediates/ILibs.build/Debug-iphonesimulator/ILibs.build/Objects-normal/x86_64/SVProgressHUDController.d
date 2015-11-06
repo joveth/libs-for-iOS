@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/UILibs/SVProgressHUDController.m \
-  /Users/shuwei/works/ILibs/ILibs/UILibs/SVProgressHUDController.h
+  /Users/shuwei/works/teme/ILibs/ILibs/UILibs/SVProgressHUDController.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/UILibs/SVProgressHUDController.h

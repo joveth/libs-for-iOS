@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJExample.m \
-  /Users/shuwei/works/ILibs/ILibs/MJRefreshExample/MJExample.h
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJExample.m \
+  /Users/shuwei/works/teme/ILibs/ILibs/MJRefreshExample/MJExample.h

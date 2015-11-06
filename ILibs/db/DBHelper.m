@@ -116,7 +116,7 @@ static const NSString *TB_LIBS = @"tb_libs";
     {
         return ret;
     }
-    FMResultSet *rs = [db executeQuery:[NSString stringWithFormat:@"select * from %@  where name like '%%%@%%' or  content like '%%%@%%' or des like '%%%@%%' ",TB_LIBS,keyword,keyword,keyword]];
+    FMResultSet *rs = [db executeQuery:[NSString stringWithFormat:@"select * from %@  where name like '%%%@%%' or des like '%%%@%%' ",TB_LIBS,keyword,keyword]];
     LibBean *bean;
     while ([rs next]) {
         NSDictionary *dict = [rs resultDictionary];

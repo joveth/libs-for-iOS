@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/shuwei/works/ILibs/Pods/Target\ Support\ Files/Pods/Pods-dummy.m
+  /Users/shuwei/works/teme/ILibs/Pods/Target\ Support\ Files/Pods/Pods-dummy.m

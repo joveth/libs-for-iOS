@@ -76,6 +76,19 @@
 		F90242661BBA9AC4004FD2D4 /* OCGumbo.html in Resources */ = {isa = PBXBuildFile; fileRef = F90242621BBA9AC4004FD2D4 /* OCGumbo.html */; settings = {ASSET_TAGS = (); }; };
 		F90242671BBA9AC4004FD2D4 /* ObjectiveCHMTLParser.html in Resources */ = {isa = PBXBuildFile; fileRef = F90242631BBA9AC4004FD2D4 /* ObjectiveCHMTLParser.html */; settings = {ASSET_TAGS = (); }; };
 		F90242681BBA9AC4004FD2D4 /* hpple.html in Resources */ = {isa = PBXBuildFile; fileRef = F90242641BBA9AC4004FD2D4 /* hpple.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB171BDF025C00BDB0BE /* search2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F909FB161BDF025C00BDB0BE /* search2@2x.png */; settings = {ASSET_TAGS = (); }; };
+		F909FB1A1BDF036F00BDB0BE /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB191BDF036F00BDB0BE /* SearchController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB1D1BDF0A2F00BDB0BE /* ICViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB1C1BDF0A2F00BDB0BE /* ICViewPagerController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB1F1BDF0A4200BDB0BE /* ICViewPager.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB1E1BDF0A4200BDB0BE /* ICViewPager.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB221BDF0DAB00BDB0BE /* IAPHelperController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB211BDF0DAB00BDB0BE /* IAPHelperController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB241BDF112700BDB0BE /* IAPHelper.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB231BDF112700BDB0BE /* IAPHelper.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB261BDF197A00BDB0BE /* SAMBadgeView.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB251BDF197A00BDB0BE /* SAMBadgeView.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB291BDF19AD00BDB0BE /* SAMBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB281BDF19AD00BDB0BE /* SAMBadgeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB2C1BDF1BF200BDB0BE /* SAMLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB2B1BDF1BF200BDB0BE /* SAMLoadingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB2F1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F909FB2E1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F909FB331BDF1EDB00BDB0BE /* SAMCircleProgressView.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB301BDF1EDB00BDB0BE /* SAMCircleProgressView.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB341BDF1EDB00BDB0BE /* SAMLoadingView.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB311BDF1EDB00BDB0BE /* SAMLoadingView.html */; settings = {ASSET_TAGS = (); }; };
+		F909FB351BDF1EDB00BDB0BE /* GradientView.html in Resources */ = {isa = PBXBuildFile; fileRef = F909FB321BDF1EDB00BDB0BE /* GradientView.html */; settings = {ASSET_TAGS = (); }; };
 		F91D54711BB8DAAB00B08336 /* TAPromoteeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F91D54701BB8DAAB00B08336 /* TAPromoteeController.m */; settings = {ASSET_TAGS = (); }; };
 		F91D54731BB8DC1D00B08336 /* TAPromotee.html in Resources */ = {isa = PBXBuildFile; fileRef = F91D54721BB8DC1D00B08336 /* TAPromotee.html */; settings = {ASSET_TAGS = (); }; };
 		F91D54751BB8E38300B08336 /* MGSwipeTableCell.html in Resources */ = {isa = PBXBuildFile; fileRef = F91D54741BB8E38300B08336 /* MGSwipeTableCell.html */; settings = {ASSET_TAGS = (); }; };
@@ -413,6 +426,25 @@
 		F90242621BBA9AC4004FD2D4 /* OCGumbo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = OCGumbo.html; sourceTree = "<group>"; };
 		F90242631BBA9AC4004FD2D4 /* ObjectiveCHMTLParser.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ObjectiveCHMTLParser.html; sourceTree = "<group>"; };
 		F90242641BBA9AC4004FD2D4 /* hpple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hpple.html; sourceTree = "<group>"; };
+		F909FB161BDF025C00BDB0BE /* search2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search2@2x.png"; sourceTree = "<group>"; };
+		F909FB181BDF036F00BDB0BE /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
+		F909FB191BDF036F00BDB0BE /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
+		F909FB1B1BDF0A2F00BDB0BE /* ICViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICViewPagerController.h; sourceTree = "<group>"; };
+		F909FB1C1BDF0A2F00BDB0BE /* ICViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICViewPagerController.m; sourceTree = "<group>"; };
+		F909FB1E1BDF0A4200BDB0BE /* ICViewPager.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ICViewPager.html; sourceTree = "<group>"; };
+		F909FB201BDF0DAB00BDB0BE /* IAPHelperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelperController.h; sourceTree = "<group>"; };
+		F909FB211BDF0DAB00BDB0BE /* IAPHelperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelperController.m; sourceTree = "<group>"; };
+		F909FB231BDF112700BDB0BE /* IAPHelper.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IAPHelper.html; sourceTree = "<group>"; };
+		F909FB251BDF197A00BDB0BE /* SAMBadgeView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SAMBadgeView.html; sourceTree = "<group>"; };
+		F909FB271BDF19AD00BDB0BE /* SAMBadgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMBadgeViewController.h; sourceTree = "<group>"; };
+		F909FB281BDF19AD00BDB0BE /* SAMBadgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMBadgeViewController.m; sourceTree = "<group>"; };
+		F909FB2A1BDF1BF200BDB0BE /* SAMLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMLoadingViewController.h; sourceTree = "<group>"; };
+		F909FB2B1BDF1BF200BDB0BE /* SAMLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMLoadingViewController.m; sourceTree = "<group>"; };
+		F909FB2D1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMCircleProgressViewController.h; sourceTree = "<group>"; };
+		F909FB2E1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMCircleProgressViewController.m; sourceTree = "<group>"; };
+		F909FB301BDF1EDB00BDB0BE /* SAMCircleProgressView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SAMCircleProgressView.html; sourceTree = "<group>"; };
+		F909FB311BDF1EDB00BDB0BE /* SAMLoadingView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SAMLoadingView.html; sourceTree = "<group>"; };
+		F909FB321BDF1EDB00BDB0BE /* GradientView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GradientView.html; sourceTree = "<group>"; };
 		F91D546F1BB8DAAB00B08336 /* TAPromoteeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPromoteeController.h; sourceTree = "<group>"; };
 		F91D54701BB8DAAB00B08336 /* TAPromoteeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPromoteeController.m; sourceTree = "<group>"; };
 		F91D54721BB8DC1D00B08336 /* TAPromotee.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TAPromotee.html; sourceTree = "<group>"; };
@@ -1688,6 +1720,8 @@
 				F9FECF901B904E0900A2C9D1 /* ShowController.m */,
 				F9D251241B95A1BA00CAB323 /* AboutController.h */,
 				F9D251251B95A1BA00CAB323 /* AboutController.m */,
+				F909FB181BDF036F00BDB0BE /* SearchController.h */,
+				F909FB191BDF036F00BDB0BE /* SearchController.m */,
 			);
 			path = ILibs;
 			sourceTree = "<group>";
@@ -1744,6 +1778,7 @@
 		F9FECF5E1B90293500A2C9D1 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				F909FB161BDF025C00BDB0BE /* search2@2x.png */,
 				F9FA7FD61B96C15800655E60 /* logo_256.png */,
 				F9FA7FD71B96C15800655E60 /* logo_120.png */,
 				F9FA7FD21B96BB8400655E60 /* Default-568h@2x.png */,
@@ -1794,6 +1829,16 @@
 				F91D54701BB8DAAB00B08336 /* TAPromoteeController.m */,
 				F90241FC1BBA59FF004FD2D4 /* IQDropDownTextFieldController.h */,
 				F90241FD1BBA59FF004FD2D4 /* IQDropDownTextFieldController.m */,
+				F909FB1B1BDF0A2F00BDB0BE /* ICViewPagerController.h */,
+				F909FB1C1BDF0A2F00BDB0BE /* ICViewPagerController.m */,
+				F909FB201BDF0DAB00BDB0BE /* IAPHelperController.h */,
+				F909FB211BDF0DAB00BDB0BE /* IAPHelperController.m */,
+				F909FB271BDF19AD00BDB0BE /* SAMBadgeViewController.h */,
+				F909FB281BDF19AD00BDB0BE /* SAMBadgeViewController.m */,
+				F909FB2A1BDF1BF200BDB0BE /* SAMLoadingViewController.h */,
+				F909FB2B1BDF1BF200BDB0BE /* SAMLoadingViewController.m */,
+				F909FB2D1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.h */,
+				F909FB2E1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.m */,
 			);
 			path = UILibs;
 			sourceTree = "<group>";
@@ -1811,6 +1856,12 @@
 		F9FECF8B1B904AD400A2C9D1 /* html */ = {
 			isa = PBXGroup;
 			children = (
+				F909FB301BDF1EDB00BDB0BE /* SAMCircleProgressView.html */,
+				F909FB311BDF1EDB00BDB0BE /* SAMLoadingView.html */,
+				F909FB321BDF1EDB00BDB0BE /* GradientView.html */,
+				F909FB251BDF197A00BDB0BE /* SAMBadgeView.html */,
+				F909FB231BDF112700BDB0BE /* IAPHelper.html */,
+				F909FB1E1BDF0A4200BDB0BE /* ICViewPager.html */,
 				F9FCEDCF1BBB6626008285B1 /* TouchXML.html */,
 				F9FCEDD01BBB6626008285B1 /* IGHTMLQuery.html */,
 				F90242611BBA9AC4004FD2D4 /* Gumbo.html */,
@@ -2018,6 +2069,7 @@
 				F9FECF471B8FF5D200A2C9D1 /* LaunchScreen.xib in Resources */,
 				F90242561BBA8C57004FD2D4 /* photo6t.jpg in Resources */,
 				F9D250951B957EE400CAB323 /* Contents.json in Resources */,
+				F909FB351BDF1EDB00BDB0BE /* GradientView.html in Resources */,
 				F9FA7FCD1B96B39400655E60 /* RestKit.html in Resources */,
 				F9D250C71B957EE400CAB323 /* Contents.json in Resources */,
 				F9D250EA1B957EE400CAB323 /* dropdown_anim__00060@2x.png in Resources */,
@@ -2055,13 +2107,17 @@
 				F9D250CD1B957EE400CAB323 /* Contents.json in Resources */,
 				F902424E1BBA8C57004FD2D4 /* photo2t.jpg in Resources */,
 				F9D2507E1B957EE400CAB323 /* dropdown_anim__00011@2x.png in Resources */,
+				F909FB331BDF1EDB00BDB0BE /* SAMCircleProgressView.html in Resources */,
 				F90242571BBA8C57004FD2D4 /* photo7.jpg in Resources */,
+				F909FB261BDF197A00BDB0BE /* SAMBadgeView.html in Resources */,
 				F9D250F61B957EE400CAB323 /* dropdown_loading_03@2x.png in Resources */,
 				F90242581BBA8C57004FD2D4 /* photo7t.jpg in Resources */,
 				F9F5E43F1B9554FE00F02C4D /* 37x-Checkmark.png in Resources */,
 				F9D250A31B957EE400CAB323 /* Contents.json in Resources */,
 				F9D250CB1B957EE400CAB323 /* Contents.json in Resources */,
 				F9D2510D1B958B6600CAB323 /* ZAActivityBar.xib in Resources */,
+				F909FB241BDF112700BDB0BE /* IAPHelper.html in Resources */,
+				F909FB341BDF1EDB00BDB0BE /* SAMLoadingView.html in Resources */,
 				F9D250CF1B957EE400CAB323 /* Contents.json in Resources */,
 				F9D251031B9589C200CAB323 /* ZAActivityBar.bundle in Resources */,
 				F9D250BD1B957EE400CAB323 /* Contents.json in Resources */,
@@ -2070,6 +2126,7 @@
 				F9D250A81B957EE400CAB323 /* dropdown_anim__00030@2x.png in Resources */,
 				F9E4E4501BABAD52001DDA50 /* Chameleon.html in Resources */,
 				F9E4E4721BABDE5E001DDA50 /* PDTSimpleCalendar.html in Resources */,
+				F909FB171BDF025C00BDB0BE /* search2@2x.png in Resources */,
 				F9D250981B957EE400CAB323 /* dropdown_anim__00023@2x.png in Resources */,
 				F9D250BE1B957EE400CAB323 /* dropdown_anim__00040@2x.png in Resources */,
 				F90241B01BBA3949004FD2D4 /* lookup_amatorka.png in Resources */,
@@ -2135,6 +2192,7 @@
 				F9D250831B957EE400CAB323 /* Contents.json in Resources */,
 				F90242541BBA8C57004FD2D4 /* photo5t.jpg in Resources */,
 				F9D250EB1B957EE400CAB323 /* Contents.json in Resources */,
+				F909FB1F1BDF0A4200BDB0BE /* ICViewPager.html in Resources */,
 				F902420E1BBA77FA004FD2D4 /* JSONKit.html in Resources */,
 				F9D250841B957EE400CAB323 /* dropdown_anim__00014@2x.png in Resources */,
 				F9D250F81B95838500CAB323 /* SVProgressHUD.html in Resources */,
@@ -2210,10 +2268,12 @@
 				F90241EA1BBA4209004FD2D4 /* CustomViewController.m in Sources */,
 				F90241AA1BBA38BC004FD2D4 /* GPUImageController.m in Sources */,
 				F9D24FA71B957ABB00CAB323 /* MJChiBaoZiFooter.m in Sources */,
+				F909FB291BDF19AD00BDB0BE /* SAMBadgeViewController.m in Sources */,
 				F90241E81BBA4209004FD2D4 /* CollectionViewDemoController.m in Sources */,
 				F91D54711BB8DAAB00B08336 /* TAPromoteeController.m in Sources */,
 				F91D54791BB8E3F300B08336 /* TestData.m in Sources */,
 				F9CBA6821BB9194400FCCF64 /* TypingIndicatorView.m in Sources */,
+				F909FB1A1BDF036F00BDB0BE /* SearchController.m in Sources */,
 				F9E4E4551BABB3C4001DDA50 /* DZNEmptyDataSetController.m in Sources */,
 				F9D24FAC1B957ABB00CAB323 /* MJDIYBackFooter.m in Sources */,
 				F9D24FA91B957ABB00CAB323 /* MJChiBaoZiHeader.m in Sources */,
@@ -2225,6 +2285,7 @@
 				F90241EC1BBA4209004FD2D4 /* ManualToolbarViewController.m in Sources */,
 				F9CBA6811BB9194400FCCF64 /* MessageTextView.m in Sources */,
 				F90241BC1BBA40EA004FD2D4 /* NavigationTableViewCell.m in Sources */,
+				F909FB2F1BDF1E8E00BDB0BE /* SAMCircleProgressViewController.m in Sources */,
 				F902422F1BBA8095004FD2D4 /* SDWebImageDetailDetailViewController.m in Sources */,
 				F9F5E4371B953A9300F02C4D /* MBProgressHUDController.m in Sources */,
 				F90241F11BBA4209004FD2D4 /* TextFieldViewController.m in Sources */,
@@ -2237,6 +2298,7 @@
 				F9D251061B958A9300CAB323 /* SKBounceAnimation.m in Sources */,
 				F9D251041B9589C200CAB323 /* ZAActivityBar.m in Sources */,
 				F9FECF6C1B902F2300A2C9D1 /* LibBean.m in Sources */,
+				F909FB1D1BDF0A2F00BDB0BE /* ICViewPagerController.m in Sources */,
 				F90241ED1BBA4209004FD2D4 /* NavigationBarViewController.m in Sources */,
 				F9FECF681B902CB800A2C9D1 /* Common.m in Sources */,
 				F9D251101B958B7D00CAB323 /* ZAActivityBarController.m in Sources */,
@@ -2250,6 +2312,7 @@
 				F90241EB1BBA4209004FD2D4 /* ExampleTableViewController.m in Sources */,
 				F90241C81BBA41FE004FD2D4 /* SettingsViewController.m in Sources */,
 				F9D24FAE1B957ABB00CAB323 /* MJExample.m in Sources */,
+				F909FB221BDF0DAB00BDB0BE /* IAPHelperController.m in Sources */,
 				F9D251201B9596A200CAB323 /* CMPopTipViewController.m in Sources */,
 				F90241EE1BBA4209004FD2D4 /* ScrollViewController.m in Sources */,
 				F90241F01BBA4209004FD2D4 /* TableViewInContainerViewController.m in Sources */,
@@ -2263,6 +2326,7 @@
 				F9E4E46E1BABB8CE001DDA50 /* Application.m in Sources */,
 				F9D24FAB1B957ABB00CAB323 /* MJDIYAutoFooter.m in Sources */,
 				F9D24FB81B957ABB00CAB323 /* UIViewController+Example.m in Sources */,
+				F909FB2C1BDF1BF200BDB0BE /* SAMLoadingViewController.m in Sources */,
 				F9FECF631B902C6F00A2C9D1 /* DBHelper.m in Sources */,
 				F90241C21BBA41D3004FD2D4 /* IQKeyboardManagerController.m in Sources */,
 				F9CBA6801BB9194400FCCF64 /* MessageTableViewCell.m in Sources */,

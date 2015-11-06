@@ -18,13 +18,13 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		5WeWfwDapj4XrDt7jkbT9ROxlRk=
+		wABU22mfuoMU4LzVXhSFHjktmpI=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pptPQCJZ3pn60Cf+ZPr5yWUgNoo=
+			3+v4h1R/SC0TyF8Bi9U1HeUt78E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -33,7 +33,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8sIgZI5lMh8e6jNcI/CWntJts74=
+			5rU3Fg7O7ZZyGBGmFneJt/5f85o=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -42,7 +42,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8lT2Ia8YP4W0NXbXTCTf+9zQg1g=
+			0sz2cKgcnIpv1YB6JvsrSFmkz6c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -51,7 +51,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y0baGZ/z8iKJiyCs2FjAwFpwHm4=
+			8rn0qgDvgob9aTlKL+MsNS1EgVs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -60,7 +60,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MEUhOZuKuqJLI7HLZmS3Qr5Qt7s=
+			t8civrCil2aTu40IZ+2CFTDdMXc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -69,7 +69,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hssIfpkqmZL6cgsMICI5eBA8cZY=
+			YsEtLnDZyVkhG8tfD1Ry43XoL58=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -78,7 +78,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hAaoSQjtcI259pELCtJzbBSz9fI=
+			eKrsy/u8xaAI0V+ueFdSJhqupzM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/K6r-Pk-7dI-view-d6u-R8-DaE~iphone.nib/objects-8.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qcDvoIdf0FK5b2U1nxMAtHYEdks=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/K6r-Pk-7dI-view-d6u-R8-DaE~iphone.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rj9bc06yO0G5kH4lc8ZskzJmkBQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -87,7 +105,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pYgh5KR7hUg7RbWEiXutZr+0eTg=
+			q3AMdk0al85OXxwgpchWt+ZyigY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -96,7 +114,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/cxNSJ3/FlFTzEMOw94uEJd62yw=
+			7I5bh+bzhNyKytww3DpxnlCr6S8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -105,7 +123,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			M2OYONIoB+VhIypN1+wJ4hm6aBY=
+			LVXMy273Lrz+qo4YW8RkBVKStag=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -114,7 +132,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X/xg3TwarBsplMA407MQKdSf3/Y=
+			itWwZW3Pt8izHLcBIPQG+TQdMnw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -123,7 +141,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cSXpxvL9V+9L+fWrNo1Iq6I5mDg=
+			Wq/MQZSyjFbZ5Zq5FDMA0Fux8t8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -141,7 +159,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QxuXIasuVKbl5G3qV8JVRPUJx9k=
+			N3LeZEmcsQl1ZOOyvf1BbYK3bL0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -150,7 +168,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JepFZSpMYdyFPDRnB99Ze0W7vZk=
+			oQ8fQ3wT/3pJM+vCkvxjE8m2wO8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -159,7 +177,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vdEk3KqSPv9IVU9AUyTtXF4A6jU=
+			9S3l+rJvOWB4lCNI+/1DTrZ107A=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -168,7 +186,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Tmrk+7Pc5tDwPyLEBfwKQU83BOE=
+			9r0HyZW9I7HGVfNT8fp10Caipjo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -177,7 +195,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qxa88d+38OdMB7KD4DNfe3RCJ1Y=
+			QkEq5M9XM9djF81kqXaiMGrpAUY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -186,7 +204,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8dsYxakSgikXqpVPGk8bPztVqWc=
+			M734xRqQQqWc540T/j0XVEKzJzA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -195,7 +213,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rkODvqm7D6n7ECcxPbSNmbV66S8=
+			HR+ctjT1K4pYxOVO6wi8ormAGtM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -215,11 +233,11 @@
 		</data>
 		<key>CMPopTipView~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		KYDsMHt1dSaf4+NyO7bzGJFaWZ0=
+		pOpJbSyegxVbg4K6MSFlFcWvTmw=
 		</data>
 		<key>CMPopTipView~iphone.nib/runtime.nib</key>
 		<data>
-		tJ4b67/Z1esR+ogfS7SFfvCjq/c=
+		XBIgReIIOX011+e7By85PaqOvCw=
 		</data>
 		<key>Chameleon.html</key>
 		<data>
@@ -227,7 +245,7 @@
 		</data>
 		<key>Contents.json</key>
 		<data>
-		HzqgvFhunwB6btgYqI7c+JVLNq0=
+		zPgha3ek0DhvwHWUqX8OD89gH60=
 		</data>
 		<key>DZNEmptyDataSet.html</key>
 		<data>
@@ -243,15 +261,27 @@
 		</data>
 		<key>DetailViewController.nib</key>
 		<data>
-		8I7obARSbltw8x05aOU3nQBAkCI=
+		l30U8n/gs2PsrkGM+YYu+SPBex8=
 		</data>
 		<key>GPUImage.html</key>
 		<data>
 		0jWDH85vz0Pv4ulzZd/LFshwPkM=
 		</data>
+		<key>GradientView.html</key>
+		<data>
+		S4eMwrdWTjYb941WWAuNLG1OLqw=
+		</data>
 		<key>Gumbo.html</key>
 		<data>
 		gWG1REOTeJ/N09uQ4CR216/6Hh8=
+		</data>
+		<key>IAPHelper.html</key>
+		<data>
+		AF63dG6CwKVi31gpL/k7HiwmVuE=
+		</data>
+		<key>ICViewPager.html</key>
+		<data>
+		rabFQExj3/OEJ5p8OyUTEWO1K68=
 		</data>
 		<key>IGHTMLQuery.html</key>
 		<data>
@@ -326,459 +356,459 @@
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/objects-8.0+.nib</key>
 		<data>
-		YbeIP500Dwz7LZOeOVefBtsDAMA=
+		WP71YqdH8OyQRaZMhM9XMcETykA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/objects.nib</key>
 		<data>
-		Oe/OBTTyHGgVivtKVL6pSyVEg8M=
+		XhWJs9LyQlgq6Gbzc13aNd6E4Sk=
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/runtime.nib</key>
 		<data>
-		Vk2IgfFGLKH/a/bW5i5iUcfkcqQ=
+		0WheFCo81UQcltoeuKEg+Hyr+cg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/objects-8.0+.nib</key>
 		<data>
-		0qbBsat3X+6I0WrhGnkgyJLaIU4=
+		E1G4XOG06nEDe9c+SvLoEH58ZVY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/objects.nib</key>
 		<data>
-		mCEM3gckdlzzLzYvGD5oDKWJP6g=
+		fK4IuiufAmMWQN87b98CiozwL4M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/runtime.nib</key>
 		<data>
-		ZZdGFyQ9edZ9DjAn/d9rdPRJt28=
+		6JajA/ghwEVQajBhchKwdIepgEs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/objects-8.0+.nib</key>
 		<data>
-		AplP9vpoM9NxkxxbF+JY2J0E9/g=
+		+LxEs+YZNovOycLoVE7Z7WWzOao=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/objects.nib</key>
 		<data>
-		RGgFVazA3Y7S01Ep6AGjo9lSHcA=
+		Z6Q6FWoi4WwBnY+izrZRIOlYu5Y=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/runtime.nib</key>
 		<data>
-		rjm1dKdCsosEUfuUd3kxBSaw/xs=
+		IpMAMFWgDe1/H4/dAYBQ4L4csMM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/objects-8.0+.nib</key>
 		<data>
-		6bZi9WePTmfQDch/iaze42bwgLI=
+		IBFP73kABkmwt3iPDDaKOZ6Gvps=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/objects.nib</key>
 		<data>
-		ykqaMcQ8y1goJgs6sMvj9JHUf0w=
+		kkZpESllzrTSIBjFey+a230IbjE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/runtime.nib</key>
 		<data>
-		5EZvnAJrddKThndWGK5JXfEWvRw=
+		48SiU3ACBG99Z8r5nRfiaNVRpSw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Info-8.0+.plist</key>
 		<data>
-		vYOJ3/pYwL//8H+o2jE2fljAmss=
+		KfRmTLM+FUodP95ZgjDX3Riy16w=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Info.plist</key>
 		<data>
-		EZ/QN9bUiUU2lxk5BHy5YYYvD6I=
+		wTne519DBibJ+r81VdkNggp5YHM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/objects-8.0+.nib</key>
 		<data>
-		GCQipa/5+xmOVDVNZggvlKmpdxw=
+		tLiMUnd7iYLWAfXVrTMeC96gc6A=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/objects.nib</key>
 		<data>
-		CgzlYb50dBvBcHlwrpbGJsOuQUw=
+		xRRE7UsVJrv93LgNQmX12GwfHqc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/runtime.nib</key>
 		<data>
-		CyOc3fC87r49AMwy+d65O0JWJXo=
+		0k6A1se4OP7SMM+V9zNSGqMp0ZU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/objects-8.0+.nib</key>
 		<data>
-		uptHRbl/NKfj1Y0uj43Ev61WEHE=
+		FQB6R+wD7t1HUnBYUtcJRvdCMd8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/objects.nib</key>
 		<data>
-		3rvxvM4Bb8dUuSMoALJ7pFokCgw=
+		jfM6k4t4GYymhr7R4sbWeyfCKCo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/runtime.nib</key>
 		<data>
-		qQg0XOFxzsWmquMmZM0l1HV5GKs=
+		5FrQWF8t65S4Wf+GQWDIgSYyavE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/objects-8.0+.nib</key>
 		<data>
-		GCojhbo5TKhtWTcugXn/X0GfqFU=
+		ms4xcqUsyj7OR3WdsNvivrmZVOc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/objects.nib</key>
 		<data>
-		MWEhsF88yxQ8QquVZL+DomMSYiE=
+		YtIlcANorW+W1a8WWdkeMgnjTBU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/runtime.nib</key>
 		<data>
-		A48Zi9DoAsaLJuTGdEw3l5p2eZ8=
+		U/Vr26OQw57ouejIxN0vWiiZiA8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/objects-8.0+.nib</key>
 		<data>
-		Nb69eGylNT3c7dsMvcSe2npWChY=
+		NsX1f/PHTfqeV3GxKCzUNhpFtp0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/objects.nib</key>
 		<data>
-		LHaN8FNUF54qOQUbLThXHuu7/vk=
+		BBGhOx8IQL/wlapEkITC7LwGUrg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/runtime.nib</key>
 		<data>
-		b/2aH9lGo3C4zXc5GEc8KI/vs7s=
+		BNCOmERC3MZt6ZFZSOc+D9EjR9M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/objects-8.0+.nib</key>
 		<data>
-		6DeKa7NGV5kboNQfLRtYK3VB5tI=
+		GVVqMpacb59qXnJ8mVktTPqxLhU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/objects.nib</key>
 		<data>
-		gJZCXMaD1wrKj4n6pBdyyxgcwlo=
+		HD2ULYp4vcOQM7pzA/242HhNYd4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/runtime.nib</key>
 		<data>
-		Lcct8kTdF9YPtyXM1oNdLwTpDgI=
+		jL/1zGChhuRC9WtDtOdqiuQQEGY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/objects-8.0+.nib</key>
 		<data>
-		5Wu/RD61CQjXyjyxxp2xmO0UXRw=
+		dZiZRqZBnKBP/NIaFUfIxBrzjeE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/objects.nib</key>
 		<data>
-		+s+4ZOKJAoB4WhcNlIRr9rlDf74=
+		zZUin+inn4uXvxkgUEm//WxzpuA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/runtime.nib</key>
 		<data>
-		HZVGED2yxkbw0x7wOM3jTOcE3Ec=
+		uSKH4JCMUJbwP0QswWa21x/vxJY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/objects-8.0+.nib</key>
 		<data>
-		s7quc52kc1IIVlWruuptn0x3vKA=
+		U70bWl0ZJwIFSnybMqD96OhJX3E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/objects.nib</key>
 		<data>
-		nT8VQWu7sRN7BvzjbRMQ6TVrG+A=
+		eLpimEsVQ0uE6UcB5iNU+Ji/5pM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/runtime.nib</key>
 		<data>
-		AiVXjSE4IYgagNtXuG3RlNShrEQ=
+		vv+2wHAAsgRofLvZEP4NblM+ej0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/objects-8.0+.nib</key>
 		<data>
-		GcPE3UnLfBD7GxYNB2gG7f+MbPo=
+		uV9NLBYoiKurTU5w7+5xlLd2YII=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/objects.nib</key>
 		<data>
-		dgV9C18Kne69Ywvji/oWZWCpBh0=
+		igcE1DYx+Hk5+dAVntAY2XXVHPg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/runtime.nib</key>
 		<data>
-		wDYzKiGoGODz/22h55Z7mK+yL9c=
+		DgyQffUvtFENy6rQUiAmakMPMPs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/objects-8.0+.nib</key>
 		<data>
-		xXHurAQ7f9k5bLteHacIiplAekY=
+		ftieWiNU5xy2p+fb8BiFXypxrhY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/objects.nib</key>
 		<data>
-		35qDDWRhQq1F1CZ5No8O0Dft1eM=
+		pNDCFrorBRMicp7PRTIoQ3jNFV0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/runtime.nib</key>
 		<data>
-		rYlDp+ZBKxzi2H5G/xSdI/i0+Gg=
+		gm3nZPFkU/EbeRn/+Za/coHAiTc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/objects-8.0+.nib</key>
 		<data>
-		5WcbOxC+aKsWfLDyc3+p9E0HWOg=
+		PS4bl4DtG3SkaIv71vliC6eN9mA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/objects.nib</key>
 		<data>
-		JqYW4sjfVC2UWZ11q5dX0L4A09o=
+		2xeuLj1xPcRSB0etU9Jler2adXY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/runtime.nib</key>
 		<data>
-		09UGm7ju2ijr6VRiRPz18SQIuf0=
+		+p76YjCZUwycPvfL3UtiO44vVkg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/objects-8.0+.nib</key>
 		<data>
-		C/mvj1Mf23zZBBvP9musQI4h/oA=
+		zQAIoHcZ0+fyOv716bgP494LPi0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/objects.nib</key>
 		<data>
-		U14agTdZmeElTqjFAkH0wlmzGgE=
+		wUg38K4y8wR0pXmzQZEehdcHuBE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/runtime.nib</key>
 		<data>
-		Ykr4CVsyRbJr9DtXTSXnUznp/E4=
+		RKKlDsqFf7oGOi75yuOqTW6AbwY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/objects-8.0+.nib</key>
 		<data>
-		itaUHb/QSrti8dyaGYvHd2iYyu8=
+		xf9vXUQ19KFv5slT2uPrXplxfzg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/objects.nib</key>
 		<data>
-		RKKU/mJI1KOHbr6TejhPth8VtEo=
+		NaNrGumn/CRG6LHgWe2HYQTU6fs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/runtime.nib</key>
 		<data>
-		TMaVSD7vxtvCkT00YVmVMD8Y3l4=
+		ayAOT7u6QwMR4Fh32wfK3wgIY8E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/objects-8.0+.nib</key>
 		<data>
-		jPrQbBv0uoiqTJsRD94Hwk875dk=
+		YlJNl3jzwHG+ArSHJ9ZtPFq6sec=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/objects.nib</key>
 		<data>
-		b/qEpT2PC8T2De2rj3GxHgWZb4U=
+		3ZxE7/FI1FKdIhtYq/l3JttYon0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/runtime.nib</key>
 		<data>
-		6Q11qVeoDjNVgu7YeJ9twJjMAs8=
+		AgrFDkFBS1O+NZq9VS9M/ONSc2o=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/objects-8.0+.nib</key>
 		<data>
-		TAcOt+ALQmnNlpyAzCoTjeFLjas=
+		rpaT6EVWn2TrCfFQ8jroMvrcUT4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/objects.nib</key>
 		<data>
-		AKwRhfnMqQelDySPEj4H3yEu1qg=
+		GatqiRIGaZ9RaT27vxKu4lAyMDU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/runtime.nib</key>
 		<data>
-		4cS7NXiIWIzmyvoqDD7glfrbvKw=
+		0oB4Lg9GJF+S0IoTMmYm5ylBC4o=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/objects-8.0+.nib</key>
 		<data>
-		iYcfmv9BL3AzdkFIcUYyRZDxGPs=
+		UplzEtPq+cgjSWqQAzTKiDTkKms=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/objects.nib</key>
 		<data>
-		+4wB71Yh58OtudLBjZgKrwv/tE4=
+		gBzrZ4xu9J3UZr9uAikADVFpH/M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/runtime.nib</key>
 		<data>
-		seKIb2C7i+lGiIzmHGXpnkZjvOQ=
+		zqrkWijQH344lDgBlZREGX0NoLo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/objects-8.0+.nib</key>
 		<data>
-		3vFfN2oSSBl4NL11RTZf0KvyD5s=
+		0oBuic9+neRibvCBBcmXKGuvO9I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/objects.nib</key>
 		<data>
-		cjJTPeJh7Sfk3IPlSV+dyaRwu8s=
+		FLVV/XETcx7JjLRAhKcU9s000tc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/runtime.nib</key>
 		<data>
-		dpmewgXgRki+KiaP3jhVY+/Sq1A=
+		z7LmXY2xW0gq9QDs2Z/TPXMnzxY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/objects-8.0+.nib</key>
 		<data>
-		OlXqrxTKBcVwd1GiGH1o5r3Vl2s=
+		f1nh7bx4aeMjtstG0SNZ1LRuO3I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/objects.nib</key>
 		<data>
-		D0dxWWRSwKEytinCiG2zM/rY8mM=
+		GoemA2xr95X0JzGORHA33CZNQpw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/runtime.nib</key>
 		<data>
-		T92MRI0AcBzMjvkBQMaBZRNm+xQ=
+		9sFe3FWuBR3sjcMZkcxP6Bai/Oc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/objects-8.0+.nib</key>
 		<data>
-		PnwVbEOTy5+n+glq+qGc0hgkucE=
+		RTVxgUSNs0VY87+VX3BJ/+oCP70=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/objects.nib</key>
 		<data>
-		QpwBps7Ahehny2MvTk7x9Q6o3KY=
+		bzvw6ipNC1Wb9S2HZ2pruRbyerI=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/runtime.nib</key>
 		<data>
-		VJmfpIsDhOtXf1EZXjJ7rTBBCAc=
+		c0/NWVhSqTU6+HyyuO/C3bbU/0M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/objects-8.0+.nib</key>
 		<data>
-		LDQNi9EHfTngXAPIEYgYBIcH4bs=
+		fKqAAR5IUZtEjZdYgc2vkIt9qlo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/objects.nib</key>
 		<data>
-		1aqtU1SY1NC4XVUy8fuKDt38S7g=
+		hiH+7/CSj0sTUMURzaBW/3glatA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/runtime.nib</key>
 		<data>
-		R7B2czX4YHEg2jitOT2j/GbzciU=
+		ScAZZzOGoktQ156v3QZRt8SyA/g=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/objects-8.0+.nib</key>
 		<data>
-		EFGSaUOOTKQ8BMiyr1oilUulgQE=
+		r84mLDXPXcm4FGILSbMsLdRO790=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/objects.nib</key>
 		<data>
-		qvyR3QSQFK2s9soVgxhydKJlNHg=
+		pDsUA6QP14FNDVyt/c8bwbNr2vg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/runtime.nib</key>
 		<data>
-		wZynGc9xRcnM3pt0ggjqICAw7zk=
+		6qyfY/tZSkZ6WkgeZ4a3gof5EmU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/objects-8.0+.nib</key>
 		<data>
-		32K8Z8ylsSevfxGgDp748dfGJPU=
+		wwA/uVRQ7AwlifcTwnDYflxUERg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/objects.nib</key>
 		<data>
-		3HI5Dg08xMhhq3B5t2JjKckWFLY=
+		b3xHMINXdP+3mTMp1G2Eg+UDWmE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/runtime.nib</key>
 		<data>
-		1hbeAXvxRGBW+YJIJhY2npHKxVU=
+		jj0TR3+LUqHTuGVgDXfte3ZYlJI=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/objects-8.0+.nib</key>
 		<data>
-		uYoZaPg8HjFFDoRNwgmPLYLCpAg=
+		+pyaCXjZyQSSLvoWWIbiiq/MY0k=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/objects.nib</key>
 		<data>
-		bbovMr4eZDDXN7MgGhDlIEUtdSg=
+		RJZfMP/uWNpsw1J6sAVcn3LK2X4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/runtime.nib</key>
 		<data>
-		UZ+cJsjhFwcnQcmCD+o6H+FRK0E=
+		SzRDOMhIaDRAAdNKqrgGky0gf74=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/objects-8.0+.nib</key>
 		<data>
-		e+gJ+ZaGMP3+zhPXw4qr1UikXiw=
+		rujwL6sonTl8R20YRF5tdppjheA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/objects.nib</key>
 		<data>
-		jKJ+t9fQ4sU4bEF0rc8slJfzL+s=
+		fIuvHoJdnLdO2qW5aD4aW1Vy/e4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/runtime.nib</key>
 		<data>
-		71362EUH4DchSJBxkuESiRSa+7A=
+		FbekR8ujV64HAxoqK7Xni4iLz1I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/objects-8.0+.nib</key>
 		<data>
-		dVgphUr3tJCtUhcYMfSfY7QoOqQ=
+		kHJfSjVluY/qlNbhAHTukjt0i6I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/objects.nib</key>
 		<data>
-		/rsAEMNyoAWzAamn+kCkO2RmMcM=
+		7Xjx2SdqPQ58RXtcuEyT6fZIcZA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/runtime.nib</key>
 		<data>
-		0vOA6lAGdxVpLNQJJ91+u/R0W7w=
+		cVsikhv67iQcJQrHY08aXOVyS2c=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/objects-8.0+.nib</key>
 		<data>
-		R11wz9F2eblG+iQTsyFQX5WQQHc=
+		G/Y7aTk2zEjVWv+WcOH4xWgoOKw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/objects.nib</key>
 		<data>
-		EJ3OSzpH8Tz8YdO3vsgplz/l4FE=
+		P2Jp0aa12B2zqgsZSDQrJx/CyXQ=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/runtime.nib</key>
 		<data>
-		hyVcp8MAwLLV7GBojt6yqa3YyMU=
+		jA+zmPFI5nxg5z1/wL2Qql/8yOs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/objects-8.0+.nib</key>
 		<data>
-		4rfX8M2QxAIBvcxFF8UQh9GwTNM=
+		uTcOc9d734gAYKQGzWzMNWRbBR8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/objects.nib</key>
 		<data>
-		Z5JWWEFx7VvhI3NAhTRJvlV9Nj8=
+		DCMdfI/wKzheIdO2GWa6DXbwssE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/runtime.nib</key>
 		<data>
-		vD1K3vwrHlZIDmDyD04DICc6db8=
+		6gijLC6U4kNSmnM/Wh444Rx9WxA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/objects-8.0+.nib</key>
 		<data>
-		VHuOvEIrmGkMdM75Vbz3PmBBQ6A=
+		a08kcOJLzBelrmXguMYLNewFaUw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/objects.nib</key>
 		<data>
-		1b241+8oZTIFI+diETC4uhrIHHQ=
+		FUixQRDcDUfYbaZGi9yqxD6kuSk=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/runtime.nib</key>
 		<data>
-		zom6cTTzdhW/TGkQ1QxeVMQih0M=
+		nl3hAt8ttm7qhHIASP/zkAjqLOU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/objects-8.0+.nib</key>
 		<data>
-		bVlxuI5aSIWUPB8N+RoNwHBtx4M=
+		hippnKi8C+PdYEjY+OKB5908RwM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/objects.nib</key>
 		<data>
-		9aRDxuNhc7+fmEWbQXf4vjpD1X4=
+		ctsCNvxeUuSVz8U7LeTUkRtNB1A=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/runtime.nib</key>
 		<data>
-		HYyzRLKQWY0NgDjFrSiz1fY0NOs=
+		TfT8WLT0qMad7dwO5BbtphFe0bg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/objects-8.0+.nib</key>
 		<data>
-		Yu8XOIFqCoPQQlhOnoY2Gl8xBQI=
+		oiRtpFHHxJKIHJYqW72Br1RRgT8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/objects.nib</key>
 		<data>
-		rVTm0BQxvNHZh3Hlp13wZijuHwo=
+		DELhMLvfDqI67ABkyzSRtU4R5yA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/runtime.nib</key>
 		<data>
-		FF0ogLGd2RB45Hra4AZ+NCQJnig=
+		t7ihqO+pMWgQFJgzYLL1teIJwUw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/objects-8.0+.nib</key>
 		<data>
-		slz9X/Q/MexOLOKTEeYe4F+DKE4=
+		YRPkdl4V6Vy4ROT0Wyq7vOQM0jY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/objects.nib</key>
 		<data>
-		IwEAR4VHez007h/+5BNp5TD+Ujw=
+		MQfCFwIdRhRgJXZ8Bx5pm7fcET4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/runtime.nib</key>
 		<data>
-		rbBDXH51f0pnkCUfB5VjnVaqkso=
+		ZFPu08adTl+/4IjOBcdf5JXKyaA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/objects-8.0+.nib</key>
 		<data>
-		iYEfEpsKbg9Ox2MM6f6IhKrKiCw=
+		GxxKQhx9yfdzCjbJcFTs2VjQ5ag=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/objects.nib</key>
 		<data>
-		aHivJnrFNvRv6x9xlGMg0QHld4I=
+		lQViMf9fIJz60o7Ekh6u7cXyLgg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/runtime.nib</key>
 		<data>
-		LKc2hP19e8JZPYHBNlblZR861Cg=
+		W4oKHqb2k+CUHhKpoeCpwWZ3Hv0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/objects-8.0+.nib</key>
 		<data>
-		BLqFcFp4x1mHqQNad5YfFXiTffc=
+		bJfBhvgUGCo/wimxogVZ93XPb6E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/objects.nib</key>
 		<data>
-		w54tLVZ0Mg47IYDQjsFAniq4mm4=
+		y7z7N8ArRTJ8h7CS9ldi6TNai68=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/runtime.nib</key>
 		<data>
-		omOAfgc7A8GQ4aQ5kTnjrV6VycE=
+		PN0zZcqFAhwzExi1UB9ESebM9Ck=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/objects-8.0+.nib</key>
 		<data>
-		uoI+1AcByb0BZLZxUZhT9lw/PAI=
+		SzIhPays/MiTgwaIMOqZgXGCbgg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/objects.nib</key>
 		<data>
-		tdBjQys0jhFWoc1mm/TSG0S6BLc=
+		IPXmt6oI2SB/PAjCUWkHs2jM/OA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/runtime.nib</key>
 		<data>
-		8xI22zG5H8DMLxjUmullmjCX0sc=
+		5Py3XWQLyw/s7sGAhBlO5fIejEQ=
 		</data>
 		<key>IQViewController.nib</key>
 		<data>
-		HaxIGuzNB6vVXtsLyaR8CY0OsRw=
+		YrMeNEhiJJk3SeMyCTaT8zfnxWU=
 		</data>
 		<key>IdealSans-Book-Pro.otf</key>
 		<data>
@@ -786,7 +816,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		WnrKuNJtMvqrjK7NzenRURXg9no=
+		y1qoVVBxSR5rHJQFfFGvI/L9fPo=
 		</data>
 		<key>JSONKit.html</key>
 		<data>
@@ -818,23 +848,23 @@
 		</data>
 		<key>MJTableViewCell~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		6Htjuk7u+3HPx4T0+bHRVivwP4s=
+		7+FOrthOk4yWykMJ4HpyTN3G8Hs=
 		</data>
 		<key>MJTableViewCell~iphone.nib/runtime.nib</key>
 		<data>
-		m0FU7FK7p4s0YJM6Z4RfEpDnslY=
+		YOxCZp8sWIXoABqtCDanWunQwLA=
 		</data>
 		<key>MJTestViewController.nib</key>
 		<data>
-		AmtFwqIj+c2u5gg3B+dwat+ovSo=
+		XRu6qsIU2PSPiNYL21vbS2QlT28=
 		</data>
 		<key>MJWebViewViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		oST/J3X1b7XztR3cwN0D9aUaspQ=
+		n9gT8Tglsp6RotGYi4xCtUbmJdk=
 		</data>
 		<key>MJWebViewViewController~iphone.nib/runtime.nib</key>
 		<data>
-		vUfO6id5S/k50rfohtuY/hMXdj4=
+		dswJHrNXshfS+JJ2/yVimzZZTqY=
 		</data>
 		<key>MWPhotoBrowser.bundle/ImageError.png</key>
 		<data>
@@ -974,7 +1004,7 @@
 		</data>
 		<key>MasterViewController.nib</key>
 		<data>
-		usKi5iqiLFWjU8YEhOwa4a8SyGw=
+		uiVrPEGlmhHMKSxuV5PhiLzF5A0=
 		</data>
 		<key>NotificationBackgroundError.png</key>
 		<data>
@@ -1072,6 +1102,307 @@
 		<data>
 		9zsO75GpwbIDqFD3IxgpE816r7w=
 		</data>
+		<key>SAMAddressBar-background.png</key>
+		<data>
+		5xujaXO8esJWeo5JTJJ44TlveJw=
+		</data>
+		<key>SAMAddressBar-background@2x.png</key>
+		<data>
+		WQ7tlO/MnYtCQufPzgWWmoBoCL0=
+		</data>
+		<key>SAMAddressBar-reload.png</key>
+		<data>
+		Ygz93M+oQPoQ1LCNkIoH99/2vyw=
+		</data>
+		<key>SAMAddressBar-reload@2x.png</key>
+		<data>
+		NFkms5o9FxW05N0qrJQooyiMe68=
+		</data>
+		<key>SAMAddressBar-stop.png</key>
+		<data>
+		T6BJi8kv8DQTMaxS3atudxAFOgo=
+		</data>
+		<key>SAMAddressBar-stop@2x.png</key>
+		<data>
+		8iFtMSqIpYgLRLIYKpmJYdpp2T4=
+		</data>
+		<key>SAMBadgeView.html</key>
+		<data>
+		hj8P/6NXM+D4QBpcRmh+PnSTl8o=
+		</data>
+		<key>SAMCategories.bundle/da.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NDWEUn6QJiw238rfppHAZSOO9mk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/de.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZC110YLLXGUtzDWLeXYjiRquaoU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/en.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dT7X0m8GxoVkpT0/g5X370EleK8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/es.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0MLoIZPNR5Jf6Lk7Gbc1OIzoAug=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/fr.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RxqwbuL//HSjRqbITZhPfNZtuN4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/id.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NIDrqYg3T9wcuw35XV0OFCktNQc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/it.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			x4Ai7FMBa6unM3DTW9f9TFyn7X0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ja.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fmwWDael5ZfhxDVzh7uz6TH5mlg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ko.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dGa28X01lJ9RIWy5UMYF+yRmwXQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ms.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pwdR3g+vXHp4RiagFJeG0ljf+T4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/nl.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qaCBwFVrY7nIyIFqpGH46lTrr1M=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/pt.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lJXFzTqiU2YhmMKO4C+ojyHX2U4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/pt_PT.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/9Bjq/rnIaUWnPGLnqq4ryc427A=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ru.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p/UHzCr/PtEfwLW9hJVqfQ6e6DM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/sv.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rLLqWRhcFFXRCHLI0Ev2W6ASvTU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/zh_Hans.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FKUfgLPPlPoFcTiGAQylT3KdBPk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/zh_Hant.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jgVP5xl5onp2S0QqQE1oNUjfvqo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCircleProgressView.html</key>
+		<data>
+		UXXKnMKLbnuulYFThLDU6PMSy3c=
+		</data>
+		<key>SAMHUDView-Check.png</key>
+		<data>
+		LC/rPwFbn9evT1zI0SXbQ6SP1f4=
+		</data>
+		<key>SAMHUDView-Check@2x.png</key>
+		<data>
+		0rLrX5vVCex+8ll8vBhuAOqVIFw=
+		</data>
+		<key>SAMHUDView-X.png</key>
+		<data>
+		Z13HIOyivQd+VOratnNCj+hYXu0=
+		</data>
+		<key>SAMHUDView-X@2x.png</key>
+		<data>
+		H9PIntFkZB8bUQztxRoHRy1lG+Y=
+		</data>
+		<key>SAMLoadingView.html</key>
+		<data>
+		Ol72eZiD7qX4mQBz82SshC2cTbM=
+		</data>
+		<key>SAMWebView-action-button-mini.png</key>
+		<data>
+		INn8qeyhefi7Gz//7cax3Tmcew8=
+		</data>
+		<key>SAMWebView-action-button-mini@2x.png</key>
+		<data>
+		oFqXdjHc5JZecX5pQcDfZwOsKXg=
+		</data>
+		<key>SAMWebView-action-button.png</key>
+		<data>
+		wTg9Odc46KuOD9UE+WoNBuEMU/4=
+		</data>
+		<key>SAMWebView-action-button@2x.png</key>
+		<data>
+		7S9ElECzZglQFmE/VP6KVGdDjfg=
+		</data>
+		<key>SAMWebView-back-button-mini.png</key>
+		<data>
+		Ga2LTW1Yk9OrYLm1VFpxTmD86O0=
+		</data>
+		<key>SAMWebView-back-button-mini@2x.png</key>
+		<data>
+		u3hX6ixg43BXx9CEB6zsme7fhdg=
+		</data>
+		<key>SAMWebView-back-button.png</key>
+		<data>
+		2OHOQLkX0C+MIAYE7KaPNQ1vFtQ=
+		</data>
+		<key>SAMWebView-back-button@2x.png</key>
+		<data>
+		ps+bbqUBW5LbhQEQXbM0/h5z7PE=
+		</data>
+		<key>SAMWebView-forward-button-mini.png</key>
+		<data>
+		dxRP8+AAZkII6EZMiOlHqA2QLK8=
+		</data>
+		<key>SAMWebView-forward-button-mini@2x.png</key>
+		<data>
+		CzZ/RazYDDVkPCU4ywnaiZfyUlk=
+		</data>
+		<key>SAMWebView-forward-button.png</key>
+		<data>
+		+9OiQlquUQXCjv779kcOGiKU2ck=
+		</data>
+		<key>SAMWebView-forward-button@2x.png</key>
+		<data>
+		JcNuUVDgQswjfg18rQr0XKXfiDs=
+		</data>
+		<key>SAMWebView-reload-button-mini.png</key>
+		<data>
+		yEHBvReSSP1uAjXomJq+/rT470w=
+		</data>
+		<key>SAMWebView-reload-button-mini@2x.png</key>
+		<data>
+		iaKzTPIMYEoXTSn+xj2+9ymRXFE=
+		</data>
+		<key>SAMWebView-reload-button.png</key>
+		<data>
+		B+umaLBKBKYfEMaZKM8gxifPF0Q=
+		</data>
+		<key>SAMWebView-reload-button@2x.png</key>
+		<data>
+		lTRrxkQY7ymFWNcgeKdTF7P+CGo=
+		</data>
+		<key>SAMWebView-safari-button-mini.png</key>
+		<data>
+		2WthygkRZ940Vg8Z9isU8y2UEGU=
+		</data>
+		<key>SAMWebView-safari-button-mini@2x.png</key>
+		<data>
+		Huh3x6/VzzENr9aoqepueY7sjnM=
+		</data>
+		<key>SAMWebView-safari-button.png</key>
+		<data>
+		NC3I1SJzgYgwX5AzW6CCrPJ4g1Q=
+		</data>
+		<key>SAMWebView-safari-button@2x.png</key>
+		<data>
+		CpDfL9DNuRyYwHyc8g7uma1gr/U=
+		</data>
+		<key>SAMWebView-stop-button-mini.png</key>
+		<data>
+		T8EZ3f4ZhxMTeLqPgXgVZV/VBLM=
+		</data>
+		<key>SAMWebView-stop-button-mini@2x.png</key>
+		<data>
+		NF27OB88gq+PMxaI3u/swLV0U4U=
+		</data>
+		<key>SAMWebView-stop-button.png</key>
+		<data>
+		7o1Klr0l/bPMQqoHUfKKYqYloyw=
+		</data>
+		<key>SAMWebView-stop-button@2x.png</key>
+		<data>
+		0Xcbm/fdi7AkaGIUx/f2siel2D4=
+		</data>
 		<key>SBJson.html</key>
 		<data>
 		CyhFDNjB+5aMJfImAYUILbI55EQ=
@@ -1134,7 +1465,7 @@
 		</data>
 		<key>SVProgressHUDController.nib</key>
 		<data>
-		TRd7SmC8ntt10mjLetH7yljHuZ4=
+		Kxw8JZtXiG8qUqxoEykez3PF9LA=
 		</data>
 		<key>SVPullToRefresh.html</key>
 		<data>
@@ -1142,7 +1473,7 @@
 		</data>
 		<key>SVPullToRefresh.nib</key>
 		<data>
-		/U8lqempKx4n2q52YGx/D9w64Ok=
+		c+6fBhJnnc4FNmUBam/pPnQkHeM=
 		</data>
 		<key>SlackTextViewController.html</key>
 		<data>
@@ -1186,11 +1517,11 @@
 		</data>
 		<key>ZAActivityBar.nib</key>
 		<data>
-		N+0kl/4RI48iXmPibAZ4h9vpxpE=
+		w+P24vbdxEUDM7rzVGN04XY6hMc=
 		</data>
 		<key>about.html</key>
 		<data>
-		faDwDsA634itJEt0ClfJPk6Ayic=
+		Fa8nlc9bsUq3bp8RvU35V3pBWbw=
 		</data>
 		<key>applications.json</key>
 		<data>
@@ -1210,27 +1541,27 @@
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/objects-8.0+.nib</key>
 		<data>
-		Ba9ZTJN1gw9IYc9Z5HJJrjvYwUQ=
+		smTkD+26i6s+ufCF5IpaLpiqRcE=
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/objects.nib</key>
 		<data>
-		Njud285Y6+O3XVEpTm4rAp+4BMY=
+		QYKvq1LGdpp1NtIGJcxhaZ56KCk=
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/runtime.nib</key>
 		<data>
-		Ui1AywPfmzu6Y7NIHTjSkX1R4s0=
+		QoL2oK4n7oDVmdpzBL+61kBlHL0=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/objects-8.0+.nib</key>
 		<data>
-		76iajK5ixA5AN14+k6GnxavBVTk=
+		TWfc3pC1aAeV7+xHygGzHQwuA1g=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/objects.nib</key>
 		<data>
-		pjNEptTksQmy6KNre0TJmFhGkkE=
+		AFUJCodk6k+x1IR2Vt5GbojhIBo=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/runtime.nib</key>
 		<data>
-		Ye4sQcip54oufFcT3MK9yA0dAXM=
+		zeCMg1JqSNqgQbojUZQzGiwUuSk=
 		</data>
 		<key>bootstrap.min.css</key>
 		<data>
@@ -1242,7 +1573,7 @@
 		</data>
 		<key>data.db</key>
 		<data>
-		d++z8ZVZFszxZUhn8VUiQvbKdE8=
+		JSJp/mCX6+sxFyfNdTfmJYNxv50=
 		</data>
 		<key>dropdown_anim__00010@2x.png</key>
 		<data>
@@ -1612,6 +1943,10 @@
 		<data>
 		vIHxm0HmMuMWCetJgjrlbLcw5ag=
 		</data>
+		<key>search2@2x.png</key>
+		<data>
+		oQCEidUQJyHyqPiWp+tHGzY6vzQ=
+		</data>
 		<key>settings@2x.png</key>
 		<data>
 		vIrfM0EpfRdqhynD2z833RupxBM=
@@ -1649,13 +1984,13 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		5WeWfwDapj4XrDt7jkbT9ROxlRk=
+		wABU22mfuoMU4LzVXhSFHjktmpI=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pptPQCJZ3pn60Cf+ZPr5yWUgNoo=
+			3+v4h1R/SC0TyF8Bi9U1HeUt78E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1664,7 +1999,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8sIgZI5lMh8e6jNcI/CWntJts74=
+			5rU3Fg7O7ZZyGBGmFneJt/5f85o=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1673,7 +2008,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8lT2Ia8YP4W0NXbXTCTf+9zQg1g=
+			0sz2cKgcnIpv1YB6JvsrSFmkz6c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1682,7 +2017,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y0baGZ/z8iKJiyCs2FjAwFpwHm4=
+			8rn0qgDvgob9aTlKL+MsNS1EgVs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1691,7 +2026,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MEUhOZuKuqJLI7HLZmS3Qr5Qt7s=
+			t8civrCil2aTu40IZ+2CFTDdMXc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1700,7 +2035,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hssIfpkqmZL6cgsMICI5eBA8cZY=
+			YsEtLnDZyVkhG8tfD1Ry43XoL58=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1709,7 +2044,25 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hAaoSQjtcI259pELCtJzbBSz9fI=
+			eKrsy/u8xaAI0V+ueFdSJhqupzM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/K6r-Pk-7dI-view-d6u-R8-DaE~iphone.nib/objects-8.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qcDvoIdf0FK5b2U1nxMAtHYEdks=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Base.lproj/Main.storyboardc/K6r-Pk-7dI-view-d6u-R8-DaE~iphone.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rj9bc06yO0G5kH4lc8ZskzJmkBQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1718,7 +2071,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pYgh5KR7hUg7RbWEiXutZr+0eTg=
+			q3AMdk0al85OXxwgpchWt+ZyigY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1727,7 +2080,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/cxNSJ3/FlFTzEMOw94uEJd62yw=
+			7I5bh+bzhNyKytww3DpxnlCr6S8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1736,7 +2089,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			M2OYONIoB+VhIypN1+wJ4hm6aBY=
+			LVXMy273Lrz+qo4YW8RkBVKStag=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1745,7 +2098,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X/xg3TwarBsplMA407MQKdSf3/Y=
+			itWwZW3Pt8izHLcBIPQG+TQdMnw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1754,7 +2107,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cSXpxvL9V+9L+fWrNo1Iq6I5mDg=
+			Wq/MQZSyjFbZ5Zq5FDMA0Fux8t8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1772,7 +2125,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QxuXIasuVKbl5G3qV8JVRPUJx9k=
+			N3LeZEmcsQl1ZOOyvf1BbYK3bL0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1781,7 +2134,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JepFZSpMYdyFPDRnB99Ze0W7vZk=
+			oQ8fQ3wT/3pJM+vCkvxjE8m2wO8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1790,7 +2143,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vdEk3KqSPv9IVU9AUyTtXF4A6jU=
+			9S3l+rJvOWB4lCNI+/1DTrZ107A=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1799,7 +2152,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Tmrk+7Pc5tDwPyLEBfwKQU83BOE=
+			9r0HyZW9I7HGVfNT8fp10Caipjo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1808,7 +2161,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qxa88d+38OdMB7KD4DNfe3RCJ1Y=
+			QkEq5M9XM9djF81kqXaiMGrpAUY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1817,7 +2170,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8dsYxakSgikXqpVPGk8bPztVqWc=
+			M734xRqQQqWc540T/j0XVEKzJzA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1826,7 +2179,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rkODvqm7D6n7ECcxPbSNmbV66S8=
+			HR+ctjT1K4pYxOVO6wi8ormAGtM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1846,11 +2199,11 @@
 		</data>
 		<key>CMPopTipView~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		KYDsMHt1dSaf4+NyO7bzGJFaWZ0=
+		pOpJbSyegxVbg4K6MSFlFcWvTmw=
 		</data>
 		<key>CMPopTipView~iphone.nib/runtime.nib</key>
 		<data>
-		tJ4b67/Z1esR+ogfS7SFfvCjq/c=
+		XBIgReIIOX011+e7By85PaqOvCw=
 		</data>
 		<key>Chameleon.html</key>
 		<data>
@@ -1858,7 +2211,7 @@
 		</data>
 		<key>Contents.json</key>
 		<data>
-		HzqgvFhunwB6btgYqI7c+JVLNq0=
+		zPgha3ek0DhvwHWUqX8OD89gH60=
 		</data>
 		<key>DZNEmptyDataSet.html</key>
 		<data>
@@ -1874,15 +2227,27 @@
 		</data>
 		<key>DetailViewController.nib</key>
 		<data>
-		8I7obARSbltw8x05aOU3nQBAkCI=
+		l30U8n/gs2PsrkGM+YYu+SPBex8=
 		</data>
 		<key>GPUImage.html</key>
 		<data>
 		0jWDH85vz0Pv4ulzZd/LFshwPkM=
 		</data>
+		<key>GradientView.html</key>
+		<data>
+		S4eMwrdWTjYb941WWAuNLG1OLqw=
+		</data>
 		<key>Gumbo.html</key>
 		<data>
 		gWG1REOTeJ/N09uQ4CR216/6Hh8=
+		</data>
+		<key>IAPHelper.html</key>
+		<data>
+		AF63dG6CwKVi31gpL/k7HiwmVuE=
+		</data>
+		<key>ICViewPager.html</key>
+		<data>
+		rabFQExj3/OEJ5p8OyUTEWO1K68=
 		</data>
 		<key>IGHTMLQuery.html</key>
 		<data>
@@ -1957,459 +2322,459 @@
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/objects-8.0+.nib</key>
 		<data>
-		YbeIP500Dwz7LZOeOVefBtsDAMA=
+		WP71YqdH8OyQRaZMhM9XMcETykA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/objects.nib</key>
 		<data>
-		Oe/OBTTyHGgVivtKVL6pSyVEg8M=
+		XhWJs9LyQlgq6Gbzc13aNd6E4Sk=
 		</data>
 		<key>IQKeyboardManager.storyboardc/0gz-x6-ylR-view-u7r-Hn-wmF.nib/runtime.nib</key>
 		<data>
-		Vk2IgfFGLKH/a/bW5i5iUcfkcqQ=
+		0WheFCo81UQcltoeuKEg+Hyr+cg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/objects-8.0+.nib</key>
 		<data>
-		0qbBsat3X+6I0WrhGnkgyJLaIU4=
+		E1G4XOG06nEDe9c+SvLoEH58ZVY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/objects.nib</key>
 		<data>
-		mCEM3gckdlzzLzYvGD5oDKWJP6g=
+		fK4IuiufAmMWQN87b98CiozwL4M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/BmV-Mf-VMv-view-HJo-1K-fJY.nib/runtime.nib</key>
 		<data>
-		ZZdGFyQ9edZ9DjAn/d9rdPRJt28=
+		6JajA/ghwEVQajBhchKwdIepgEs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/objects-8.0+.nib</key>
 		<data>
-		AplP9vpoM9NxkxxbF+JY2J0E9/g=
+		+LxEs+YZNovOycLoVE7Z7WWzOao=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/objects.nib</key>
 		<data>
-		RGgFVazA3Y7S01Ep6AGjo9lSHcA=
+		Z6Q6FWoi4WwBnY+izrZRIOlYu5Y=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IHN-1B-3KS-view-suD-YU-nnv.nib/runtime.nib</key>
 		<data>
-		rjm1dKdCsosEUfuUd3kxBSaw/xs=
+		IpMAMFWgDe1/H4/dAYBQ4L4csMM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/objects-8.0+.nib</key>
 		<data>
-		6bZi9WePTmfQDch/iaze42bwgLI=
+		IBFP73kABkmwt3iPDDaKOZ6Gvps=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/objects.nib</key>
 		<data>
-		ykqaMcQ8y1goJgs6sMvj9JHUf0w=
+		kkZpESllzrTSIBjFey+a230IbjE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/IQSID.nib/runtime.nib</key>
 		<data>
-		5EZvnAJrddKThndWGK5JXfEWvRw=
+		48SiU3ACBG99Z8r5nRfiaNVRpSw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Info-8.0+.plist</key>
 		<data>
-		vYOJ3/pYwL//8H+o2jE2fljAmss=
+		KfRmTLM+FUodP95ZgjDX3Riy16w=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Info.plist</key>
 		<data>
-		EZ/QN9bUiUU2lxk5BHy5YYYvD6I=
+		wTne519DBibJ+r81VdkNggp5YHM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/objects-8.0+.nib</key>
 		<data>
-		GCQipa/5+xmOVDVNZggvlKmpdxw=
+		tLiMUnd7iYLWAfXVrTMeC96gc6A=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/objects.nib</key>
 		<data>
-		CgzlYb50dBvBcHlwrpbGJsOuQUw=
+		xRRE7UsVJrv93LgNQmX12GwfHqc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/JDM-Xg-93g-view-XOS-eg-1xO.nib/runtime.nib</key>
 		<data>
-		CyOc3fC87r49AMwy+d65O0JWJXo=
+		0k6A1se4OP7SMM+V9zNSGqMp0ZU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/objects-8.0+.nib</key>
 		<data>
-		uptHRbl/NKfj1Y0uj43Ev61WEHE=
+		FQB6R+wD7t1HUnBYUtcJRvdCMd8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/objects.nib</key>
 		<data>
-		3rvxvM4Bb8dUuSMoALJ7pFokCgw=
+		jfM6k4t4GYymhr7R4sbWeyfCKCo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/M0Y-Zn-cGg-view-0RD-44-m2b.nib/runtime.nib</key>
 		<data>
-		qQg0XOFxzsWmquMmZM0l1HV5GKs=
+		5FrQWF8t65S4Wf+GQWDIgSYyavE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/objects-8.0+.nib</key>
 		<data>
-		GCojhbo5TKhtWTcugXn/X0GfqFU=
+		ms4xcqUsyj7OR3WdsNvivrmZVOc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/objects.nib</key>
 		<data>
-		MWEhsF88yxQ8QquVZL+DomMSYiE=
+		YtIlcANorW+W1a8WWdkeMgnjTBU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/P54-QV-iJ7-view-vKd-hd-wnE.nib/runtime.nib</key>
 		<data>
-		A48Zi9DoAsaLJuTGdEw3l5p2eZ8=
+		U/Vr26OQw57ouejIxN0vWiiZiA8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/objects-8.0+.nib</key>
 		<data>
-		Nb69eGylNT3c7dsMvcSe2npWChY=
+		NsX1f/PHTfqeV3GxKCzUNhpFtp0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/objects.nib</key>
 		<data>
-		LHaN8FNUF54qOQUbLThXHuu7/vk=
+		BBGhOx8IQL/wlapEkITC7LwGUrg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/QIM-iU-H2P-view-GxJ-Cf-XF0.nib/runtime.nib</key>
 		<data>
-		b/2aH9lGo3C4zXc5GEc8KI/vs7s=
+		BNCOmERC3MZt6ZFZSOc+D9EjR9M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/objects-8.0+.nib</key>
 		<data>
-		6DeKa7NGV5kboNQfLRtYK3VB5tI=
+		GVVqMpacb59qXnJ8mVktTPqxLhU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/objects.nib</key>
 		<data>
-		gJZCXMaD1wrKj4n6pBdyyxgcwlo=
+		HD2ULYp4vcOQM7pzA/242HhNYd4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TextFieldViewController.nib/runtime.nib</key>
 		<data>
-		Lcct8kTdF9YPtyXM1oNdLwTpDgI=
+		jL/1zGChhuRC9WtDtOdqiuQQEGY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/objects-8.0+.nib</key>
 		<data>
-		5Wu/RD61CQjXyjyxxp2xmO0UXRw=
+		dZiZRqZBnKBP/NIaFUfIxBrzjeE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/objects.nib</key>
 		<data>
-		+s+4ZOKJAoB4WhcNlIRr9rlDf74=
+		zZUin+inn4uXvxkgUEm//WxzpuA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/TgE-bl-CyE-view-dgf-M8-7qw.nib/runtime.nib</key>
 		<data>
-		HZVGED2yxkbw0x7wOM3jTOcE3Ec=
+		uSKH4JCMUJbwP0QswWa21x/vxJY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/objects-8.0+.nib</key>
 		<data>
-		s7quc52kc1IIVlWruuptn0x3vKA=
+		U70bWl0ZJwIFSnybMqD96OhJX3E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/objects.nib</key>
 		<data>
-		nT8VQWu7sRN7BvzjbRMQ6TVrG+A=
+		eLpimEsVQ0uE6UcB5iNU+Ji/5pM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Trg-4t-Fsg-view-5sI-XJ-s2v.nib/runtime.nib</key>
 		<data>
-		AiVXjSE4IYgagNtXuG3RlNShrEQ=
+		vv+2wHAAsgRofLvZEP4NblM+ej0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/objects-8.0+.nib</key>
 		<data>
-		GcPE3UnLfBD7GxYNB2gG7f+MbPo=
+		uV9NLBYoiKurTU5w7+5xlLd2YII=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/objects.nib</key>
 		<data>
-		dgV9C18Kne69Ywvji/oWZWCpBh0=
+		igcE1DYx+Hk5+dAVntAY2XXVHPg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-En3-R6-bks.nib/runtime.nib</key>
 		<data>
-		wDYzKiGoGODz/22h55Z7mK+yL9c=
+		DgyQffUvtFENy6rQUiAmakMPMPs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/objects-8.0+.nib</key>
 		<data>
-		xXHurAQ7f9k5bLteHacIiplAekY=
+		ftieWiNU5xy2p+fb8BiFXypxrhY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/objects.nib</key>
 		<data>
-		35qDDWRhQq1F1CZ5No8O0Dft1eM=
+		pNDCFrorBRMicp7PRTIoQ3jNFV0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UINavigationController-yh7-P7-TKe.nib/runtime.nib</key>
 		<data>
-		rYlDp+ZBKxzi2H5G/xSdI/i0+Gg=
+		gm3nZPFkU/EbeRn/+Za/coHAiTc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/objects-8.0+.nib</key>
 		<data>
-		5WcbOxC+aKsWfLDyc3+p9E0HWOg=
+		PS4bl4DtG3SkaIv71vliC6eN9mA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/objects.nib</key>
 		<data>
-		JqYW4sjfVC2UWZ11q5dX0L4A09o=
+		2xeuLj1xPcRSB0etU9Jler2adXY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-ZXU-ko-Wbd.nib/runtime.nib</key>
 		<data>
-		09UGm7ju2ijr6VRiRPz18SQIuf0=
+		+p76YjCZUwycPvfL3UtiO44vVkg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/objects-8.0+.nib</key>
 		<data>
-		C/mvj1Mf23zZBBvP9musQI4h/oA=
+		zQAIoHcZ0+fyOv716bgP494LPi0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/objects.nib</key>
 		<data>
-		U14agTdZmeElTqjFAkH0wlmzGgE=
+		wUg38K4y8wR0pXmzQZEehdcHuBE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UITableViewController-fxp-9v-8cZ.nib/runtime.nib</key>
 		<data>
-		Ykr4CVsyRbJr9DtXTSXnUznp/E4=
+		RKKlDsqFf7oGOi75yuOqTW6AbwY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/objects-8.0+.nib</key>
 		<data>
-		itaUHb/QSrti8dyaGYvHd2iYyu8=
+		xf9vXUQ19KFv5slT2uPrXplxfzg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/objects.nib</key>
 		<data>
-		RKKU/mJI1KOHbr6TejhPth8VtEo=
+		NaNrGumn/CRG6LHgWe2HYQTU6fs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-0gz-x6-ylR.nib/runtime.nib</key>
 		<data>
-		TMaVSD7vxtvCkT00YVmVMD8Y3l4=
+		ayAOT7u6QwMR4Fh32wfK3wgIY8E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/objects-8.0+.nib</key>
 		<data>
-		jPrQbBv0uoiqTJsRD94Hwk875dk=
+		YlJNl3jzwHG+ArSHJ9ZtPFq6sec=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/objects.nib</key>
 		<data>
-		b/qEpT2PC8T2De2rj3GxHgWZb4U=
+		3ZxE7/FI1FKdIhtYq/l3JttYon0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-BmV-Mf-VMv.nib/runtime.nib</key>
 		<data>
-		6Q11qVeoDjNVgu7YeJ9twJjMAs8=
+		AgrFDkFBS1O+NZq9VS9M/ONSc2o=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/objects-8.0+.nib</key>
 		<data>
-		TAcOt+ALQmnNlpyAzCoTjeFLjas=
+		rpaT6EVWn2TrCfFQ8jroMvrcUT4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/objects.nib</key>
 		<data>
-		AKwRhfnMqQelDySPEj4H3yEu1qg=
+		GatqiRIGaZ9RaT27vxKu4lAyMDU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-IHN-1B-3KS.nib/runtime.nib</key>
 		<data>
-		4cS7NXiIWIzmyvoqDD7glfrbvKw=
+		0oB4Lg9GJF+S0IoTMmYm5ylBC4o=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/objects-8.0+.nib</key>
 		<data>
-		iYcfmv9BL3AzdkFIcUYyRZDxGPs=
+		UplzEtPq+cgjSWqQAzTKiDTkKms=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/objects.nib</key>
 		<data>
-		+4wB71Yh58OtudLBjZgKrwv/tE4=
+		gBzrZ4xu9J3UZr9uAikADVFpH/M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-JDM-Xg-93g.nib/runtime.nib</key>
 		<data>
-		seKIb2C7i+lGiIzmHGXpnkZjvOQ=
+		zqrkWijQH344lDgBlZREGX0NoLo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/objects-8.0+.nib</key>
 		<data>
-		3vFfN2oSSBl4NL11RTZf0KvyD5s=
+		0oBuic9+neRibvCBBcmXKGuvO9I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/objects.nib</key>
 		<data>
-		cjJTPeJh7Sfk3IPlSV+dyaRwu8s=
+		FLVV/XETcx7JjLRAhKcU9s000tc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-M0Y-Zn-cGg.nib/runtime.nib</key>
 		<data>
-		dpmewgXgRki+KiaP3jhVY+/Sq1A=
+		z7LmXY2xW0gq9QDs2Z/TPXMnzxY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/objects-8.0+.nib</key>
 		<data>
-		OlXqrxTKBcVwd1GiGH1o5r3Vl2s=
+		f1nh7bx4aeMjtstG0SNZ1LRuO3I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/objects.nib</key>
 		<data>
-		D0dxWWRSwKEytinCiG2zM/rY8mM=
+		GoemA2xr95X0JzGORHA33CZNQpw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-P54-QV-iJ7.nib/runtime.nib</key>
 		<data>
-		T92MRI0AcBzMjvkBQMaBZRNm+xQ=
+		9sFe3FWuBR3sjcMZkcxP6Bai/Oc=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/objects-8.0+.nib</key>
 		<data>
-		PnwVbEOTy5+n+glq+qGc0hgkucE=
+		RTVxgUSNs0VY87+VX3BJ/+oCP70=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/objects.nib</key>
 		<data>
-		QpwBps7Ahehny2MvTk7x9Q6o3KY=
+		bzvw6ipNC1Wb9S2HZ2pruRbyerI=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-QIM-iU-H2P.nib/runtime.nib</key>
 		<data>
-		VJmfpIsDhOtXf1EZXjJ7rTBBCAc=
+		c0/NWVhSqTU6+HyyuO/C3bbU/0M=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/objects-8.0+.nib</key>
 		<data>
-		LDQNi9EHfTngXAPIEYgYBIcH4bs=
+		fKqAAR5IUZtEjZdYgc2vkIt9qlo=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/objects.nib</key>
 		<data>
-		1aqtU1SY1NC4XVUy8fuKDt38S7g=
+		hiH+7/CSj0sTUMURzaBW/3glatA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-TgE-bl-CyE.nib/runtime.nib</key>
 		<data>
-		R7B2czX4YHEg2jitOT2j/GbzciU=
+		ScAZZzOGoktQ156v3QZRt8SyA/g=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/objects-8.0+.nib</key>
 		<data>
-		EFGSaUOOTKQ8BMiyr1oilUulgQE=
+		r84mLDXPXcm4FGILSbMsLdRO790=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/objects.nib</key>
 		<data>
-		qvyR3QSQFK2s9soVgxhydKJlNHg=
+		pDsUA6QP14FNDVyt/c8bwbNr2vg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Trg-4t-Fsg.nib/runtime.nib</key>
 		<data>
-		wZynGc9xRcnM3pt0ggjqICAw7zk=
+		6qyfY/tZSkZ6WkgeZ4a3gof5EmU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/objects-8.0+.nib</key>
 		<data>
-		32K8Z8ylsSevfxGgDp748dfGJPU=
+		wwA/uVRQ7AwlifcTwnDYflxUERg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/objects.nib</key>
 		<data>
-		3HI5Dg08xMhhq3B5t2JjKckWFLY=
+		b3xHMINXdP+3mTMp1G2Eg+UDWmE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-Z1T-rR-mis.nib/runtime.nib</key>
 		<data>
-		1hbeAXvxRGBW+YJIJhY2npHKxVU=
+		jj0TR3+LUqHTuGVgDXfte3ZYlJI=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/objects-8.0+.nib</key>
 		<data>
-		uYoZaPg8HjFFDoRNwgmPLYLCpAg=
+		+pyaCXjZyQSSLvoWWIbiiq/MY0k=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/objects.nib</key>
 		<data>
-		bbovMr4eZDDXN7MgGhDlIEUtdSg=
+		RJZfMP/uWNpsw1J6sAVcn3LK2X4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-d7w-1F-KeR.nib/runtime.nib</key>
 		<data>
-		UZ+cJsjhFwcnQcmCD+o6H+FRK0E=
+		SzRDOMhIaDRAAdNKqrgGky0gf74=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/objects-8.0+.nib</key>
 		<data>
-		e+gJ+ZaGMP3+zhPXw4qr1UikXiw=
+		rujwL6sonTl8R20YRF5tdppjheA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/objects.nib</key>
 		<data>
-		jKJ+t9fQ4sU4bEF0rc8slJfzL+s=
+		fIuvHoJdnLdO2qW5aD4aW1Vy/e4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-dPG-sk-vRY.nib/runtime.nib</key>
 		<data>
-		71362EUH4DchSJBxkuESiRSa+7A=
+		FbekR8ujV64HAxoqK7Xni4iLz1I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/objects-8.0+.nib</key>
 		<data>
-		dVgphUr3tJCtUhcYMfSfY7QoOqQ=
+		kHJfSjVluY/qlNbhAHTukjt0i6I=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/objects.nib</key>
 		<data>
-		/rsAEMNyoAWzAamn+kCkO2RmMcM=
+		7Xjx2SdqPQ58RXtcuEyT6fZIcZA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/UIViewController-fq7-4A-8UN.nib/runtime.nib</key>
 		<data>
-		0vOA6lAGdxVpLNQJJ91+u/R0W7w=
+		cVsikhv67iQcJQrHY08aXOVyS2c=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/objects-8.0+.nib</key>
 		<data>
-		R11wz9F2eblG+iQTsyFQX5WQQHc=
+		G/Y7aTk2zEjVWv+WcOH4xWgoOKw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/objects.nib</key>
 		<data>
-		EJ3OSzpH8Tz8YdO3vsgplz/l4FE=
+		P2Jp0aa12B2zqgsZSDQrJx/CyXQ=
 		</data>
 		<key>IQKeyboardManager.storyboardc/Z1T-rR-mis-view-AmX-Ef-2T2.nib/runtime.nib</key>
 		<data>
-		hyVcp8MAwLLV7GBojt6yqa3YyMU=
+		jA+zmPFI5nxg5z1/wL2Qql/8yOs=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/objects-8.0+.nib</key>
 		<data>
-		4rfX8M2QxAIBvcxFF8UQh9GwTNM=
+		uTcOc9d734gAYKQGzWzMNWRbBR8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/objects.nib</key>
 		<data>
-		Z5JWWEFx7VvhI3NAhTRJvlV9Nj8=
+		DCMdfI/wKzheIdO2GWa6DXbwssE=
 		</data>
 		<key>IQKeyboardManager.storyboardc/ZXU-ko-Wbd-view-0zd-6T-nzy.nib/runtime.nib</key>
 		<data>
-		vD1K3vwrHlZIDmDyD04DICc6db8=
+		6gijLC6U4kNSmnM/Wh444Rx9WxA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/objects-8.0+.nib</key>
 		<data>
-		VHuOvEIrmGkMdM75Vbz3PmBBQ6A=
+		a08kcOJLzBelrmXguMYLNewFaUw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/objects.nib</key>
 		<data>
-		1b241+8oZTIFI+diETC4uhrIHHQ=
+		FUixQRDcDUfYbaZGi9yqxD6kuSk=
 		</data>
 		<key>IQKeyboardManager.storyboardc/a61-Vn-sFg-view-8WJ-D7-NuE.nib/runtime.nib</key>
 		<data>
-		zom6cTTzdhW/TGkQ1QxeVMQih0M=
+		nl3hAt8ttm7qhHIASP/zkAjqLOU=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/objects-8.0+.nib</key>
 		<data>
-		bVlxuI5aSIWUPB8N+RoNwHBtx4M=
+		hippnKi8C+PdYEjY+OKB5908RwM=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/objects.nib</key>
 		<data>
-		9aRDxuNhc7+fmEWbQXf4vjpD1X4=
+		ctsCNvxeUuSVz8U7LeTUkRtNB1A=
 		</data>
 		<key>IQKeyboardManager.storyboardc/csO-qF-Ohn-view-i84-jm-CzI.nib/runtime.nib</key>
 		<data>
-		HYyzRLKQWY0NgDjFrSiz1fY0NOs=
+		TfT8WLT0qMad7dwO5BbtphFe0bg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/objects-8.0+.nib</key>
 		<data>
-		Yu8XOIFqCoPQQlhOnoY2Gl8xBQI=
+		oiRtpFHHxJKIHJYqW72Br1RRgT8=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/objects.nib</key>
 		<data>
-		rVTm0BQxvNHZh3Hlp13wZijuHwo=
+		DELhMLvfDqI67ABkyzSRtU4R5yA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/d7w-1F-KeR-view-bmd-lQ-cDH.nib/runtime.nib</key>
 		<data>
-		FF0ogLGd2RB45Hra4AZ+NCQJnig=
+		t7ihqO+pMWgQFJgzYLL1teIJwUw=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/objects-8.0+.nib</key>
 		<data>
-		slz9X/Q/MexOLOKTEeYe4F+DKE4=
+		YRPkdl4V6Vy4ROT0Wyq7vOQM0jY=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/objects.nib</key>
 		<data>
-		IwEAR4VHez007h/+5BNp5TD+Ujw=
+		MQfCFwIdRhRgJXZ8Bx5pm7fcET4=
 		</data>
 		<key>IQKeyboardManager.storyboardc/dPG-sk-vRY-view-PdK-Kw-AQ1.nib/runtime.nib</key>
 		<data>
-		rbBDXH51f0pnkCUfB5VjnVaqkso=
+		ZFPu08adTl+/4IjOBcdf5JXKyaA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/objects-8.0+.nib</key>
 		<data>
-		iYEfEpsKbg9Ox2MM6f6IhKrKiCw=
+		GxxKQhx9yfdzCjbJcFTs2VjQ5ag=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/objects.nib</key>
 		<data>
-		aHivJnrFNvRv6x9xlGMg0QHld4I=
+		lQViMf9fIJz60o7Ekh6u7cXyLgg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fq7-4A-8UN-view-oJ4-BJ-1kW.nib/runtime.nib</key>
 		<data>
-		LKc2hP19e8JZPYHBNlblZR861Cg=
+		W4oKHqb2k+CUHhKpoeCpwWZ3Hv0=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/objects-8.0+.nib</key>
 		<data>
-		BLqFcFp4x1mHqQNad5YfFXiTffc=
+		bJfBhvgUGCo/wimxogVZ93XPb6E=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/objects.nib</key>
 		<data>
-		w54tLVZ0Mg47IYDQjsFAniq4mm4=
+		y7z7N8ArRTJ8h7CS9ldi6TNai68=
 		</data>
 		<key>IQKeyboardManager.storyboardc/fxp-9v-8cZ-view-shB-z3-q47.nib/runtime.nib</key>
 		<data>
-		omOAfgc7A8GQ4aQ5kTnjrV6VycE=
+		PN0zZcqFAhwzExi1UB9ESebM9Ck=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/objects-8.0+.nib</key>
 		<data>
-		uoI+1AcByb0BZLZxUZhT9lw/PAI=
+		SzIhPays/MiTgwaIMOqZgXGCbgg=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/objects.nib</key>
 		<data>
-		tdBjQys0jhFWoc1mm/TSG0S6BLc=
+		IPXmt6oI2SB/PAjCUWkHs2jM/OA=
 		</data>
 		<key>IQKeyboardManager.storyboardc/qiC-Ru-K2t-view-ZY3-cN-UCS.nib/runtime.nib</key>
 		<data>
-		8xI22zG5H8DMLxjUmullmjCX0sc=
+		5Py3XWQLyw/s7sGAhBlO5fIejEQ=
 		</data>
 		<key>IQViewController.nib</key>
 		<data>
-		HaxIGuzNB6vVXtsLyaR8CY0OsRw=
+		YrMeNEhiJJk3SeMyCTaT8zfnxWU=
 		</data>
 		<key>IdealSans-Book-Pro.otf</key>
 		<data>
@@ -2445,23 +2810,23 @@
 		</data>
 		<key>MJTableViewCell~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		6Htjuk7u+3HPx4T0+bHRVivwP4s=
+		7+FOrthOk4yWykMJ4HpyTN3G8Hs=
 		</data>
 		<key>MJTableViewCell~iphone.nib/runtime.nib</key>
 		<data>
-		m0FU7FK7p4s0YJM6Z4RfEpDnslY=
+		YOxCZp8sWIXoABqtCDanWunQwLA=
 		</data>
 		<key>MJTestViewController.nib</key>
 		<data>
-		AmtFwqIj+c2u5gg3B+dwat+ovSo=
+		XRu6qsIU2PSPiNYL21vbS2QlT28=
 		</data>
 		<key>MJWebViewViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		oST/J3X1b7XztR3cwN0D9aUaspQ=
+		n9gT8Tglsp6RotGYi4xCtUbmJdk=
 		</data>
 		<key>MJWebViewViewController~iphone.nib/runtime.nib</key>
 		<data>
-		vUfO6id5S/k50rfohtuY/hMXdj4=
+		dswJHrNXshfS+JJ2/yVimzZZTqY=
 		</data>
 		<key>MWPhotoBrowser.bundle/ImageError.png</key>
 		<data>
@@ -2601,7 +2966,7 @@
 		</data>
 		<key>MasterViewController.nib</key>
 		<data>
-		usKi5iqiLFWjU8YEhOwa4a8SyGw=
+		uiVrPEGlmhHMKSxuV5PhiLzF5A0=
 		</data>
 		<key>NotificationBackgroundError.png</key>
 		<data>
@@ -2695,6 +3060,307 @@
 		<data>
 		9zsO75GpwbIDqFD3IxgpE816r7w=
 		</data>
+		<key>SAMAddressBar-background.png</key>
+		<data>
+		5xujaXO8esJWeo5JTJJ44TlveJw=
+		</data>
+		<key>SAMAddressBar-background@2x.png</key>
+		<data>
+		WQ7tlO/MnYtCQufPzgWWmoBoCL0=
+		</data>
+		<key>SAMAddressBar-reload.png</key>
+		<data>
+		Ygz93M+oQPoQ1LCNkIoH99/2vyw=
+		</data>
+		<key>SAMAddressBar-reload@2x.png</key>
+		<data>
+		NFkms5o9FxW05N0qrJQooyiMe68=
+		</data>
+		<key>SAMAddressBar-stop.png</key>
+		<data>
+		T6BJi8kv8DQTMaxS3atudxAFOgo=
+		</data>
+		<key>SAMAddressBar-stop@2x.png</key>
+		<data>
+		8iFtMSqIpYgLRLIYKpmJYdpp2T4=
+		</data>
+		<key>SAMBadgeView.html</key>
+		<data>
+		hj8P/6NXM+D4QBpcRmh+PnSTl8o=
+		</data>
+		<key>SAMCategories.bundle/da.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NDWEUn6QJiw238rfppHAZSOO9mk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/de.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZC110YLLXGUtzDWLeXYjiRquaoU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/en.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dT7X0m8GxoVkpT0/g5X370EleK8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/es.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0MLoIZPNR5Jf6Lk7Gbc1OIzoAug=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/fr.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RxqwbuL//HSjRqbITZhPfNZtuN4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/id.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NIDrqYg3T9wcuw35XV0OFCktNQc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/it.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			x4Ai7FMBa6unM3DTW9f9TFyn7X0=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ja.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fmwWDael5ZfhxDVzh7uz6TH5mlg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ko.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dGa28X01lJ9RIWy5UMYF+yRmwXQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ms.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pwdR3g+vXHp4RiagFJeG0ljf+T4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/nl.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qaCBwFVrY7nIyIFqpGH46lTrr1M=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/pt.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lJXFzTqiU2YhmMKO4C+ojyHX2U4=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/pt_PT.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/9Bjq/rnIaUWnPGLnqq4ryc427A=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/ru.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			p/UHzCr/PtEfwLW9hJVqfQ6e6DM=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/sv.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rLLqWRhcFFXRCHLI0Ev2W6ASvTU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/zh_Hans.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FKUfgLPPlPoFcTiGAQylT3KdBPk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCategories.bundle/zh_Hant.lproj/SAMCategories.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jgVP5xl5onp2S0QqQE1oNUjfvqo=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>SAMCircleProgressView.html</key>
+		<data>
+		UXXKnMKLbnuulYFThLDU6PMSy3c=
+		</data>
+		<key>SAMHUDView-Check.png</key>
+		<data>
+		LC/rPwFbn9evT1zI0SXbQ6SP1f4=
+		</data>
+		<key>SAMHUDView-Check@2x.png</key>
+		<data>
+		0rLrX5vVCex+8ll8vBhuAOqVIFw=
+		</data>
+		<key>SAMHUDView-X.png</key>
+		<data>
+		Z13HIOyivQd+VOratnNCj+hYXu0=
+		</data>
+		<key>SAMHUDView-X@2x.png</key>
+		<data>
+		H9PIntFkZB8bUQztxRoHRy1lG+Y=
+		</data>
+		<key>SAMLoadingView.html</key>
+		<data>
+		Ol72eZiD7qX4mQBz82SshC2cTbM=
+		</data>
+		<key>SAMWebView-action-button-mini.png</key>
+		<data>
+		INn8qeyhefi7Gz//7cax3Tmcew8=
+		</data>
+		<key>SAMWebView-action-button-mini@2x.png</key>
+		<data>
+		oFqXdjHc5JZecX5pQcDfZwOsKXg=
+		</data>
+		<key>SAMWebView-action-button.png</key>
+		<data>
+		wTg9Odc46KuOD9UE+WoNBuEMU/4=
+		</data>
+		<key>SAMWebView-action-button@2x.png</key>
+		<data>
+		7S9ElECzZglQFmE/VP6KVGdDjfg=
+		</data>
+		<key>SAMWebView-back-button-mini.png</key>
+		<data>
+		Ga2LTW1Yk9OrYLm1VFpxTmD86O0=
+		</data>
+		<key>SAMWebView-back-button-mini@2x.png</key>
+		<data>
+		u3hX6ixg43BXx9CEB6zsme7fhdg=
+		</data>
+		<key>SAMWebView-back-button.png</key>
+		<data>
+		2OHOQLkX0C+MIAYE7KaPNQ1vFtQ=
+		</data>
+		<key>SAMWebView-back-button@2x.png</key>
+		<data>
+		ps+bbqUBW5LbhQEQXbM0/h5z7PE=
+		</data>
+		<key>SAMWebView-forward-button-mini.png</key>
+		<data>
+		dxRP8+AAZkII6EZMiOlHqA2QLK8=
+		</data>
+		<key>SAMWebView-forward-button-mini@2x.png</key>
+		<data>
+		CzZ/RazYDDVkPCU4ywnaiZfyUlk=
+		</data>
+		<key>SAMWebView-forward-button.png</key>
+		<data>
+		+9OiQlquUQXCjv779kcOGiKU2ck=
+		</data>
+		<key>SAMWebView-forward-button@2x.png</key>
+		<data>
+		JcNuUVDgQswjfg18rQr0XKXfiDs=
+		</data>
+		<key>SAMWebView-reload-button-mini.png</key>
+		<data>
+		yEHBvReSSP1uAjXomJq+/rT470w=
+		</data>
+		<key>SAMWebView-reload-button-mini@2x.png</key>
+		<data>
+		iaKzTPIMYEoXTSn+xj2+9ymRXFE=
+		</data>
+		<key>SAMWebView-reload-button.png</key>
+		<data>
+		B+umaLBKBKYfEMaZKM8gxifPF0Q=
+		</data>
+		<key>SAMWebView-reload-button@2x.png</key>
+		<data>
+		lTRrxkQY7ymFWNcgeKdTF7P+CGo=
+		</data>
+		<key>SAMWebView-safari-button-mini.png</key>
+		<data>
+		2WthygkRZ940Vg8Z9isU8y2UEGU=
+		</data>
+		<key>SAMWebView-safari-button-mini@2x.png</key>
+		<data>
+		Huh3x6/VzzENr9aoqepueY7sjnM=
+		</data>
+		<key>SAMWebView-safari-button.png</key>
+		<data>
+		NC3I1SJzgYgwX5AzW6CCrPJ4g1Q=
+		</data>
+		<key>SAMWebView-safari-button@2x.png</key>
+		<data>
+		CpDfL9DNuRyYwHyc8g7uma1gr/U=
+		</data>
+		<key>SAMWebView-stop-button-mini.png</key>
+		<data>
+		T8EZ3f4ZhxMTeLqPgXgVZV/VBLM=
+		</data>
+		<key>SAMWebView-stop-button-mini@2x.png</key>
+		<data>
+		NF27OB88gq+PMxaI3u/swLV0U4U=
+		</data>
+		<key>SAMWebView-stop-button.png</key>
+		<data>
+		7o1Klr0l/bPMQqoHUfKKYqYloyw=
+		</data>
+		<key>SAMWebView-stop-button@2x.png</key>
+		<data>
+		0Xcbm/fdi7AkaGIUx/f2siel2D4=
+		</data>
 		<key>SBJson.html</key>
 		<data>
 		CyhFDNjB+5aMJfImAYUILbI55EQ=
@@ -2757,7 +3423,7 @@
 		</data>
 		<key>SVProgressHUDController.nib</key>
 		<data>
-		TRd7SmC8ntt10mjLetH7yljHuZ4=
+		Kxw8JZtXiG8qUqxoEykez3PF9LA=
 		</data>
 		<key>SVPullToRefresh.html</key>
 		<data>
@@ -2765,7 +3431,7 @@
 		</data>
 		<key>SVPullToRefresh.nib</key>
 		<data>
-		/U8lqempKx4n2q52YGx/D9w64Ok=
+		c+6fBhJnnc4FNmUBam/pPnQkHeM=
 		</data>
 		<key>SlackTextViewController.html</key>
 		<data>
@@ -2809,11 +3475,11 @@
 		</data>
 		<key>ZAActivityBar.nib</key>
 		<data>
-		N+0kl/4RI48iXmPibAZ4h9vpxpE=
+		w+P24vbdxEUDM7rzVGN04XY6hMc=
 		</data>
 		<key>about.html</key>
 		<data>
-		faDwDsA634itJEt0ClfJPk6Ayic=
+		Fa8nlc9bsUq3bp8RvU35V3pBWbw=
 		</data>
 		<key>applications.json</key>
 		<data>
@@ -2833,27 +3499,27 @@
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/objects-8.0+.nib</key>
 		<data>
-		Ba9ZTJN1gw9IYc9Z5HJJrjvYwUQ=
+		smTkD+26i6s+ufCF5IpaLpiqRcE=
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/objects.nib</key>
 		<data>
-		Njud285Y6+O3XVEpTm4rAp+4BMY=
+		QYKvq1LGdpp1NtIGJcxhaZ56KCk=
 		</data>
 		<key>autolayout_test.storyboardc/UIViewController-obU-ao-dp2.nib/runtime.nib</key>
 		<data>
-		Ui1AywPfmzu6Y7NIHTjSkX1R4s0=
+		QoL2oK4n7oDVmdpzBL+61kBlHL0=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/objects-8.0+.nib</key>
 		<data>
-		76iajK5ixA5AN14+k6GnxavBVTk=
+		TWfc3pC1aAeV7+xHygGzHQwuA1g=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/objects.nib</key>
 		<data>
-		pjNEptTksQmy6KNre0TJmFhGkkE=
+		AFUJCodk6k+x1IR2Vt5GbojhIBo=
 		</data>
 		<key>autolayout_test.storyboardc/obU-ao-dp2-view-iVC-tC-ekG.nib/runtime.nib</key>
 		<data>
-		Ye4sQcip54oufFcT3MK9yA0dAXM=
+		zeCMg1JqSNqgQbojUZQzGiwUuSk=
 		</data>
 		<key>bootstrap.min.css</key>
 		<data>
@@ -2865,7 +3531,7 @@
 		</data>
 		<key>data.db</key>
 		<data>
-		d++z8ZVZFszxZUhn8VUiQvbKdE8=
+		JSJp/mCX6+sxFyfNdTfmJYNxv50=
 		</data>
 		<key>dropdown_anim__00010@2x.png</key>
 		<data>
@@ -3234,6 +3900,10 @@
 		<key>placeholder@2x.png</key>
 		<data>
 		vIHxm0HmMuMWCetJgjrlbLcw5ag=
+		</data>
+		<key>search2@2x.png</key>
+		<data>
+		oQCEidUQJyHyqPiWp+tHGzY6vzQ=
 		</data>
 		<key>settings@2x.png</key>
 		<data>

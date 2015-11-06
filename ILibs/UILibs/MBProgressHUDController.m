@@ -37,7 +37,7 @@
     // Optional to set background color to clear color
     
     [bannerView setBackgroundColor:[UIColor clearColor]];
-    [self.view addSubview: bannerView];
+    //[self.view addSubview: bannerView];
     CGFloat y=10;
     CGFloat width =self.view.frame.size.width-20;
     UIButton *btn1=[[UIButton alloc]initWithFrame:CGRectMake(10, y, width, 40) ];

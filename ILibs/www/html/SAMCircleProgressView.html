@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+    <title>About</title>
+    <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body style="margin:10px 10px 0 10px;">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-samcircleprogressview" class="anchor" href="#samcircleprogressview" aria-hidden="true"><span class="octicon octicon-link"></span></a>SAMCircleProgressView</h1>
+
+<p>Determinate, circular progress view.</p>
+
+<p>SAMCircleProgressView is tested on iOS 6 and requires ARC. Released under the <a href="/soffes/SAMCircleProgressView/blob/master/LICENSE">MIT license</a>.</p>
+
+<h2><a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<p><a href="https://camo.githubusercontent.com/db3f0cb38feaa5c3c25ff9acfcfe0959dab3f7c3/687474703a2f2f736f66662e6d652f5552327a2f4578616d706c652e676966" target="_blank"><img src="https://camo.githubusercontent.com/db3f0cb38feaa5c3c25ff9acfcfe0959dab3f7c3/687474703a2f2f736f66662e6d652f5552327a2f4578616d706c652e676966" alt="SAMCircleProgressView animated" data-canonical-src="http://soff.me/UR2z/Example.gif" style="max-width:100%;"></a></p>
+
+<p>Open up the included Xcode project for an example app.</p>
+
+<h2><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-source-objc"><pre>SAMCircleProgressView *progressView = [[SAMCircleProgressView <span class="pl-c1">alloc</span>] <span class="pl-c1">initWithFrame:</span><span class="pl-c1">CGRectMake</span>(<span class="pl-c1">20</span>.<span class="pl-c1">0f</span>, <span class="pl-c1">20</span>.<span class="pl-c1">0f</span>, <span class="pl-c1">55</span>.<span class="pl-c1">0f</span>, <span class="pl-c1">55</span>.<span class="pl-c1">0f</span>)];
+    progressView.progress = <span class="pl-c1">0.25</span>;
+[<span class="pl-v">self</span>.view <span class="pl-c1">addSubview:</span>progressView];</pre></div>
+
+<p>See the <a href="/soffes/SAMCircleProgressView/blob/master/SAMCircleProgressView/SAMCircleProgressView.h">header</a> for full documentation.</p>
+
+<h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Simply add the files in the <code>SAMCircleProgressView</code> to your project or add <code>SAMCircleProgressView</code> to your Podfile if you're using CocoaPods.</p>
+</article>
+</body>
+</html>

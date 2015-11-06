@@ -18,12 +18,42 @@
                     <connections>
                         <segue destination="6xP-k4-kVd" kind="relationship" relationship="viewControllers" id="Idt-wM-bxk"/>
                         <segue destination="pmu-KQ-37n" kind="relationship" relationship="viewControllers" id="Z35-Rl-vMi"/>
+                        <segue destination="TdV-Ub-Uvz" kind="relationship" relationship="viewControllers" id="ZDc-Bn-gHs"/>
                         <segue destination="89U-GY-iIW" kind="relationship" relationship="viewControllers" id="NJ2-LC-MHo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="yAH-4I-wJp">
+            <objects>
+                <tableViewController id="K6r-Pk-7dI" customClass="SearchController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="d6u-R8-DaE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1z5-Ed-ZM4">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1z5-Ed-ZM4" id="ExJ-hE-LrZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="K6r-Pk-7dI" id="bjr-HD-mPw"/>
+                            <outlet property="delegate" destination="K6r-Pk-7dI" id="5sP-04-GJC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search" id="das-ED-Iye"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GdQ-Gu-VCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="681"/>
         </scene>
         <!--Libs for Easy UI-->
         <scene sceneID="6Oo-gv-8a7">
@@ -155,7 +185,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWu-Oi-zLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1523" y="363"/>
+            <point key="canvasLocation" x="2335" y="363"/>
         </scene>
         <!--Utility Libs-->
         <scene sceneID="H0E-bE-M7B">
@@ -178,7 +208,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L8-I1-jl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="363"/>
+            <point key="canvasLocation" x="1523" y="363"/>
         </scene>
         <!--More-->
         <scene sceneID="AbS-gy-Bm0">
@@ -227,6 +257,27 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="  " id="YZ0-PA-38S">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="AFx-zh-IVi" style="IBUITableViewCellStyleDefault" id="M0x-uk-fSM">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M0x-uk-fSM" id="F1v-tE-Peg">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Purchase to close Ad(0.99$)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AFx-zh-IVi">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="zji-SM-E4K" id="BIs-VI-LQK"/>
@@ -237,7 +288,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCI-Ng-B5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1523" y="1040"/>
+            <point key="canvasLocation" x="2335" y="1040"/>
         </scene>
         <!--About Something-->
         <scene sceneID="e4K-Hv-LMH">
@@ -371,7 +422,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jma-AB-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2972" y="1040"/>
+            <point key="canvasLocation" x="3784" y="1040"/>
         </scene>
         <!--More-->
         <scene sceneID="bQ4-bz-zh9">
@@ -394,7 +445,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXN-hy-QoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="1040"/>
+            <point key="canvasLocation" x="1523" y="1040"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Axv-qj-1lb">
@@ -435,12 +486,36 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hK3-aa-494" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2160" y="1040"/>
+            <point key="canvasLocation" x="2972" y="1040"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="As3-AH-TbR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TdV-Ub-Uvz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="search2.png" id="Ekp-wL-e68"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="trn-cE-xLX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.086274512112140656" green="0.68627452850341797" blue="0.54117649793624878" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K6r-Pk-7dI" kind="relationship" relationship="rootViewController" id="Djj-hQ-9dZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydk-yN-f7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="681"/>
         </scene>
     </scenes>
     <resources>
         <image name="close.png" width="25" height="25"/>
         <image name="more.png" width="22" height="22"/>
+        <image name="search2.png" width="24" height="24"/>
         <image name="tool.png" width="22" height="22"/>
         <image name="ui.png" width="22" height="22"/>
     </resources>
