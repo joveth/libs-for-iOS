@@ -12,5 +12,5 @@
 
 +(UIColor *) colorWithHexString: (NSString *) stringToConvert;
 +(BOOL) isEmptyString:(NSString *)str;
-
++ (void)showMessageWithOkButton:(NSString*) message ;
 @end

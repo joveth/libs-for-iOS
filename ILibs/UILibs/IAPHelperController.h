@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IAPShare.h"
+#import "Common.h"
 @interface IAPHelperController : UIViewController
 
 @end

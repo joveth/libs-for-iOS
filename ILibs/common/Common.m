@@ -63,4 +63,12 @@
     
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
++(void)showMessageWithOkButton:(NSString*) message {
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:nil
+                                                   message:message
+                                                  delegate:nil
+                                         cancelButtonTitle:nil
+                                         otherButtonTitles:@"Ok", nil];
+    [view show];
+}
 @end
